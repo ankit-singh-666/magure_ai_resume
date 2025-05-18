@@ -29,8 +29,7 @@ An AI-powered assistant that helps HR professionals query and analyse resumes in
 
 1. **Clone the repository**:
 ```bash
-git clone [https://github.com/your-username/hr-rag-assistant.git](https://github.com/hchamikadilshan/AI-HR-Assistant)
-cd hr-rag-assistant
+git clone https://github.com/hchamikadilshan/AI-HR-Assistant
 ````
 
 2. **Create a virtual environment**:
@@ -40,7 +39,13 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-3. **Install dependencies**:
+3. **Move Inside Project Folder**
+
+```bash
+cd AI-HR-Assistant
+```
+
+4. **Install dependencies**:
 
 ```bash
 pip install -r requirements.txt
@@ -50,21 +55,29 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
-1. Add your **PDF resumes** to the `resumes/` folder.
-
-2. Run the Flask app:
+1. **Run the Flask app**:
 
 ```bash
 python app.py
 ```
 
-3. Open your browser and go to:
+2. **Open your browser and go to**:
 
 ```
 http://localhost:5000
 ```
 
-4. Ask questions like:
+3. **Navigate to the "Upload CVs" page** from the top navbar to upload your PDF resumes.
+
+   You’ll see three main navigation options in the navbar:
+
+   * **Search CVs** – Ask questions and get answers using the AI assistant
+   * **Upload CVs** – Upload new candidate resumes (PDF format)
+   * **View CVs** – See the list of uploaded resumes
+
+
+
+4. **Ask questions like**:
 
    * "Who has experience with Django and PostgreSQL?"
    * "Find candidates with cloud and DevOps expertise."
