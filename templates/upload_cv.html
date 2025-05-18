@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Upload CV{% endblock %}
+
+{% block content %}
+<div class="container mt-5" style="max-width: 600px;">
+  <h2 class="text-center mb-4">Upload Candidate CV</h2>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="cv" class="form-label">Select PDF Resume:</label>
+      <input class="form-control" type="file" name="cv" id="cv" accept=".pdf" required>
+    </div>
+    <button class="btn btn-primary w-100" type="submit">Upload CV</button>
+  </form>
+</div>
+{% endblock %}
