@@ -5,9 +5,9 @@ import uuid
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
-from cv_processing import process_and_store_embeddings,delete_cv_data
-from retriever import retrieve_similar_chunks
-from llm import build_prompt, query_with_together_sdk
+from utils.cv_processing import process_and_store_embeddings, delete_cv_data
+from utils.retriever import retrieve_similar_chunks
+from utils.llm import build_prompt, query_with_together_sdk
 
 
 TOGETHER_API_KEY = "0177126f09f9b3897b18fce813639930f8ed8aa39765677036d8edd53ebbd3a5"

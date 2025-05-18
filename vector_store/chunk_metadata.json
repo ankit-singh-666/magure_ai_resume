@@ -1,65 +1,5 @@
 [
   {
-    "id": "39566226-fa99-477e-87eb-759a28eecbc7",
-    "chunk_index": 0,
-    "text": "CHAMIKA DILSHAN HAPUARACHCHI /ne+94 71 301 7267 hchamikadilshan@gmail.com LinkedIn /gtbGitHub Gampaha, Sri Lanka EDUCATION University of Sri Jayewardenepura (USJP), Sri Lanka April 2022 - Present B.Sc.",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "215c7873-6512-4e24-8a07-077069b96de7",
-    "chunk_index": 1,
-    "text": "Physical Science (Computer Science, Statistics, Mathematics) (reading) Faculty of Applied Sciences SKILLS Programming R, Python, Java Script Frameworks Django, Keras, Scikit-Learn, OpenCV Software Minitab, Microsoft Office, LaTeX Data Visualization Tools Plotly Dash Coursework Time Series Analysis, Machine Learning, Regression Analysis, Statistical Inference, Probability Theory, Data analysis and Preparation of Reports Design of Experiments, Statisctical Quality Assurence VOLUNTEERING Event Management Head July 2024 - Present Statistics Society, Department of Statistics, University of Sri Jayewardenepura  Organized DataXplore 25, an inter-university Data Science competition featuring a Quiz and a Datathon, overseeing event planning, coordination, and execution to promote data-driven problem-solving and col- laboration.",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "0a156286-5fc6-4368-97fc-5cfbbbc7d49f",
-    "chunk_index": 2,
-    "text": "Co - Chief Organiser   AURORA 2024 November 2023 - June 2024 Computer Science Association, Department of Computer Science, University of Sri Jayewardenepura  Led the planning and execution of AURORA 2024, a conference focused on Generative AI and Dig- ital Entrepreneurship. Key initiatives included organizing a nationwide Generative AI Ideathon, a Generative AI Quiz for Schools, and a conference with panel discussions featuring industry experts.",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "3398e6fd-bc48-4c23-bf25-e1437c3d5f84",
-    "chunk_index": 3,
-    "text": "Collaborated with a dedicated team to ensure a successful event, fostering innovation and engagement in the field of computer science LICENCES & CERTIFICATIONS IBM   Applied Data Science Specializaion March 2025 Certificate of completion from Coursera IBM   Specialized Models: Time Series and Survival Analysis February 2025 Certificate of completion from Coursera Machine Learning Explainability November 2024 Certificate of completion from Kaggle Feature Engineering August 2024 Certificate of completion from Kaggle PROJECTS Fraud Detection and Credit Risk Scoring Model December 2024  Developed a fraud detection and credit risk scoring model for a financial institution as part of the ISC 2024 Case Study Poster Competition, organized by the Institute of Applied Statistics, Sri Lanka (IASSL).",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "1191b7fb-c3c2-4f20-a92a-fc9ef5271a52",
-    "chunk_index": 4,
-    "text": "The model assigned a risk score (0-1000) to identify high-risk customers prone to credit default and potential fraud. Conducted Exploratory Data Analysis (EDA) to uncover financial and behavioral patterns associated with charge-offs and fraudulent activities. Developed a machine learning model to predict credit risk, optimizing for both accuracy and interpretability.",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "c589e7c9-e314-49f0-9fea-23abac2cd1e2",
-    "chunk_index": 5,
-    "text": "To enhance transparency, applied SHAP to explain model decisions, identifying key factors influencing risk scores and ensuring regulatory compliance in credit risk assessment. Sri Lankan T20 Cricket Team Performance Analysis October 2024  Analyzed the performance decline of the Sri Lankan T20 team before and after 2015, focusing on key areas such as power play and middle-order batting.",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "8dbb95c9-de11-4589-8ae5-a381e713ea91",
-    "chunk_index": 6,
-    "text": "Trained an XGBoost classifier on various performance features to classify matches as pre- or post-2015, using SHAP analysis to interpret key performance shifts. Supported findings with Exploratory Data Analysis (EDA) and statistical hypothesis testing to validate performance trends.",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "7a084430-9290-4560-8556-c66444b9d60d",
-    "chunk_index": 7,
-    "text": "Learning Management System (LMS) July 2024  Developed and deployed a Learning Management System (LMS) for a client using Python and Django, featuring Exam and Quizzes Management, Payment Processing, and Exam Results Analytics. Built a secure backend with Django and MySQL, ensuring user authentication, role-based access control, and transaction tracking. Designed automated grading, performance analytics, and real-time progress tracking to enhance student engagement and decision-making.",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "0c9c3e7a-9449-461a-9b39-f8827aa039c5",
-    "chunk_index": 8,
-    "text": "Real-Time Face Mask Detection 2022  Developed a real-time face mask detection system using Python, OpenCV and a Convolutional Neural Network (CNN) with Keras. Trained the model on labeled face mask datasets, achieving accurate mask detection in live video streams. Integrated OpenCV for real-time image processing and detection, enabling automated compliance mon- itoring. REFEREES Dr. Thiyanga S.",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
-    "id": "b808c3d5-2d5e-4be1-85af-a006665d91d8",
-    "chunk_index": 9,
-    "text": "Talagala PhD in Statistics, Monash University, AUS Senior Lecturer Department of Statistics Faculty of Applied Sciences University of Sri Jayewardenepura Sri Lanka ttalagala@sjp.ac.lkDr. Chathuri Jayasinghe Ph.D. in Stat., RMIT, AUS Head/Senior Lecturer Department of Statistics Faculty of Applied Sciences University of Sri Jayewardenepura Sri Lanka +94 77 699 1982 chathuri@sjp.ac.lk",
-    "source_file": "1641c2101c0f4769b7fcbf1c877be257.pdf"
-  },
-  {
     "id": "b193899e-7179-4bfe-bb48-4109b9ed33f3",
     "chunk_index": 0,
     "text": "",
@@ -112,5 +52,65 @@
     "chunk_index": 4,
     "text": "Utilized time series analysis to develop a forecasting model for exchange rate fluctuations. Performed data analysis and visualization using Minitab and R software to identify trends and patterns in currency movements.LinkedIn Sirimavo Bandaranaike Vidyalaya 2017-2020",
     "source_file": "46d04d3944574d5693057061df299d8d.pdf"
+  },
+  {
+    "id": "fc4f93dd-bde2-4018-92fd-f516f173ddd8",
+    "chunk_index": 0,
+    "text": "CHAMIKA DILSHAN HAPUARACHCHI /ne+94 71 301 7267 hchamikadilshan@gmail.com LinkedIn /gtbGitHub Gampaha, Sri Lanka EDUCATION University of Sri Jayewardenepura (USJP), Sri Lanka April 2022 - Present B.Sc.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "6d5484f8-98f6-4af2-80ca-135d50049f64",
+    "chunk_index": 1,
+    "text": "Physical Science (Computer Science, Statistics, Mathematics) (reading) Faculty of Applied Sciences SKILLS Programming R, Python, Java Script Frameworks Django, Keras, Scikit-Learn, OpenCV Software Minitab, Microsoft Office, LaTeX Data Visualization Tools Plotly Dash Coursework Time Series Analysis, Machine Learning, Regression Analysis, Statistical Inference, Probability Theory, Data analysis and Preparation of Reports Design of Experiments, Statisctical Quality Assurence VOLUNTEERING Event Management Head July 2024 - Present Statistics Society, Department of Statistics, University of Sri Jayewardenepura  Organized DataXplore 25, an inter-university Data Science competition featuring a Quiz and a Datathon, overseeing event planning, coordination, and execution to promote data-driven problem-solving and col- laboration.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "554e133f-0e47-4fbd-b4ef-b54ea3d3313a",
+    "chunk_index": 2,
+    "text": "Co - Chief Organiser   AURORA 2024 November 2023 - June 2024 Computer Science Association, Department of Computer Science, University of Sri Jayewardenepura  Led the planning and execution of AURORA 2024, a conference focused on Generative AI and Dig- ital Entrepreneurship. Key initiatives included organizing a nationwide Generative AI Ideathon, a Generative AI Quiz for Schools, and a conference with panel discussions featuring industry experts.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "30c6cd44-f1ca-408a-a2ab-c1c8d19bae67",
+    "chunk_index": 3,
+    "text": "Collaborated with a dedicated team to ensure a successful event, fostering innovation and engagement in the field of computer science LICENCES & CERTIFICATIONS IBM   Applied Data Science Specializaion March 2025 Certificate of completion from Coursera IBM   Specialized Models: Time Series and Survival Analysis February 2025 Certificate of completion from Coursera Machine Learning Explainability November 2024 Certificate of completion from Kaggle Feature Engineering August 2024 Certificate of completion from Kaggle PROJECTS Fraud Detection and Credit Risk Scoring Model December 2024  Developed a fraud detection and credit risk scoring model for a financial institution as part of the ISC 2024 Case Study Poster Competition, organized by the Institute of Applied Statistics, Sri Lanka (IASSL).",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "21a5b066-b82c-4d80-9a67-61b16f9b1e8b",
+    "chunk_index": 4,
+    "text": "The model assigned a risk score (0-1000) to identify high-risk customers prone to credit default and potential fraud. Conducted Exploratory Data Analysis (EDA) to uncover financial and behavioral patterns associated with charge-offs and fraudulent activities. Developed a machine learning model to predict credit risk, optimizing for both accuracy and interpretability.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "3b789ceb-cc3f-48c8-854d-26a672eb19df",
+    "chunk_index": 5,
+    "text": "To enhance transparency, applied SHAP to explain model decisions, identifying key factors influencing risk scores and ensuring regulatory compliance in credit risk assessment. Sri Lankan T20 Cricket Team Performance Analysis October 2024  Analyzed the performance decline of the Sri Lankan T20 team before and after 2015, focusing on key areas such as power play and middle-order batting.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "84f4b6a7-c21e-43e2-8998-e863c6b2851c",
+    "chunk_index": 6,
+    "text": "Trained an XGBoost classifier on various performance features to classify matches as pre- or post-2015, using SHAP analysis to interpret key performance shifts. Supported findings with Exploratory Data Analysis (EDA) and statistical hypothesis testing to validate performance trends.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "a8d96441-a230-4422-9c0a-fce9e48bbe18",
+    "chunk_index": 7,
+    "text": "Learning Management System (LMS) July 2024  Developed and deployed a Learning Management System (LMS) for a client using Python and Django, featuring Exam and Quizzes Management, Payment Processing, and Exam Results Analytics. Built a secure backend with Django and MySQL, ensuring user authentication, role-based access control, and transaction tracking. Designed automated grading, performance analytics, and real-time progress tracking to enhance student engagement and decision-making.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "94951644-22c6-40fd-b4d4-fa0729ea14c1",
+    "chunk_index": 8,
+    "text": "Real-Time Face Mask Detection 2022  Developed a real-time face mask detection system using Python, OpenCV and a Convolutional Neural Network (CNN) with Keras. Trained the model on labeled face mask datasets, achieving accurate mask detection in live video streams. Integrated OpenCV for real-time image processing and detection, enabling automated compliance mon- itoring. REFEREES Dr. Thiyanga S.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
+  },
+  {
+    "id": "b02bb0b1-0183-411e-89a7-4488c103acb7",
+    "chunk_index": 9,
+    "text": "Talagala PhD in Statistics, Monash University, AUS Senior Lecturer Department of Statistics Faculty of Applied Sciences University of Sri Jayewardenepura Sri Lanka ttalagala@sjp.ac.lkDr. Chathuri Jayasinghe Ph.D. in Stat., RMIT, AUS Head/Senior Lecturer Department of Statistics Faculty of Applied Sciences University of Sri Jayewardenepura Sri Lanka +94 77 699 1982 chathuri@sjp.ac.lk",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf"
   }
 ]
