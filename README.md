@@ -17,11 +17,11 @@ An AI-powered assistant that helps HR professionals query and analyse resumes in
 
 ## 🛠️ Tech Stack
 
-- Python & Flask
-- PyMuPDF or pdfplumber (PDF parsing)
-- FAISS / ChromaDB (Vector DB)
-- OpenAI or HuggingFace Transformers (LLMs & embeddings)
-- LangChain (optional for orchestration)
+- **Python & Flask** – For backend application and routing
+- **PyPDF2** – To parse and extract text from PDF resumes
+- **FAISS** – For efficient vector-based semantic search
+- **Together.AI** – Hosted LLM inference platform  
+  - Model used: `meta-llama/Llama-3.3-70B-Instruct-Turbo-Free`
 
 ---
 
