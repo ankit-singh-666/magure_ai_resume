@@ -1,33 +1,33 @@
 
-# 🤖 RAG-Based HR Assistant for Resume Intelligence
+# 🤖 RAG-Based HR Assistant for Resume Intelligence (Flask)
 
-This project is an AI-powered HR assistant that uses **Retrieval Augmented Generation (RAG)** to help HR professionals efficiently query and analyze candidate resumes in PDF format. It enables natural language search over a resume database to instantly identify skills, experience, and qualifications.
+An AI-powered assistant that helps HR professionals query and analyse resumes in natural language. This Flask-based web app uses Retrieval Augmented Generation (RAG) to extract relevant information from PDF resumes using vector search and LLMs.
 
+---
 
+## 🔍 Features
 
-## 🔍 Key Features
+- 📄 Parses and indexes PDF resumes
+- 💬 Answers natural language queries (e.g., “Who has React and Node.js experience?”)
+- 🔍 Performs semantic search with vector embeddings
+- 🤖 Generates context-aware answers using a Large Language Model (LLM)
+- 🧑‍💼 Designed for internal talent search and skill matching
 
-- 🧠 **Natural Language Querying**: Ask questions like “Who has experience with React and Node.js?”
-- 📄 **PDF Resume Parsing**: Automatically processes resumes in PDF format.
-- 🧾 **Semantic Search + LLM Integration**: Retrieves relevant chunks using vector similarity and generates answers using a Large Language Model.
-- 🧰 **End-to-End Application**: Complete app with UI (Streamlit/Flask) for interactive use.
-
-
+---
 
 ## 🛠️ Tech Stack
 
-- Python
-- PyMuPDF / pdfplumber (for PDF parsing)
-- FAISS / ChromaDB (for vector search)
-- OpenAI / Hugging Face Transformers (for LLMs & embeddings)
-- Streamlit / Flask (UI or API)
-- LangChain (optional, for RAG orchestration)
+- Python & Flask
+- PyMuPDF or pdfplumber (PDF parsing)
+- FAISS / ChromaDB (Vector DB)
+- OpenAI or HuggingFace Transformers (LLMs & embeddings)
+- LangChain (optional for orchestration)
 
-
+---
 
 ## 🚀 Installation
 
-1. **Clone the repo**:
+1. **Clone the repository**:
 ```bash
 git clone https://github.com/your-username/hr-rag-assistant.git
 cd hr-rag-assistant
@@ -37,7 +37,7 @@ cd hr-rag-assistant
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows use venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
 3. **Install dependencies**:
@@ -50,17 +50,24 @@ pip install -r requirements.txt
 
 ## ▶️ Usage
 
-1. **Add PDF resumes** to the `/resumes` folder.
-2. **Run the application**:
+1. Add your **PDF resumes** to the `resumes/` folder.
+
+2. Run the Flask app:
 
 ```bash
-streamlit run app.py
+python app.py
 ```
 
-3. **Ask questions** like:
+3. Open your browser and go to:
 
-   * "Find candidates with AWS certification and cloud experience"
-   * "Who has worked with Django and PostgreSQL?"
+```
+http://localhost:5000
+```
+
+4. Ask questions like:
+
+   * "Who has experience with Django and PostgreSQL?"
+   * "Find candidates with cloud and DevOps expertise."
 
 ---
 
@@ -68,51 +75,37 @@ streamlit run app.py
 
 ```
 hr-rag-assistant/
-├── app.py
-├── resumes/                # Folder containing PDF resumes
-├── vector_store/           # Vector database storage
-├── utils/                  # Helper functions (e.g., parsing, chunking, embedding)
-├── requirements.txt
-├── README.md
-└── technical_design.md     # Optional technical documentation
+├── app.py                  # Flask app entry point
+├── resumes/                # Folder with candidate PDF resumes
+├── utils/                  # Text splitting, embedding, retrieval, LLM logic
+├── templates/              # HTML templates for the Flask frontend
+├── static/                 # Static files (CSS, JS)
+├── vector_store/           # Vector database files (e.g., FAISS index)
+├── requirements.txt        # Python dependencies
+├── README.md               # Project documentation
+└── technical_design.md     # System architecture and design choices
 ```
 
 ---
 
-## 📄 Example Queries
+## 📘 Example Queries
 
-* “Who has experience in machine learning and Python?”
-* “Find candidates with project management certification”
-* “Who worked with both React and Node.js?”
-
----
-
-## 📘 Technical Design (Summary)
-
-The system uses:
-
-* **Document Ingestion**: Reads PDFs and splits into chunks.
-* **Embedding Generation**: Converts chunks into vectors using LLM embeddings.
-* **Vector Search**: Performs semantic retrieval using FAISS/Chroma.
-* **LLM Response**: Uses GPT-style models to generate contextual answers from retrieved chunks.
-
-For full architecture, see [`technical_design.md`](./technical_design.md).
-
----
-
-## 🙌 Contributing
-
-Pull requests are welcome. For major changes, open an issue first to discuss what you'd like to change.
+* “Who has worked with machine learning and Kubernetes?”
+* “Find resumes with PMP certification and agile experience.”
+* “Which candidates have experience in React, Node.js, and MongoDB?”
 
 ---
 
 ## 📄 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is released under the [MIT License](LICENSE).
 
 ---
 
-```
+## 🙌 Contributions
 
-Let me know if you're using **Flask instead of Streamlit**, or want me to generate the `technical_design.md` too!
-```
+Feel free to fork, enhance, and make pull requests. For major changes, please open an issue first.
+
+---
+
+
