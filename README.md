@@ -29,7 +29,7 @@ An AI-powered assistant that helps HR professionals query and analyse resumes in
 
 1. **Clone the repository**:
 ```bash
-git clone https://github.com/your-username/hr-rag-assistant.git
+git clone [https://github.com/your-username/hr-rag-assistant.git](https://github.com/hchamikadilshan/AI-HR-Assistant)
 cd hr-rag-assistant
 ````
 
