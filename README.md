@@ -51,6 +51,13 @@ cd AI-HR-Assistant
 pip install -r requirements.txt
 ```
 
+5. **Get your API key from [Together.AI](https://www.together.ai/)** and paste it into `app.py`:
+
+```python
+TOGETHER_API_KEY = "Enter_your_api_key_here"
+```
+
+
 ---
 
 ## ▶️ Usage
