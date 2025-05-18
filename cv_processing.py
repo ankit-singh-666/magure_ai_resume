@@ -67,7 +67,7 @@ def process_and_store_embeddings(pdf_path, original_filename,new_file_name):
 
     # Encode
     texts = [chunk["text"] for chunk in chunk_metadata]
-    embeddings = model.encode(texts, show_progress_bar=True)
+    embeddings = model.encode(texts)
     embedding_matrix = np.array(embeddings).astype("float32")
 
     # Load or create FAISS index

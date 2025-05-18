@@ -66,10 +66,16 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
         const jsonString = data.answer.replace(/^```(?:json)?\n?/, '').replace(/```$/, '');
         parsedAnswer = JSON.parse(jsonString);
     } catch (error) {
-        summarySection.textContent = 'Failed to parse response.';
-        summarySection.style.display = 'block';
-        console.error('Parsing error:', error);
+        if (data.answer == "I'm sorry, I can only answer questions related to candidate resumes and qualifications." || data.answer == "No suitable candidates found."){
+          summarySection.textContent = data.answer;
+          summarySection.style.display = 'block';
+        }else{
+          summarySection.textContent = 'Failed to parse response.';
+          summarySection.style.display = 'block';
+          console.error('Parsing error:', error);
+        }
         return;
+        
     }
 
     // STEP 2: Now display the summary and candidate details
@@ -92,8 +98,8 @@ document.getElementById('searchForm').addEventListener('submit', function (e) {
 
             candidateBlock.innerHTML = `
                 <h5 class="text-primary">${candidate.candidate_name}</h5>
-                <p><strong>File:</strong> ${candidate.file_name}</p>
                 <ul>${detailsList}</ul>
+                <a href="/uploads/${candidate.file_name}" target="_blank" class="btn btn-outline-primary btn-sm mt-2">View CV</a>
             `;
             candidateContainer.appendChild(candidateBlock);
         });
