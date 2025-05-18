@@ -23,8 +23,8 @@ def extract_text_from_pdf(path):
     return text
 
 def clean_text(text):
-    text = re.sub(r'\s+', ' ', text)  # Collapse multiple spaces
-    text = re.sub(r'[^\x00-\x7F]+', ' ', text)  # Remove non-ASCII characters
+    text = re.sub(r'\s+', ' ', text)  
+    text = re.sub(r'[^\x00-\x7F]+', ' ', text)  
     text = text.strip()
     return text
 
@@ -59,18 +59,17 @@ def create_chunks_with_metadata(chunks, filename):
 
 
 def process_and_store_embeddings(pdf_path, original_filename,new_file_name):
-    print(f"📄 Processing {original_filename}")
     raw_text = extract_text_from_pdf(pdf_path)
     clean = clean_text(raw_text)
     chunks = chunk_text(clean)
     chunk_metadata = create_chunks_with_metadata(chunks, new_file_name)
 
-    # Encode
+    # Encoding
     texts = [chunk["text"] for chunk in chunk_metadata]
     embeddings = model.encode(texts)
     embedding_matrix = np.array(embeddings).astype("float32")
 
-    # Load or create FAISS index
+    # Loading or create FAISS index
     if os.path.exists(INDEX_PATH):
         index = faiss.read_index(INDEX_PATH)
     else:
@@ -79,7 +78,7 @@ def process_and_store_embeddings(pdf_path, original_filename,new_file_name):
     index.add(embedding_matrix)
     faiss.write_index(index, INDEX_PATH)
 
-    # Append metadata
+    # Appending metadata
     if os.path.exists(METADATA_PATH):
         with open(METADATA_PATH, "r", encoding="utf-8") as f:
             existing_metadata = json.load(f)
@@ -91,21 +90,21 @@ def process_and_store_embeddings(pdf_path, original_filename,new_file_name):
     with open(METADATA_PATH, "w", encoding="utf-8") as f:
         json.dump(existing_metadata, f, indent=2)
 
-    print(f"✅ Stored {len(chunk_metadata)} chunks from {original_filename}({new_file_name})")
+    print(f"Stored {len(chunk_metadata)} chunks from {original_filename}({new_file_name})")
     return chunk_metadata
 
 def delete_cv_data(new_file_name):
     print(f"🗑 Deleting CV data for: {new_file_name}")
 
-    # Load metadata
+    # Loading metadata
     if not os.path.exists(METADATA_PATH) or not os.path.exists(INDEX_PATH):
-        print("⚠️ No index or metadata file found.")
+        print("No index or metadata file found.")
         return
 
     with open(METADATA_PATH, "r", encoding="utf-8") as f:
         all_metadata = json.load(f)
 
-    # Filter out chunks for the CV
+    # Filtering out chunks for the CV
     remaining_metadata = []
     delete_indices = []
 
@@ -116,15 +115,15 @@ def delete_cv_data(new_file_name):
             remaining_metadata.append(chunk)
 
     if not delete_indices:
-        print("❌ No chunks found to delete.")
+        print("No chunks found to delete.")
         return
 
-    # Reload original FAISS index
+    # Reloading original FAISS index
     index = faiss.read_index(INDEX_PATH)
 
-    print(f"🔁 Rebuilding FAISS index after deleting {len(delete_indices)} entries...")
+    print(f"Rebuilding FAISS index after deleting {len(delete_indices)} entries...")
 
-    # Rebuild index from kept embeddings
+    # Rebuilding index from kept embeddings
     texts = [m["text"] for m in remaining_metadata]
     if texts:
         embeddings = model.encode(texts, show_progress_bar=False)
@@ -134,10 +133,10 @@ def delete_cv_data(new_file_name):
     else:
         # No embeddings left
         os.remove(INDEX_PATH)
-        print("⚠️ All embeddings deleted, FAISS index removed.")
+        print("All embeddings deleted, FAISS index removed.")
 
     # Save updated metadata
     with open(METADATA_PATH, "w", encoding="utf-8") as f:
         json.dump(remaining_metadata, f, indent=2)
 
-    print(f"✅ Deleted metadata and updated FAISS index.")
+    print(f"Deleted metadata and updated FAISS index.")

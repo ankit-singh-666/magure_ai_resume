@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash,send_from_directory,jsonify
+from dotenv import load_dotenv
 import os
 from werkzeug.utils import secure_filename
 import uuid
@@ -10,7 +11,7 @@ from utils.retriever import retrieve_similar_chunks
 from utils.llm import build_prompt, query_with_together_sdk
 
 
-TOGETHER_API_KEY = "0177126f09f9b3897b18fce813639930f8ed8aa39765677036d8edd53ebbd3a5"
+TOGETHER_API_KEY = "Enter_your_api_key_here"
 
 
 # ───── Flask Setup ─────
