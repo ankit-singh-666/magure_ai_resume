@@ -87,10 +87,13 @@ http://localhost:5000
 ## 📁 Folder Structure
 
 ```
-hr-rag-assistant/
+AI-HR-Assistant/
 ├── app.py                  # Flask app entry point
-├── resumes/                # Folder with candidate PDF resumes
-├── utils/                  # Text splitting, embedding, retrieval, LLM logic
+├── uploaded_cvs/           # Folder with candidate PDF resumes
+├── utils/
+│   ├── cv_processing.py    #Handles PDF extraction, text chunking, embedding creation, and deletion of CV data.
+│   ├── llm.py              # Builds the prompt and sends it to the Together.AI LLM API to generate responses.
+│   └── retriever.py        # Performs semantic search using FAISS to find relevant text chunks based on the query.
 ├── templates/              # HTML templates for the Flask frontend
 ├── static/                 # Static files (CSS, JS)
 ├── vector_store/           # Vector database files (e.g., FAISS index)
