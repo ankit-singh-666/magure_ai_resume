@@ -96,7 +96,8 @@ AI-HR-Assistant/
 │   └── retriever.py        # Performs semantic search using FAISS to find relevant text chunks based on the query.
 ├── templates/              # HTML templates for the Flask frontend
 ├── static/                 # Static files (CSS, JS)
-├── vector_store/           # Vector database files (e.g., FAISS index)
+├── vector_store/           # Vector database files 
+├── cv_uploads.db           # SQLite DB for storing CV details
 ├── requirements.txt        # Python dependencies
 ├── README.md               # Project documentation
 └── technical_design.md     # System architecture and design choices
