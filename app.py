@@ -9,13 +9,18 @@ from datetime import datetime
 from utils.cv_processing import process_and_store_embeddings, delete_cv_data
 from utils.retriever import retrieve_similar_chunks
 from utils.llm import build_prompt, query_with_together_sdk
+from flask import Flask
+from flask_cors import CORS
 
 
-TOGETHER_API_KEY = "Enter_your_api_key_here"
+
+
+TOGETHER_API_KEY = "a22438751c3e28169bf6e875f7556b0e0f5c78c061d0789c80061dba6700b32b"
 
 
 # ───── Flask Setup ─────
 app = Flask(__name__)
+CORS(app)
 app.secret_key = 'axxiom'
 
 # ───── Upload Folder ─────
@@ -84,35 +89,70 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
+
+'''
+@app.route('/upload_cv', methods=['POST'])
+def upload_cv():
+    uploaded_files = request.files.getlist('resumes')
+    results = []
+
+    if not uploaded_files:
+        return jsonify({'message': 'No files uploaded.'}), 400
+
+    for file in uploaded_files:
+        file_result = {
+            'filename': file.filename,
+            'status': '',
+            'error': None
+        }
+
+        if file and allowed_file(file.filename):
+            try:
+                original_filename = secure_filename(file.filename)
+                unique_filename = generate_unique_filename(original_filename)
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+
+                # Save the file
+                file.save(filepath)
+
+                # Save file info to DB
+                uploaded = UploadedCV(
+                    original_filename=original_filename,
+                    stored_filename=unique_filename,
+                    filepath=filepath
+                )
+                db.session.add(uploaded)
+                db.session.commit()
+
+                # Process embeddings or other resume-related logic
+                process_and_store_embeddings(filepath, original_filename, unique_filename)
+
+                file_result['status'] = 'success'
+            except Exception as e:
+                file_result['status'] = 'error'
+                file_result['error'] = str(e)
+        else:
+            file_result['status'] = 'rejected'
+            file_result['error'] = 'Invalid file format.'
+
+        results.append(file_result)
+
+    # Count result types
+    successful = sum(1 for r in results if r['status'] == 'success')
+    rejected = sum(1 for r in results if r['status'] == 'rejected')
+    failed = sum(1 for r in results if r['status'] == 'error')
+
+    return jsonify({
+        'successful': successful,
+        'rejected': rejected,
+        'failed': failed,
+        'details': results
+    })
+'''
+
 @app.route('/upload_cv', methods=['GET', 'POST'])
 def upload_cv():
-    if request.method == 'POST':
-        file = request.files.get('cv')
-        if file and allowed_file(file.filename):
-            original_filename = secure_filename(file.filename)
-            unique_filename = generate_unique_filename(original_filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
-
-            # Save file
-            file.save(filepath)
-
-            # Save to DB
-            uploaded = UploadedCV(
-                original_filename=original_filename,
-                stored_filename=unique_filename,
-                filepath=filepath
-            )
-            db.session.add(uploaded)
-            db.session.commit()
-
-            process_and_store_embeddings(filepath, original_filename,unique_filename)
-
-            flash(f"'{original_filename}' uploaded successfully.", "success")
-            return redirect(url_for('upload_cv'))
-        else:
-            flash("Invalid file format. Please upload a PDF file.", "danger")
     return render_template('upload_cv.html')
-
 @app.route('/cvs')
 def cvs():
     uploads = UploadedCV.query.order_by(UploadedCV.upload_time.desc()).all()
