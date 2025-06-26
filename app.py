@@ -9,6 +9,9 @@ from datetime import datetime
 from utils.cv_processing import process_and_store_embeddings, delete_cv_data
 from utils.retriever import retrieve_similar_chunks
 from utils.llm import build_prompt, query_with_together_sdk
+import random
+import string
+
 
 TOGETHER_API_KEY = "a22438751c3e28169bf6e875f7556b0e0f5c78c061d0789c80061dba6700b32b"
 
@@ -50,6 +53,8 @@ def generate_unique_filename(filename):
     ext = filename.rsplit('.', 1)[-1]
     return f"{uuid.uuid4().hex}.{ext}"
 
+def generate_unique_id(length=5):
+    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 # ───── Routes ─────
 @app.route("/", methods=["GET"])
@@ -89,30 +94,40 @@ def uploaded_file(filename):
 @app.route('/upload_cv', methods=['GET', 'POST'])
 def upload_cv():
     if request.method == 'POST':
-        file = request.files.get('cv')
-        if file and allowed_file(file.filename):
-            original_filename = secure_filename(file.filename)
-            unique_filename = original_filename
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+        files = request.files.getlist('cv')  # <-- Get list of uploaded files
+        if not files or files == [None]:
+            flash("No files selected.", "danger")
+            return redirect(request.url)
 
-            # Save file
-            file.save(filepath)
+        for file in files:
+            if file and allowed_file(file.filename):
+                random_suffix = generate_unique_id()
+                original_filename = secure_filename(file.filename)
+                unique_filename = f"{original_filename}_{random_suffix}"  # Optional: add timestamp or UUID
+                # Optional: add timestamp or UUID
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
 
-            # Save to DB
-            uploaded = UploadedCV(
-                original_filename=original_filename,
-                stored_filename=unique_filename,
-                filepath=filepath
-            )
-            db.session.add(uploaded)
-            db.session.commit()
+                # Save file
+                file.save(filepath)
 
-            process_and_store_embeddings(filepath, original_filename, unique_filename)
+                # Save to DB
+                uploaded = UploadedCV(
+                    original_filename=original_filename,
+                    stored_filename=unique_filename,
+                    filepath=filepath
+                )
+                db.session.add(uploaded)
+                db.session.commit()
 
-            flash(f"'{original_filename}' uploaded successfully.", "success")
-            return redirect(url_for('upload_cv'))
-        else:
-            flash("Invalid file format. Please upload a PDF file.", "danger")
+                # Process embeddings
+                process_and_store_embeddings(filepath, original_filename, unique_filename)
+
+                flash(f"'{original_filename}' uploaded successfully.", "success")
+            else:
+                flash(f"Invalid file: {file.filename}", "danger")
+
+        return redirect(url_for('upload_cv'))
+
     return render_template('upload_cv.html')
 
 
