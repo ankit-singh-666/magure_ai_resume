@@ -1,1 +1,1286 @@
-[]
+[
+  {
+    "id": "3c745aad-3e7d-40a6-9872-7ccdccdb3086",
+    "chunk_index": 0,
+    "text": "CHAMIKA DILSHAN HAPUARACHCHI /ne+94 71 301 7267 hchamikadilshan@gmail.com LinkedIn /gtbGitHub Gampaha, Sri Lanka EDUCATION University of Sri Jayewardenepura (USJP), Sri Lanka April 2022 - Present B.Sc.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "b1ab3c99-82ec-46cd-8ba8-49d6bb363f7a",
+    "chunk_index": 1,
+    "text": "Physical Science (Computer Science, Statistics, Mathematics) (reading) Faculty of Applied Sciences SKILLS Programming R, Python, Java Script Frameworks Django, Keras, Scikit-Learn, OpenCV Software Minitab, Microsoft Office, LaTeX Data Visualization Tools Plotly Dash Coursework Time Series Analysis, Machine Learning, Regression Analysis, Statistical Inference, Probability Theory, Data analysis and Preparation of Reports Design of Experiments, Statisctical Quality Assurence VOLUNTEERING Event Management Head July 2024 - Present Statistics Society, Department of Statistics, University of Sri Jayewardenepura  Organized DataXplore 25, an inter-university Data Science competition featuring a Quiz and a Datathon, overseeing event planning, coordination, and execution to promote data-driven problem-solving and col- laboration.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "a68d3cb0-9493-45ff-bf46-6f16fbf739d7",
+    "chunk_index": 2,
+    "text": "Co - Chief Organiser   AURORA 2024 November 2023 - June 2024 Computer Science Association, Department of Computer Science, University of Sri Jayewardenepura  Led the planning and execution of AURORA 2024, a conference focused on Generative AI and Dig- ital Entrepreneurship. Key initiatives included organizing a nationwide Generative AI Ideathon, a Generative AI Quiz for Schools, and a conference with panel discussions featuring industry experts.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "f8922a2f-4edd-4e5a-a85d-489963acc34b",
+    "chunk_index": 3,
+    "text": "Collaborated with a dedicated team to ensure a successful event, fostering innovation and engagement in the field of computer science LICENCES & CERTIFICATIONS IBM   Applied Data Science Specializaion March 2025 Certificate of completion from Coursera IBM   Specialized Models: Time Series and Survival Analysis February 2025 Certificate of completion from Coursera Machine Learning Explainability November 2024 Certificate of completion from Kaggle Feature Engineering August 2024 Certificate of completion from Kaggle PROJECTS Fraud Detection and Credit Risk Scoring Model December 2024  Developed a fraud detection and credit risk scoring model for a financial institution as part of the ISC 2024 Case Study Poster Competition, organized by the Institute of Applied Statistics, Sri Lanka (IASSL).",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "cd714a1b-1fa7-4245-a8c2-19570b14f577",
+    "chunk_index": 4,
+    "text": "The model assigned a risk score (0-1000) to identify high-risk customers prone to credit default and potential fraud. Conducted Exploratory Data Analysis (EDA) to uncover financial and behavioral patterns associated with charge-offs and fraudulent activities. Developed a machine learning model to predict credit risk, optimizing for both accuracy and interpretability.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "745ca7d6-0c7f-40d6-bb7e-4cc92a231c67",
+    "chunk_index": 5,
+    "text": "To enhance transparency, applied SHAP to explain model decisions, identifying key factors influencing risk scores and ensuring regulatory compliance in credit risk assessment. Sri Lankan T20 Cricket Team Performance Analysis October 2024  Analyzed the performance decline of the Sri Lankan T20 team before and after 2015, focusing on key areas such as power play and middle-order batting.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "acc1b7d8-a30f-4968-be04-e87e868ce8f5",
+    "chunk_index": 6,
+    "text": "Trained an XGBoost classifier on various performance features to classify matches as pre- or post-2015, using SHAP analysis to interpret key performance shifts. Supported findings with Exploratory Data Analysis (EDA) and statistical hypothesis testing to validate performance trends.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "c86551a9-cb66-476a-9133-da508f2fdf8a",
+    "chunk_index": 7,
+    "text": "Learning Management System (LMS) July 2024  Developed and deployed a Learning Management System (LMS) for a client using Python and Django, featuring Exam and Quizzes Management, Payment Processing, and Exam Results Analytics. Built a secure backend with Django and MySQL, ensuring user authentication, role-based access control, and transaction tracking. Designed automated grading, performance analytics, and real-time progress tracking to enhance student engagement and decision-making.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "f61c5dc9-0318-4e9b-95de-cc9248d18a4e",
+    "chunk_index": 8,
+    "text": "Real-Time Face Mask Detection 2022  Developed a real-time face mask detection system using Python, OpenCV and a Convolutional Neural Network (CNN) with Keras. Trained the model on labeled face mask datasets, achieving accurate mask detection in live video streams. Integrated OpenCV for real-time image processing and detection, enabling automated compliance mon- itoring. REFEREES Dr. Thiyanga S.",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "c66edb48-4a5c-4072-8518-f94937fa57a5",
+    "chunk_index": 9,
+    "text": "Talagala PhD in Statistics, Monash University, AUS Senior Lecturer Department of Statistics Faculty of Applied Sciences University of Sri Jayewardenepura Sri Lanka ttalagala@sjp.ac.lkDr. Chathuri Jayasinghe Ph.D. in Stat., RMIT, AUS Head/Senior Lecturer Department of Statistics Faculty of Applied Sciences University of Sri Jayewardenepura Sri Lanka +94 77 699 1982 chathuri@sjp.ac.lk",
+    "source_file": "7882e9464b5448df8344e640759ef932.pdf_b5x09"
+  },
+  {
+    "id": "066c0e1f-4992-4d98-9972-b8dfd4e14e3c",
+    "chunk_index": 0,
+    "text": "Anshul Shrivastava Student Looking to start the career as an entry-level software engineer with a reputed  rm driven by technology. Strong with Intuitive problem- solving skills. Pro cient in C++,DSA and SQL. Passionate about implementing and launching new Projects.",
+    "source_file": "Anshuls_Resume_3.pdf_PBmCV"
+  },
+  {
+    "id": "2eaef93c-9c1b-411e-9558-9eb46c393dfa",
+    "chunk_index": 1,
+    "text": "ashrivastava3803@gmail.com 7000117525 Indore, India linkedin.com/in/anshul-shrivastava-2bb32820b EDUCATION M.Tech (Information Technology) International Institute of Professional Studies,DAVV,Indore Indore Higher Education SICA, SR,SEC, SCHOOL 07/2016 - 04/2017 , Secured 79% in 12th class Secondary Education SICA, SR,SEC, SCHOOL 07/2014 - 04/2015 , Secured 8.4 cgpa in 10th class PERSONAL PROJECTS Doctor Finder (10/2023) Keeping detailed digital medical records or learning new ways to be healthier with free health tips .",
+    "source_file": "Anshuls_Resume_3.pdf_PBmCV"
+  },
+  {
+    "id": "6d1799c1-2636-4b4a-8b86-dc3e5a9e3613",
+    "chunk_index": 2,
+    "text": "Booking doctor appointments is the easiest on Doctor Finder. Just select your location, choose a doctor and done! You can also read genuine feedback from patients before booking your appointment. Certi cate Generator(11/2023) a bulk certi cate generator is a tool that allows you to create a large number of certi cates quickly and easily . With just a few clicks, you can generate multiple certi cates at once, saving you time and e ort.",
+    "source_file": "Anshuls_Resume_3.pdf_PBmCV"
+  },
+  {
+    "id": "88ea54c3-0bb6-4feb-b214-ba0ec830ca66",
+    "chunk_index": 3,
+    "text": "INTERPERSONAL SKILLS LEADER QUALITY PUBLIC SPEAKING Collaborative Attention to Details POSITIVE APTITUDE Team Spirit Time Management Creative Thinker SKILLS Java DBMS SQL SDLC Software Engineering HTML CSS BootStrap OOPS DSA Ms Excel Filmora X Premier Pro CPP DJANGO ACHIEVEMENTS Solved 300+ DSA problems on Leetcode, Interview Bit and GeeksforGeeks, Hackerrank.",
+    "source_file": "Anshuls_Resume_3.pdf_PBmCV"
+  },
+  {
+    "id": "abd4c9e0-6965-4748-8cad-1247497f1975",
+    "chunk_index": 4,
+    "text": "Gold Bagde in C++ (HackerRank) Green Olympiad Freelancer : websites & edited youtube videos/Thumbnails CERTIFICATES Sql(Basic) https://www.hackerrank.com/certi cates/0a1 df2a2bf SQL(Intermediate) https://www.hackerrank.com/certi cates/6b3c49f89917 Java https://www.hackerrank.com/certi cates/5e8c25a06af3 Time Management Tips to Boost Your Productivity | CareerAddict IBM https://drive.google.com/ le/d/1v5eHloyYrTUcMMLM0q9OCryoXSwe mkec/view JavaScript https://www.hackerrank.com/certi cates/cc86ab47a158 20+ Certi cates Olympiad/Council Member/Sports/Co-Curriculum LANGUAGES English Professional Working Pro ciency Hindi Full Professional Pro ciency",
+    "source_file": "Anshuls_Resume_3.pdf_PBmCV"
+  },
+  {
+    "id": "535d683d-ce4b-40fc-b6a1-222703f032fc",
+    "chunk_index": 0,
+    "text": "Ayush Singhania QA Automation & Manual Engineer PH: +91- 8251066753 Email   ayush@vrize.com Personal Email   ayushsinghania120@gmail.com Professional Summary Ayush Singhania, the student of Bachelor of Technology in Computer Science & Engineering under School of Engineering and Research in ITM University, Nava Raipur, Chhattisgarh hereby declare that the work contained in this dissertation report is original and has been done by me under the guidance of my supervisor.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "28e79614-82e7-4187-b581-5fe2d9461992",
+    "chunk_index": 1,
+    "text": "A quick learner in adapting to technology with ease. Good interpersonal & communication skills. Work Experience I have a one year experience in a data analysis position. Worked on calyx point software which was developed in javascript coding . Our work is to analyze the data of the user through that software.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "957ab233-29ca-4e8e-b8d7-8c23568bc82b",
+    "chunk_index": 2,
+    "text": "Got Certificate for attending the workshop in National Institute of Technology,Raipur (C.G.) Got certificate on Machine learning workshop which was held by Itm University,Raipur Got certificate from Onet insititute for Training in javascript language Got certificate from effcon institute for Training in python language Academic Qualifications B.TECH (CSE) - Institute of technology and management. (Chattisgarh,Raipur).",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "846b60a5-8d82-4394-9e53-f745214ccf2d",
+    "chunk_index": 3,
+    "text": "2016 -2020 - 73.85% H.S.C - Sachdeva International School , Raipur CBSE BOARD 2015 -2016 - 55.% S.S.C - Holy Cross Bayron Bazar,Raipur CBSE Board 2013 -2014 - 64.% Technical Skills Language   C,C++,Core JAVA ,Selenium Angular, REST API Database   MYSQl Spring   MVC,Security IDE   Eclipse J2EE Frameworks - Spring Operating System   Windows 07,10 Version Control System - GIT Overview Designed An Application Using Angular8,SpringBoot,MYSQL DB Worked with components ,Services using Angular on the Frontend  Worked with REST API controllers, services , Repository using springBoot on the Backend Worked with JWT Authentication usingspring security Worked on MYSQL Database B.Tech Project: Title: STUDENTS PERFORMANCE VISUALIZATION AND ANALYSIS SYSTEM Student Performance Visualization and Analysis System ( SPVAS ) is an attempt to make the things more smooth as discussed above.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "ca21047a-d96f-4246-b264-0b62854fadc1",
+    "chunk_index": 4,
+    "text": "The whole system is based on data, so data is the most important part of the SPVAS. It actually works as a Management Information System (MIS) where data is entered, processed and analyzed to make the associated working system more effective and easy to handle. Visualization is the next important thing after data processing. It actually works to describe the student data graphically relative to time.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "5a4a15b9-cad3-4959-b8b4-622f5087a60c",
+    "chunk_index": 5,
+    "text": "And this is what student would gets aware all these visual representations and empirical relations of their performances VRIZE Project: PROJECT #1 Client : Shutterfly. Project Title : SPS Digital Marketplace(spoonflower). Duration : Sept-2022 to Mar-2023. Company : VRIZE Inc. Bangalore. Tools and technology used : Ruby on Rails, ReactJS.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "018ae1c3-6ead-4963-bdc2-67e60bd8dd60",
+    "chunk_index": 6,
+    "text": "Project Description: - Spoonflower project was implemented using Ruby on Rails and ReactJS, the project description includes the following components:  Architecture and Technology Stack: The project uses Ruby on Rails as the backend framework to handle server-side logic and database management, while ReactJS used to create the frontend user interface.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "79f9ecdc-d197-4022-be72-bc8042a52129",
+    "chunk_index": 7,
+    "text": "User Authentication and Authorization: The project includes user authentication and authorization features to ensure that only authorized users can access certain parts of the application. Design Tools and Interface: ReactJS used to create an intuitive and user-friendly interface for the design tools. The interface is designed to be responsive and interactive, allowing users to easily upload and manipulate their designs.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "b65b4375-5300-4ba5-ae97-00d7f45d18d4",
+    "chunk_index": 8,
+    "text": "Integration with Third-party APIs: The project integrated with third-party APIs, such as payment gateways and shipping providers, to handle payment processing and order fulfillment. Testing and Quality Assurance: The project includes comprehensive testing and quality assurance measures to ensure that the application is free from bugs and errors.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "b85c9506-b26e-4380-b579-98fe4538aa59",
+    "chunk_index": 9,
+    "text": "Deployment and Scaling: The project is designed to be easily deployable to a production environment, and scalable to handle increasing levels of traffic and usage. Continuous Integration and Delivery: The project includes continuous integration and delivery processes to ensure that changes to the application are tested and deployed to the production environment.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "27a832dc-660c-4374-9c09-5066ae3513bb",
+    "chunk_index": 10,
+    "text": "Roles & Responsibilities: -   Understanding Requirements: Understood the project requirements and work closely with the project team to identify the needs and expectations of the application. This includes understanding the business requirements, user needs, and technical requirements. Designing and Developing Features: Responsible for designing and developing features of the application using Ruby on Rails and ReactJS.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "5c1e92d9-d243-49a8-89eb-dd59a214408c",
+    "chunk_index": 11,
+    "text": "This includes developing both the backend and frontend components of the application and integrating them together to create a seamless user experience. Code Quality and Testing: Responsible for maintaining high code quality and writing automated tests to ensure the application is robust and scalable. Collaboration and Communication: Worked closely with other members of the project team, including designers, product owners, and other developers.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "75762082-0562-4694-9b6a-26a81bb519ca",
+    "chunk_index": 12,
+    "text": "Deployment and Maintenance: Responsible for deploying the application to production and ensuring it is running smoothly. Continual Learning and Improvement: Continually learning and improving skills in Ruby on Rails and ReactJS. PROJECT #2 Client : Henry Schein (HSI). Project Title : HSI-GEP. Duration : Apr-2023 to till now. Company : VRIZE Inc. Bangalore.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "44e921ec-e736-4471-a041-71410942aa82",
+    "chunk_index": 13,
+    "text": "Tools and technology used :Core Java, Selenium Project Description: - An Order Management System is an E-commerce application that tracks sales, orders, inventory, and fulfillment as well as enables the people, processes, and partnerships necessary for products to find their way to the customers who bought them. Roles and Responsibilities  Collected the client Requirements and implemented the code according to requirements. Written model and persistence classes.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "b9cdd72c-f634-4971-8268-d37158fd9948",
+    "chunk_index": 14,
+    "text": "Scripting the UI Test Cases as per the User Story requirement. Creating Page objecting model for particular cases. Scripting the API Test Cases as per the User Story Requirement.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_Vz7zb"
+  },
+  {
+    "id": "1a2d3930-b6d3-453f-bccf-41104c1a66ae",
+    "chunk_index": 0,
+    "text": "Krishan Bisht krishanbisht23@gmail.com 9916455696 Professional Summary Enthusiastic and responsible Quality Assurance Specialist with 7 years of expertise in Software Testing and IoT- connected devices and other domains. Highly skilled in testing and raising quality standards. Looking to work in a creative and competitive ambiance to boost innovation. Able to function well independently or as part of a team.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "05a26ce2-2c38-4d2d-b987-835f9e81ef32",
+    "chunk_index": 1,
+    "text": "Skills   In Functional Testing, Automation Testing with Java   Appium, Regression, Sanity, GUI, IntegrationTesting, Firmware, and IoT Product Testing   Mobile, Web & Mobile Application Testing with Flutter applications. API Testing using Postman   Automation Testing using Test Project or Katalon tool and Selenium in Eclipse. Exposure on Cypress, POM, CI/CD and Rest Assured. Experience in understanding Customer Requirements and deriving Test Scenarios.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "d1233796-bf52-4406-88cf-a2c37424b86e",
+    "chunk_index": 2,
+    "text": "Experience in GUI Testing, Functional Testing, Regression Testing, Sanity Testing, and   Playwright, Integration Testing. Good Understanding of the Defect Life Cycle   Good knowledge of Agile Methodology (Scrum, and Sprint)   Intermediate experience in SQL DB and AWS.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "595d2183-7776-42be-82b7-1e0809de65ed",
+    "chunk_index": 3,
+    "text": "Work Experience Celebal Technologies Consultant PET March 2025   April 2025 Source fuse Technologies Senior QA Engineer Aug 2022   June 2024 Fiserv QA Professional Sep2021   Aug 2022 TSYS SDET May 2020   Sep 2021 Infogain Software Engineer Jun 2017 - May 2020 Senior QA Engineer Aug 2022   June 2024   Tested the Web applications on different browsers with Selenium using Java. Tested the Mobile application on both Android and IOS devices using Appium.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "0746b342-e307-40f7-aa29-74556d4be32d",
+    "chunk_index": 4,
+    "text": "Using Cypress Performed testing and executed test cases accordingly. Logging defects using the bug management tool JIRA   Worked closely with the Developers and Project Managers to get updates and resolve defects. Testedthe Application in different stages from QA, Staging and Production. Involved extensively in doing System Testing and Regression Testing. Involved in daily scrum meetings and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "01db264f-42d8-47d1-9fb5-57aa49c27e70",
+    "chunk_index": 5,
+    "text": "Involved in creating Release notes at the end of the sprint QA Professional Sep 2021  Aug 2022   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers. Verify the PIs and execute test cases using Java Selenium. Log defects in Jira with appropriate priority & severity and link them with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "dc673e43-eced-4e11-afe6-cf6106705e79",
+    "chunk_index": 6,
+    "text": "Expertise in developing and implementing test frameworks, inluding BBD framwork like cucumber   Test the Application in different stages: QA, UAT, and Production. Involvedin SanityTesting, Regression Testing,and UAT Testing with Selenium using C#. Performed Performance testing and API Testing of various APIs. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "dd33f457-d0a9-4c4d-9134-de7bb5256cda",
+    "chunk_index": 7,
+    "text": "Automation Testing | Functional Testing | API Testing | Database Testing | Manual Testing SDET May 2020   Sep 2021   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link it with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "3ec979d7-4c17-4b2f-aaa4-00b7b726fd32",
+    "chunk_index": 8,
+    "text": "PI Closure activity - if all the S1 and S2 bugs are closed and Test cases are executed   Tested the Application in different stages: QA, UAT, and Production. Involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "bc99d117-817c-402f-bd0d-7c098016531c",
+    "chunk_index": 9,
+    "text": "Software Engineer Jun 2017 - May 2020   Played a key role in the E-commerce website i.e., HP   Worked on an Eclipse tool IDE with Selenium   Involved in requirements for Framework activities. Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link them with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "afa5daff-46cf-4338-987a-76b0ab8a5d8b",
+    "chunk_index": 10,
+    "text": "Tested the Application in different stages: QA and UAT. They were involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. Worked on Samsung Chat Bot Application Projects 1. Pentair - Commercial and Residential Water Solutions Duration: Aug 22 - Present Technologies Used : TestProject Tool, Katalon, Rest Assured.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "965a6fae-bf71-499a-bc91-8d61eb18a482",
+    "chunk_index": 11,
+    "text": "Role: Senior Engineer -QA Description: Pentair is a product -based company that offers innovative, environmentally friendly solutions that enable its clients to make the most of life's basic resources. They provide smart, IoT -based products for commercial and residential use that can be remotely controlled and monitored by electronic devices using cutting - edge technology.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "bb67ea62-269a-4460-a772-38a7a2ea89e6",
+    "chunk_index": 12,
+    "text": "Responsibilities :   Played a key role in new product development, creating innovative solutions for the IoT Product industry   the mobile and Web apps. Involved in requirement discussions and PI grooming sessions   Created test cases in Zephyr as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers. Verify the PIs and execute test cases.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "582e36e2-8fd4-443b-a9d3-b1ea941ab44f",
+    "chunk_index": 13,
+    "text": "Log defects in Jira with appropriate priority & severity and link them with the test case. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. 2.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "ca2292e3-255a-4bdf-9361-6ec229258907",
+    "chunk_index": 14,
+    "text": "Westpac (Australian Banking App) Duration: Sep 2021 - Aug 2022 Tech Stack: Jira tool, Simulator Role: QA Professional Description: Played a key role in banking domain product development, creating innovative solutions for the banking domain industry Responsibilities :   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "d32438f9-e409-461d-bbc3-8f547b87133f",
+    "chunk_index": 15,
+    "text": "Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link it with the test case. 3.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "8701811e-7242-4665-b5e7-9cd781fc5e68",
+    "chunk_index": 16,
+    "text": "Global Payments Duration: May 2020 - Sep 2021 Tech Stack: Jira tool, Mobile simulator Role: SDET Description: Played a key role in Global payments product development, creating innovative solutions for the banking domain industry Responsibilities :   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "9e2c04ad-5aef-4a3f-a320-ec789836d0eb",
+    "chunk_index": 17,
+    "text": "Log defects in Jira with appropriate priority & severity and link them with the test case. PI Closureactivity - ifall the S1 and S2 bugs are closed andTest casesare executed   Test the Application in different stages: QA, UAT, and Production. Involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. 4.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "b5ac8e1e-0f41-4b28-87d4-5f7ff1f0a7a4",
+    "chunk_index": 18,
+    "text": "HP, Samsung Duration: Jun 2017 - May 2020 Tech Stack: Eclipse tool, Test Management Role: Software Engineer Description: It is an E-Commerce project in which we have created the test cases in the Eclipse IDE Responsibilities :   Played a key role in the E-commerce website i.e., HP   Worked on an Eclipse tool IDE with Selenium   Involved in requirements for Framework activities. Created test cases in Jira as per the requirements and updated them whenever required.",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "14970765-60dc-4899-a684-b2bceefc1aa5",
+    "chunk_index": 19,
+    "text": "Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link them with the test case. Tested the Application in different stages: QA and UAT. They were involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. Worked on Samsung Chat Bot Application Education MCA (Information Technology) - 2016",
+    "source_file": "Krishan_Updated_Resume.pdf_OehPg"
+  },
+  {
+    "id": "ddc6cd86-dd37-41da-828e-342795870bd3",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3.pdf_W1qOW"
+  },
+  {
+    "id": "84c63f60-6ed4-417d-83bc-a74bbf30af73",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3.pdf_W1qOW"
+  },
+  {
+    "id": "5d69b485-4c04-4bba-9557-3228b5514122",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3.pdf_W1qOW"
+  },
+  {
+    "id": "7fd12220-8bd8-4d2f-84ff-ed33af2eaa6b",
+    "chunk_index": 0,
+    "text": "Shubham Nandgude Software Test Engineer Email: shubhamnandgude@gmail.com Anchanto Services Pvt. Ltd Contact : +91 8390104695 CAREER OBJECTIVE: To get an opportunity where I can make the best of my potential and contribute to the organizations growth where I can use my knowledge of software testing, technical skills like Manual Testing Using Functional, Non -Functional, Sanity, Smoke, Retesting, Regression, API Testing, Database Testing, OOPS Concept, Automati on Testing using Selenium and Java.",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "c9e90f6d-d1d8-4bf3-9cba-e306c9b6551e",
+    "chunk_index": 1,
+    "text": "PROFESSIONAL SYNOPSIS:   Software Test Engineer with 3+ Years of experience in Software Testing, proficient in testing on Web Applications using Java with Selenium WebDriver . Strong in SDLC, STLC, Proficiency in Agile Sprint . Hands on Experience of different types of testing like Sanity , GUI, Functional Testing , Re-Testing, Regression Testing, Globalization Testing and Database Testing , Browser Compatibility Testing .",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "b4ff7c1c-9b9d-47f7-9b9e-1feda1be4956",
+    "chunk_index": 2,
+    "text": "Hands on experience of handling I frames , Mouse hover actions , Popups and List Box using Action Class    Experience in Build Management Tool which is Maven for the Data Driven Framework . Automated all Functional and Regression scenarios using Selenium WebDriver. Knowledge of CURD & API Testing using POSTMAN tool. Experience in Creating Mock Test data for System Testing, UAT, and regression testing . Hands on with Automation framework design and implementation according to project structure.",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "db7fe562-6aa4-40fe-9390-4a95cc14ad38",
+    "chunk_index": 3,
+    "text": "Involvement in Test Execution , Result Analyzing and defect reporting. Performed Tester activities for Manual as well as Automation testing execute, maintain & enhance the existing new Automation test suite. Strong understanding of Java & OOPS concepts , Arrays , Collection . Create and maintain libraries and object repositories for the Automation Framework . Exposure to terms like Method Overloading and Method Overriding , Inheritance , Abstraction,   Encapsulation and Polymorphism .",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "dbfbcd57-ea46-495f-8c01-f2170c149867",
+    "chunk_index": 4,
+    "text": "Knowledge of Data driven Testing , multiple browser testing and Parallel Test execution using Selenium WebDriver and TestNG .",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "5713fc16-9efd-4012-8c60-b35b54190185",
+    "chunk_index": 5,
+    "text": "Monitored the Entire Life Cycle of Defects , from identification to resolution and closure, and collaborated with Developers to ensure timely fixes and verify the Resolution of Defects     Hands on experience in end to end functional & regression testing of applications, including Requirements Understanding , test case and Scenario Development , test execution, Results Analysis and Sign Off .",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "d5541a74-84fa-4398-b9cf-ceeb1f0f1a63",
+    "chunk_index": 6,
+    "text": "TECHNICAL SKILLS   Operating Systems : Windows 7,8,10,11     Programming / Web Technologies : Core Java    Databases : MYSQL    API Testing : Postman     Project Management Tool : JIRA , MS-Excel    Automation Testing Tool : Selenium     Automation Framework : TestNG, BDD, Cucumber, POM    Manual & Automation Testing  WORK EXPERIENCE Working as Software Test Engineer with Anchanto Services Pvt.Ltd Nov 2021 to Present PROJECTS Project:1 OMS Domain: E-Com Project:2 WMS (Warehouse Management System) Domain: E-Com Testing Approach: Manual & Automation Testing Roles and Responsibilities   Involved in designing Test Scenarios and Test Cases.",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "75b2a206-4ce9-4131-8b18-ea520980e2df",
+    "chunk_index": 7,
+    "text": "Hands on experience on Data Base Testing using MYSQL. Responsible for developing Automation scripts for existing and new test cases. Actively participated in Peer Reviews of Test scenarios and Test scripts   Performing Functional Testing, Regression Testing and Re-Testing . Develop scripts to verify the overall product functionalities. Test and debug various modules of the product. Documenting Test Cases and Collecting Test Data for Functional Testing.",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "6674ccad-b456-41bf-840d-9e22c15aa829",
+    "chunk_index": 8,
+    "text": "Automated all Functional and Regression scenarios using Selenium WebDriver . Identify and report defects within the systems and applications under test. Hands on experience on Comparing UI and API response . Participate in all sprint activities including, daily stand ups, grooming session, planning, requirements gathering, story writing, and solution design sessions. Creating reusable components.",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "57d965f8-88c0-41a8-90ad-d356d1615f4b",
+    "chunk_index": 9,
+    "text": "Creating and enhancing Test Cases (Test Scripts) using Element locators, WebDriver methods , Java programming concepts, and TestNG Annotations . Creating Test Batches, Executing Test Cases and Reporting Defects. Conducted comprehensive reviews of test scripts developed by team members to ensure alignment with project requirements and comprehensive coverage. Tracking Defects , Selecting Test Cases for Regression Testing . Organizing, monitoring defect management process using JIRA .",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "65d2ae1f-3b0e-4b2c-88ce-8239a81c5d84",
+    "chunk_index": 10,
+    "text": "Performed Tester activities for Manual as Well as Automation testing execute, maintain & enhance the existing new Automation Test Suite. Knowledge in end to end functional and regression testing of applications, including Requirements Understanding , test case and Scenario Development , test execution, results analysis and Sign Off.",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "b1a491e1-0522-4728-b0d6-27af0a615526",
+    "chunk_index": 11,
+    "text": "EDUCATIONAL DETAILS: Bachelors of Mechanical Engineering from Savitribai Phule Pune University, CGPA - 9.1 / 10 DECLARATION: I hereby declare that the above information furnished is true to the best of my knowledge and belief. Shubham Nandgude",
+    "source_file": "Shubham_Nandgude_1.pdf_XLXDu"
+  },
+  {
+    "id": "217157b5-6a86-4726-998a-9c91f26a6152",
+    "chunk_index": 0,
+    "text": "Soumyadip Ghosh /envel pesoumya50052@gmail.com  obile-alt(+91) 8609900665 /linkedinsoumyadipghosh0806  7My Portfolio EXPERIENCE iHub-Data . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . NLP Engineer Sept.",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "abaa2c95-05d3-434f-a211-621d6bebf0d0",
+    "chunk_index": 1,
+    "text": "2024 - Present, Hyderabad Defence Agentic AI Application (In Progress) -Developing an agentic AI for defence personnel, support- ingnoisy speech-to-text , auto-emailing, knowledge graph generation , and weather-aware plot search . -Uses LangChain for orchestration, FastAPI for APIs, a custom MCP for modular task execution, and a domain- specific sentiment analyzer . -Denoised speech is embedded and stored in a FAISS Vector DB; real-time QA powered by RAG architecture .",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "5c8e1b27-4f0f-4308-ae25-97eb3260c26d",
+    "chunk_index": 2,
+    "text": "-Backend is built with Docker , deployed using Kubernetes onAWS with IAM , and scalable ASG . -Supports multi-agent workflows ,live GIS feeds and Post- greSQL for structured logs. Domain-Specific Sanskrit Tamil MT (Ongoing) -Handled data preprocessing and fine-tuned MT models on highly domain-specific parallel corpora. -Achieved 38% BLEU with LLaMA 3.2 and 35% BLEU with IndicTrans2 ; building custom MT model from scratch is ongoing.",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "ab940468-8ca3-48da-9646-2f532009e49f",
+    "chunk_index": 3,
+    "text": "-Created complete UI and backend: UI with React , APIs with FastAPI . -Managed data versioning with DVC , and setup for CI/CD and scalable deployment using AWS cloud services . -Deployed on AWS using Auto Scaling Groups (ASG) for load balancing and Docker for containerization. WEBEL (Department of IT & E, Govt.",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "7a67b692-28e5-4bfd-b303-bf60321a38da",
+    "chunk_index": 4,
+    "text": "of West Bengal) Machine Learning Engineer Feb 2024 - Jul 2024, Hybrid Color-Wise Vehicle Detection & Extraction from CCTV Footage -Developed a model to extract vehicles of a specified color from extensive CCTV footage, helping Kolkata Police in crime investigations. -Utilized HSV color matching for color detection and YOLO V8for object detection, with ByteTrack for object tracking.",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "09e2239c-9609-4fc3-be28-72f2feaa50e2",
+    "chunk_index": 5,
+    "text": "-Reduced manpower and time for Kolkata Police by 68.39% , providing timestamps and clipped videos for quicker iden- tification. KMC Water Logging -Built a waterlogging detection system using YOLO V9 and OpenCV to calculate water height based on yellow reference marks painted by KMC. -Implemented computer vision techniques to detect coor- dinates and calculate the Euclidean distance, determining water height using pixel ratio and proportion, given the yellow mark height of 3 ft.",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "12479556-535b-4537-b5f4-4769ac0978cb",
+    "chunk_index": 6,
+    "text": "-Achieved 94.86% accuracy in water detection and 92.90% accuracy in detecting yellow marks, improving drainage speed by 43.61% while reducing manpower.PROJECTS Video-to-Audio Generation (Multimodal, Multilingual)Ongoing Building a multilingual multimodal model to generate au- dio from silent videos using visual and audio encoders. -Designed a multilingual architecture with Vi- sion Transformer as video encoder and Whisper s encoder-only module for audio representation.",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "4095da2e-2cbf-4b06-beea-0665ddf4f249",
+    "chunk_index": 7,
+    "text": "-Developing a custom decoder to fuse video and au- dio embeddings , generating speech across multiple languages. -Generates realistic audio from silent videos by align- ing temporal visual cues with multilingual speech patterns. PDF Query Retrieval-Augmented Gener- ation (RAG) (View)Aug. 2024 Developed an AI-powered system for querying and re- trieving information from multiple uploaded PDFs using natural language processing.",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "2ca4c570-a7ae-473c-9e9e-dfd74c0775b8",
+    "chunk_index": 8,
+    "text": "-Integrated Google Gemini (gemini-pro) as the large language model with Langchain for managing model interactions and GoogleGenerativeAIEm- beddings and similarity search for retrieval. -Implemented FAISS for efficient similarity search , facilitating precise extraction of relevant document content.",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "ab85e839-60e5-4264-865f-570a4153d944",
+    "chunk_index": 9,
+    "text": "-Built a user-friendly interface with Streamlit for uploading, querying, and displaying PDFs SKILLS Languages Python, JavaScript, C Tools Ollama, Hugging Face, FairSeq, DeepSpeed, BS4, AWS, GRAFANA, MLFLOW, CI/CD, W%B, Data Science EDA, Feature Engineering ML/DL ANN, CNN, Transformer Models, PyTorch, TensorFlow, Keras, NumPy, Scikit-Learn, Matplotlib, Transformers Frameworks Langchain, Streamlit, Flask, React, React Native, PyQT, OpenUI EDUCATION Rani Rashmoni Green University (State University)WB, India MSc in Computer Science (Gold Medalist) (2024) CGPA: 9.27 AKPC Mahavidyalaya (Burdwan University)WB, India Bachelor of Science - Physics (2022) CGPA: 9.20",
+    "source_file": "Soumyadip_CV_def.pdf_an5yM"
+  },
+  {
+    "id": "7e0a41ed-2e8e-4282-836d-6d0491c860a6",
+    "chunk_index": 0,
+    "text": "Anshul Shrivastava Student Looking to start the career as an entry-level software engineer with a reputed  rm driven by technology. Strong with Intuitive problem- solving skills. Pro cient in C++,DSA and SQL. Passionate about implementing and launching new Projects.",
+    "source_file": "Anshuls_Resume_3.pdf_99ZEg"
+  },
+  {
+    "id": "6304de54-811f-4851-ac4a-d8751ca3e7e6",
+    "chunk_index": 1,
+    "text": "ashrivastava3803@gmail.com 7000117525 Indore, India linkedin.com/in/anshul-shrivastava-2bb32820b EDUCATION M.Tech (Information Technology) International Institute of Professional Studies,DAVV,Indore Indore Higher Education SICA, SR,SEC, SCHOOL 07/2016 - 04/2017 , Secured 79% in 12th class Secondary Education SICA, SR,SEC, SCHOOL 07/2014 - 04/2015 , Secured 8.4 cgpa in 10th class PERSONAL PROJECTS Doctor Finder (10/2023) Keeping detailed digital medical records or learning new ways to be healthier with free health tips .",
+    "source_file": "Anshuls_Resume_3.pdf_99ZEg"
+  },
+  {
+    "id": "dc632163-9cc8-4c5d-b69e-e174a962c8b0",
+    "chunk_index": 2,
+    "text": "Booking doctor appointments is the easiest on Doctor Finder. Just select your location, choose a doctor and done! You can also read genuine feedback from patients before booking your appointment. Certi cate Generator(11/2023) a bulk certi cate generator is a tool that allows you to create a large number of certi cates quickly and easily . With just a few clicks, you can generate multiple certi cates at once, saving you time and e ort.",
+    "source_file": "Anshuls_Resume_3.pdf_99ZEg"
+  },
+  {
+    "id": "fd43ea6e-aa0b-4083-b307-b52742b00f88",
+    "chunk_index": 3,
+    "text": "INTERPERSONAL SKILLS LEADER QUALITY PUBLIC SPEAKING Collaborative Attention to Details POSITIVE APTITUDE Team Spirit Time Management Creative Thinker SKILLS Java DBMS SQL SDLC Software Engineering HTML CSS BootStrap OOPS DSA Ms Excel Filmora X Premier Pro CPP DJANGO ACHIEVEMENTS Solved 300+ DSA problems on Leetcode, Interview Bit and GeeksforGeeks, Hackerrank.",
+    "source_file": "Anshuls_Resume_3.pdf_99ZEg"
+  },
+  {
+    "id": "68839f6c-cdf9-489b-93ef-0411fb2971fd",
+    "chunk_index": 4,
+    "text": "Gold Bagde in C++ (HackerRank) Green Olympiad Freelancer : websites & edited youtube videos/Thumbnails CERTIFICATES Sql(Basic) https://www.hackerrank.com/certi cates/0a1 df2a2bf SQL(Intermediate) https://www.hackerrank.com/certi cates/6b3c49f89917 Java https://www.hackerrank.com/certi cates/5e8c25a06af3 Time Management Tips to Boost Your Productivity | CareerAddict IBM https://drive.google.com/ le/d/1v5eHloyYrTUcMMLM0q9OCryoXSwe mkec/view JavaScript https://www.hackerrank.com/certi cates/cc86ab47a158 20+ Certi cates Olympiad/Council Member/Sports/Co-Curriculum LANGUAGES English Professional Working Pro ciency Hindi Full Professional Pro ciency",
+    "source_file": "Anshuls_Resume_3.pdf_99ZEg"
+  },
+  {
+    "id": "327eafcc-7742-4494-8141-c65a43fc285d",
+    "chunk_index": 0,
+    "text": "Ayush Singhania QA Automation & Manual Engineer PH: +91- 8251066753 Email   ayush@vrize.com Personal Email   ayushsinghania120@gmail.com Professional Summary Ayush Singhania, the student of Bachelor of Technology in Computer Science & Engineering under School of Engineering and Research in ITM University, Nava Raipur, Chhattisgarh hereby declare that the work contained in this dissertation report is original and has been done by me under the guidance of my supervisor.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "577108e7-9cea-427f-b87c-700233e5b53e",
+    "chunk_index": 1,
+    "text": "A quick learner in adapting to technology with ease. Good interpersonal & communication skills. Work Experience I have a one year experience in a data analysis position. Worked on calyx point software which was developed in javascript coding . Our work is to analyze the data of the user through that software.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "2747d274-327f-4bd2-a5d6-d54805b63e77",
+    "chunk_index": 2,
+    "text": "Got Certificate for attending the workshop in National Institute of Technology,Raipur (C.G.) Got certificate on Machine learning workshop which was held by Itm University,Raipur Got certificate from Onet insititute for Training in javascript language Got certificate from effcon institute for Training in python language Academic Qualifications B.TECH (CSE) - Institute of technology and management. (Chattisgarh,Raipur).",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "c83a3659-2c02-4ba6-aa4c-54121dcd062e",
+    "chunk_index": 3,
+    "text": "2016 -2020 - 73.85% H.S.C - Sachdeva International School , Raipur CBSE BOARD 2015 -2016 - 55.% S.S.C - Holy Cross Bayron Bazar,Raipur CBSE Board 2013 -2014 - 64.% Technical Skills Language   C,C++,Core JAVA ,Selenium Angular, REST API Database   MYSQl Spring   MVC,Security IDE   Eclipse J2EE Frameworks - Spring Operating System   Windows 07,10 Version Control System - GIT Overview Designed An Application Using Angular8,SpringBoot,MYSQL DB Worked with components ,Services using Angular on the Frontend  Worked with REST API controllers, services , Repository using springBoot on the Backend Worked with JWT Authentication usingspring security Worked on MYSQL Database B.Tech Project: Title: STUDENTS PERFORMANCE VISUALIZATION AND ANALYSIS SYSTEM Student Performance Visualization and Analysis System ( SPVAS ) is an attempt to make the things more smooth as discussed above.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "9d43a2e0-f4fb-4f55-9872-8bd970d69128",
+    "chunk_index": 4,
+    "text": "The whole system is based on data, so data is the most important part of the SPVAS. It actually works as a Management Information System (MIS) where data is entered, processed and analyzed to make the associated working system more effective and easy to handle. Visualization is the next important thing after data processing. It actually works to describe the student data graphically relative to time.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "86fb7830-a672-4dc5-8302-d7607e2394d1",
+    "chunk_index": 5,
+    "text": "And this is what student would gets aware all these visual representations and empirical relations of their performances VRIZE Project: PROJECT #1 Client : Shutterfly. Project Title : SPS Digital Marketplace(spoonflower). Duration : Sept-2022 to Mar-2023. Company : VRIZE Inc. Bangalore. Tools and technology used : Ruby on Rails, ReactJS.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "d9334af5-5a74-462c-8070-de7ad94232c3",
+    "chunk_index": 6,
+    "text": "Project Description: - Spoonflower project was implemented using Ruby on Rails and ReactJS, the project description includes the following components:  Architecture and Technology Stack: The project uses Ruby on Rails as the backend framework to handle server-side logic and database management, while ReactJS used to create the frontend user interface.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "d2798116-960b-4e44-bf4f-1179a87f5b40",
+    "chunk_index": 7,
+    "text": "User Authentication and Authorization: The project includes user authentication and authorization features to ensure that only authorized users can access certain parts of the application. Design Tools and Interface: ReactJS used to create an intuitive and user-friendly interface for the design tools. The interface is designed to be responsive and interactive, allowing users to easily upload and manipulate their designs.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "e84648c1-f987-40c3-ab60-8cee9134da02",
+    "chunk_index": 8,
+    "text": "Integration with Third-party APIs: The project integrated with third-party APIs, such as payment gateways and shipping providers, to handle payment processing and order fulfillment. Testing and Quality Assurance: The project includes comprehensive testing and quality assurance measures to ensure that the application is free from bugs and errors.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "75d6f34e-4bec-4f3e-b759-1e6f60c1617c",
+    "chunk_index": 9,
+    "text": "Deployment and Scaling: The project is designed to be easily deployable to a production environment, and scalable to handle increasing levels of traffic and usage. Continuous Integration and Delivery: The project includes continuous integration and delivery processes to ensure that changes to the application are tested and deployed to the production environment.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "6cfca5e2-e3c8-4035-9a8c-b2bbae7802f3",
+    "chunk_index": 10,
+    "text": "Roles & Responsibilities: -   Understanding Requirements: Understood the project requirements and work closely with the project team to identify the needs and expectations of the application. This includes understanding the business requirements, user needs, and technical requirements. Designing and Developing Features: Responsible for designing and developing features of the application using Ruby on Rails and ReactJS.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "179617c1-79ef-4a38-b1d6-000f2d4c7d21",
+    "chunk_index": 11,
+    "text": "This includes developing both the backend and frontend components of the application and integrating them together to create a seamless user experience. Code Quality and Testing: Responsible for maintaining high code quality and writing automated tests to ensure the application is robust and scalable. Collaboration and Communication: Worked closely with other members of the project team, including designers, product owners, and other developers.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "e806f692-a5b8-4a59-9be5-d735a6e66be3",
+    "chunk_index": 12,
+    "text": "Deployment and Maintenance: Responsible for deploying the application to production and ensuring it is running smoothly. Continual Learning and Improvement: Continually learning and improving skills in Ruby on Rails and ReactJS. PROJECT #2 Client : Henry Schein (HSI). Project Title : HSI-GEP. Duration : Apr-2023 to till now. Company : VRIZE Inc. Bangalore.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "f01caaae-0f8f-4bd3-b278-1f1705981977",
+    "chunk_index": 13,
+    "text": "Tools and technology used :Core Java, Selenium Project Description: - An Order Management System is an E-commerce application that tracks sales, orders, inventory, and fulfillment as well as enables the people, processes, and partnerships necessary for products to find their way to the customers who bought them. Roles and Responsibilities  Collected the client Requirements and implemented the code according to requirements. Written model and persistence classes.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "78a05c0b-c964-420b-ba47-e72c4dde840d",
+    "chunk_index": 14,
+    "text": "Scripting the UI Test Cases as per the User Story requirement. Creating Page objecting model for particular cases. Scripting the API Test Cases as per the User Story Requirement.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_WcBT8"
+  },
+  {
+    "id": "9d2e0d35-8279-4f01-99bf-8af5fc799fca",
+    "chunk_index": 0,
+    "text": "Krishan Bisht krishanbisht23@gmail.com 9916455696 Professional Summary Enthusiastic and responsible Quality Assurance Specialist with 7 years of expertise in Software Testing and IoT- connected devices and other domains. Highly skilled in testing and raising quality standards. Looking to work in a creative and competitive ambiance to boost innovation. Able to function well independently or as part of a team.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "6576990a-5d3c-4282-b61e-3d9c85f5ad21",
+    "chunk_index": 1,
+    "text": "Skills   In Functional Testing, Automation Testing with Java   Appium, Regression, Sanity, GUI, IntegrationTesting, Firmware, and IoT Product Testing   Mobile, Web & Mobile Application Testing with Flutter applications. API Testing using Postman   Automation Testing using Test Project or Katalon tool and Selenium in Eclipse. Exposure on Cypress, POM, CI/CD and Rest Assured. Experience in understanding Customer Requirements and deriving Test Scenarios.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "9e152f15-4586-42ad-9c67-0d4ccac0fbe7",
+    "chunk_index": 2,
+    "text": "Experience in GUI Testing, Functional Testing, Regression Testing, Sanity Testing, and   Playwright, Integration Testing. Good Understanding of the Defect Life Cycle   Good knowledge of Agile Methodology (Scrum, and Sprint)   Intermediate experience in SQL DB and AWS.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "f06b4938-2e4b-4d4d-8aac-25e12e070959",
+    "chunk_index": 3,
+    "text": "Work Experience Celebal Technologies Consultant PET March 2025   April 2025 Source fuse Technologies Senior QA Engineer Aug 2022   June 2024 Fiserv QA Professional Sep2021   Aug 2022 TSYS SDET May 2020   Sep 2021 Infogain Software Engineer Jun 2017 - May 2020 Senior QA Engineer Aug 2022   June 2024   Tested the Web applications on different browsers with Selenium using Java. Tested the Mobile application on both Android and IOS devices using Appium.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "9af728f8-24a9-4640-b4d0-772c9c31d41d",
+    "chunk_index": 4,
+    "text": "Using Cypress Performed testing and executed test cases accordingly. Logging defects using the bug management tool JIRA   Worked closely with the Developers and Project Managers to get updates and resolve defects. Testedthe Application in different stages from QA, Staging and Production. Involved extensively in doing System Testing and Regression Testing. Involved in daily scrum meetings and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "f137783d-85ed-433f-9839-cc884ddc8d89",
+    "chunk_index": 5,
+    "text": "Involved in creating Release notes at the end of the sprint QA Professional Sep 2021  Aug 2022   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers. Verify the PIs and execute test cases using Java Selenium. Log defects in Jira with appropriate priority & severity and link them with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "2a6dd3d6-a221-41bb-a14f-e5a1ba673697",
+    "chunk_index": 6,
+    "text": "Expertise in developing and implementing test frameworks, inluding BBD framwork like cucumber   Test the Application in different stages: QA, UAT, and Production. Involvedin SanityTesting, Regression Testing,and UAT Testing with Selenium using C#. Performed Performance testing and API Testing of various APIs. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "0dc69220-36fe-4b8f-ace0-530ce45c44bb",
+    "chunk_index": 7,
+    "text": "Automation Testing | Functional Testing | API Testing | Database Testing | Manual Testing SDET May 2020   Sep 2021   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link it with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "41f41430-0388-4988-8c76-1d2b2eebe802",
+    "chunk_index": 8,
+    "text": "PI Closure activity - if all the S1 and S2 bugs are closed and Test cases are executed   Tested the Application in different stages: QA, UAT, and Production. Involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "03022aaf-f2f9-49f6-8e53-c170f982593b",
+    "chunk_index": 9,
+    "text": "Software Engineer Jun 2017 - May 2020   Played a key role in the E-commerce website i.e., HP   Worked on an Eclipse tool IDE with Selenium   Involved in requirements for Framework activities. Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link them with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "cad28aa1-b545-4d12-a4f7-989f4057ce02",
+    "chunk_index": 10,
+    "text": "Tested the Application in different stages: QA and UAT. They were involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. Worked on Samsung Chat Bot Application Projects 1. Pentair - Commercial and Residential Water Solutions Duration: Aug 22 - Present Technologies Used : TestProject Tool, Katalon, Rest Assured.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "582558f8-412a-4ac7-add0-e8d1cedfdf18",
+    "chunk_index": 11,
+    "text": "Role: Senior Engineer -QA Description: Pentair is a product -based company that offers innovative, environmentally friendly solutions that enable its clients to make the most of life's basic resources. They provide smart, IoT -based products for commercial and residential use that can be remotely controlled and monitored by electronic devices using cutting - edge technology.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "fe522c08-810f-4015-807a-be09ea7eabe7",
+    "chunk_index": 12,
+    "text": "Responsibilities :   Played a key role in new product development, creating innovative solutions for the IoT Product industry   the mobile and Web apps. Involved in requirement discussions and PI grooming sessions   Created test cases in Zephyr as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers. Verify the PIs and execute test cases.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "273f9aa8-5349-4ad1-ba0b-8ac70b3e5480",
+    "chunk_index": 13,
+    "text": "Log defects in Jira with appropriate priority & severity and link them with the test case. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. 2.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "b809a4ba-8a06-4156-8126-be51bbd4d9db",
+    "chunk_index": 14,
+    "text": "Westpac (Australian Banking App) Duration: Sep 2021 - Aug 2022 Tech Stack: Jira tool, Simulator Role: QA Professional Description: Played a key role in banking domain product development, creating innovative solutions for the banking domain industry Responsibilities :   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "540274e7-2a21-4908-8c14-eb37b641c630",
+    "chunk_index": 15,
+    "text": "Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link it with the test case. 3.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "a064ede5-50cf-43bd-93c3-662804f9f02a",
+    "chunk_index": 16,
+    "text": "Global Payments Duration: May 2020 - Sep 2021 Tech Stack: Jira tool, Mobile simulator Role: SDET Description: Played a key role in Global payments product development, creating innovative solutions for the banking domain industry Responsibilities :   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "880c870e-114e-46af-8be0-e32388387d05",
+    "chunk_index": 17,
+    "text": "Log defects in Jira with appropriate priority & severity and link them with the test case. PI Closureactivity - ifall the S1 and S2 bugs are closed andTest casesare executed   Test the Application in different stages: QA, UAT, and Production. Involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. 4.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "976464c1-1b3d-4103-9178-e3f4e76994b2",
+    "chunk_index": 18,
+    "text": "HP, Samsung Duration: Jun 2017 - May 2020 Tech Stack: Eclipse tool, Test Management Role: Software Engineer Description: It is an E-Commerce project in which we have created the test cases in the Eclipse IDE Responsibilities :   Played a key role in the E-commerce website i.e., HP   Worked on an Eclipse tool IDE with Selenium   Involved in requirements for Framework activities. Created test cases in Jira as per the requirements and updated them whenever required.",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "77fb164e-a141-4420-bda4-931c84f417c1",
+    "chunk_index": 19,
+    "text": "Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link them with the test case. Tested the Application in different stages: QA and UAT. They were involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. Worked on Samsung Chat Bot Application Education MCA (Information Technology) - 2016",
+    "source_file": "Krishan_Updated_Resume.pdf_FuZLo"
+  },
+  {
+    "id": "075afd84-8b14-4ee0-bc79-69db992e9851",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3.pdf_wXlZU"
+  },
+  {
+    "id": "6b1f71dd-d06c-4b61-a20e-e9570b0b552c",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3.pdf_wXlZU"
+  },
+  {
+    "id": "4e8a8023-017b-4b24-a565-eb0204a80289",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3.pdf_wXlZU"
+  },
+  {
+    "id": "96b8d11c-06b4-41e8-84b2-eec56cd13ec9",
+    "chunk_index": 0,
+    "text": "Shubham Nandgude Software Test Engineer Email: shubhamnandgude@gmail.com Anchanto Services Pvt. Ltd Contact : +91 8390104695 CAREER OBJECTIVE: To get an opportunity where I can make the best of my potential and contribute to the organizations growth where I can use my knowledge of software testing, technical skills like Manual Testing Using Functional, Non -Functional, Sanity, Smoke, Retesting, Regression, API Testing, Database Testing, OOPS Concept, Automati on Testing using Selenium and Java.",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "5b49d6c9-2f91-4567-9ae3-184e24d824df",
+    "chunk_index": 1,
+    "text": "PROFESSIONAL SYNOPSIS:   Software Test Engineer with 3+ Years of experience in Software Testing, proficient in testing on Web Applications using Java with Selenium WebDriver . Strong in SDLC, STLC, Proficiency in Agile Sprint . Hands on Experience of different types of testing like Sanity , GUI, Functional Testing , Re-Testing, Regression Testing, Globalization Testing and Database Testing , Browser Compatibility Testing .",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "f81ade38-c212-43c4-90e9-7c16356c4bb2",
+    "chunk_index": 2,
+    "text": "Hands on experience of handling I frames , Mouse hover actions , Popups and List Box using Action Class    Experience in Build Management Tool which is Maven for the Data Driven Framework . Automated all Functional and Regression scenarios using Selenium WebDriver. Knowledge of CURD & API Testing using POSTMAN tool. Experience in Creating Mock Test data for System Testing, UAT, and regression testing . Hands on with Automation framework design and implementation according to project structure.",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "4f4ada1a-ff30-4cf9-9fcf-1f85baffcb2e",
+    "chunk_index": 3,
+    "text": "Involvement in Test Execution , Result Analyzing and defect reporting. Performed Tester activities for Manual as well as Automation testing execute, maintain & enhance the existing new Automation test suite. Strong understanding of Java & OOPS concepts , Arrays , Collection . Create and maintain libraries and object repositories for the Automation Framework . Exposure to terms like Method Overloading and Method Overriding , Inheritance , Abstraction,   Encapsulation and Polymorphism .",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "7eb51270-665c-4904-bc7a-8812c46464d4",
+    "chunk_index": 4,
+    "text": "Knowledge of Data driven Testing , multiple browser testing and Parallel Test execution using Selenium WebDriver and TestNG .",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "1df91622-9ca1-453f-bc6e-05607d541aeb",
+    "chunk_index": 5,
+    "text": "Monitored the Entire Life Cycle of Defects , from identification to resolution and closure, and collaborated with Developers to ensure timely fixes and verify the Resolution of Defects     Hands on experience in end to end functional & regression testing of applications, including Requirements Understanding , test case and Scenario Development , test execution, Results Analysis and Sign Off .",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "730cfaef-738c-45f3-bcbe-3c88dd755318",
+    "chunk_index": 6,
+    "text": "TECHNICAL SKILLS   Operating Systems : Windows 7,8,10,11     Programming / Web Technologies : Core Java    Databases : MYSQL    API Testing : Postman     Project Management Tool : JIRA , MS-Excel    Automation Testing Tool : Selenium     Automation Framework : TestNG, BDD, Cucumber, POM    Manual & Automation Testing  WORK EXPERIENCE Working as Software Test Engineer with Anchanto Services Pvt.Ltd Nov 2021 to Present PROJECTS Project:1 OMS Domain: E-Com Project:2 WMS (Warehouse Management System) Domain: E-Com Testing Approach: Manual & Automation Testing Roles and Responsibilities   Involved in designing Test Scenarios and Test Cases.",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "1534e74f-960f-490d-9234-9be49b3362ba",
+    "chunk_index": 7,
+    "text": "Hands on experience on Data Base Testing using MYSQL. Responsible for developing Automation scripts for existing and new test cases. Actively participated in Peer Reviews of Test scenarios and Test scripts   Performing Functional Testing, Regression Testing and Re-Testing . Develop scripts to verify the overall product functionalities. Test and debug various modules of the product. Documenting Test Cases and Collecting Test Data for Functional Testing.",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "e9fde51b-489a-406e-89d0-eab57b8e8ace",
+    "chunk_index": 8,
+    "text": "Automated all Functional and Regression scenarios using Selenium WebDriver . Identify and report defects within the systems and applications under test. Hands on experience on Comparing UI and API response . Participate in all sprint activities including, daily stand ups, grooming session, planning, requirements gathering, story writing, and solution design sessions. Creating reusable components.",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "46b6244b-6961-4c59-9251-8fe34e961869",
+    "chunk_index": 9,
+    "text": "Creating and enhancing Test Cases (Test Scripts) using Element locators, WebDriver methods , Java programming concepts, and TestNG Annotations . Creating Test Batches, Executing Test Cases and Reporting Defects. Conducted comprehensive reviews of test scripts developed by team members to ensure alignment with project requirements and comprehensive coverage. Tracking Defects , Selecting Test Cases for Regression Testing . Organizing, monitoring defect management process using JIRA .",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "25d78d60-b999-40d0-a28f-7b0fd97c63ce",
+    "chunk_index": 10,
+    "text": "Performed Tester activities for Manual as Well as Automation testing execute, maintain & enhance the existing new Automation Test Suite. Knowledge in end to end functional and regression testing of applications, including Requirements Understanding , test case and Scenario Development , test execution, results analysis and Sign Off.",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "c3a6708e-c5ec-4ba8-ada8-2b073ecfdef4",
+    "chunk_index": 11,
+    "text": "EDUCATIONAL DETAILS: Bachelors of Mechanical Engineering from Savitribai Phule Pune University, CGPA - 9.1 / 10 DECLARATION: I hereby declare that the above information furnished is true to the best of my knowledge and belief. Shubham Nandgude",
+    "source_file": "Shubham_Nandgude_1.pdf_ImJ1E"
+  },
+  {
+    "id": "686f3af7-8eac-412c-94fe-c126ce00918c",
+    "chunk_index": 0,
+    "text": "Anshul Shrivastava Student Looking to start the career as an entry-level software engineer with a reputed  rm driven by technology. Strong with Intuitive problem- solving skills. Pro cient in C++,DSA and SQL. Passionate about implementing and launching new Projects.",
+    "source_file": "Anshuls_Resume_3.pdf_9HB9v"
+  },
+  {
+    "id": "949178d2-080f-4a73-8931-1db93bf0e257",
+    "chunk_index": 1,
+    "text": "ashrivastava3803@gmail.com 7000117525 Indore, India linkedin.com/in/anshul-shrivastava-2bb32820b EDUCATION M.Tech (Information Technology) International Institute of Professional Studies,DAVV,Indore Indore Higher Education SICA, SR,SEC, SCHOOL 07/2016 - 04/2017 , Secured 79% in 12th class Secondary Education SICA, SR,SEC, SCHOOL 07/2014 - 04/2015 , Secured 8.4 cgpa in 10th class PERSONAL PROJECTS Doctor Finder (10/2023) Keeping detailed digital medical records or learning new ways to be healthier with free health tips .",
+    "source_file": "Anshuls_Resume_3.pdf_9HB9v"
+  },
+  {
+    "id": "efd518b4-22b0-4c86-8b1f-0d9858a95bf1",
+    "chunk_index": 2,
+    "text": "Booking doctor appointments is the easiest on Doctor Finder. Just select your location, choose a doctor and done! You can also read genuine feedback from patients before booking your appointment. Certi cate Generator(11/2023) a bulk certi cate generator is a tool that allows you to create a large number of certi cates quickly and easily . With just a few clicks, you can generate multiple certi cates at once, saving you time and e ort.",
+    "source_file": "Anshuls_Resume_3.pdf_9HB9v"
+  },
+  {
+    "id": "5564f85f-ea25-497a-8253-de6b4c13be8c",
+    "chunk_index": 3,
+    "text": "INTERPERSONAL SKILLS LEADER QUALITY PUBLIC SPEAKING Collaborative Attention to Details POSITIVE APTITUDE Team Spirit Time Management Creative Thinker SKILLS Java DBMS SQL SDLC Software Engineering HTML CSS BootStrap OOPS DSA Ms Excel Filmora X Premier Pro CPP DJANGO ACHIEVEMENTS Solved 300+ DSA problems on Leetcode, Interview Bit and GeeksforGeeks, Hackerrank.",
+    "source_file": "Anshuls_Resume_3.pdf_9HB9v"
+  },
+  {
+    "id": "712bcdb0-3186-42c2-8a60-afb1bdb8d673",
+    "chunk_index": 4,
+    "text": "Gold Bagde in C++ (HackerRank) Green Olympiad Freelancer : websites & edited youtube videos/Thumbnails CERTIFICATES Sql(Basic) https://www.hackerrank.com/certi cates/0a1 df2a2bf SQL(Intermediate) https://www.hackerrank.com/certi cates/6b3c49f89917 Java https://www.hackerrank.com/certi cates/5e8c25a06af3 Time Management Tips to Boost Your Productivity | CareerAddict IBM https://drive.google.com/ le/d/1v5eHloyYrTUcMMLM0q9OCryoXSwe mkec/view JavaScript https://www.hackerrank.com/certi cates/cc86ab47a158 20+ Certi cates Olympiad/Council Member/Sports/Co-Curriculum LANGUAGES English Professional Working Pro ciency Hindi Full Professional Pro ciency",
+    "source_file": "Anshuls_Resume_3.pdf_9HB9v"
+  },
+  {
+    "id": "b415145d-3ca4-442c-8436-8a7ccc976e5b",
+    "chunk_index": 0,
+    "text": "Ayush Singhania QA Automation & Manual Engineer PH: +91- 8251066753 Email   ayush@vrize.com Personal Email   ayushsinghania120@gmail.com Professional Summary Ayush Singhania, the student of Bachelor of Technology in Computer Science & Engineering under School of Engineering and Research in ITM University, Nava Raipur, Chhattisgarh hereby declare that the work contained in this dissertation report is original and has been done by me under the guidance of my supervisor.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "ca1fcc4a-e1b7-42bc-922b-29aa898c2dd2",
+    "chunk_index": 1,
+    "text": "A quick learner in adapting to technology with ease. Good interpersonal & communication skills. Work Experience I have a one year experience in a data analysis position. Worked on calyx point software which was developed in javascript coding . Our work is to analyze the data of the user through that software.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "4cdfa204-94fc-4fb9-a9b7-3eeb82ba5fb1",
+    "chunk_index": 2,
+    "text": "Got Certificate for attending the workshop in National Institute of Technology,Raipur (C.G.) Got certificate on Machine learning workshop which was held by Itm University,Raipur Got certificate from Onet insititute for Training in javascript language Got certificate from effcon institute for Training in python language Academic Qualifications B.TECH (CSE) - Institute of technology and management. (Chattisgarh,Raipur).",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "007e67d5-8956-4d7b-a41f-a9dc2a56bd18",
+    "chunk_index": 3,
+    "text": "2016 -2020 - 73.85% H.S.C - Sachdeva International School , Raipur CBSE BOARD 2015 -2016 - 55.% S.S.C - Holy Cross Bayron Bazar,Raipur CBSE Board 2013 -2014 - 64.% Technical Skills Language   C,C++,Core JAVA ,Selenium Angular, REST API Database   MYSQl Spring   MVC,Security IDE   Eclipse J2EE Frameworks - Spring Operating System   Windows 07,10 Version Control System - GIT Overview Designed An Application Using Angular8,SpringBoot,MYSQL DB Worked with components ,Services using Angular on the Frontend  Worked with REST API controllers, services , Repository using springBoot on the Backend Worked with JWT Authentication usingspring security Worked on MYSQL Database B.Tech Project: Title: STUDENTS PERFORMANCE VISUALIZATION AND ANALYSIS SYSTEM Student Performance Visualization and Analysis System ( SPVAS ) is an attempt to make the things more smooth as discussed above.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "0f22ee33-0311-47c0-8543-61e390e636b4",
+    "chunk_index": 4,
+    "text": "The whole system is based on data, so data is the most important part of the SPVAS. It actually works as a Management Information System (MIS) where data is entered, processed and analyzed to make the associated working system more effective and easy to handle. Visualization is the next important thing after data processing. It actually works to describe the student data graphically relative to time.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "067f7892-beae-49e3-9fa3-aa9ba2b4f1ff",
+    "chunk_index": 5,
+    "text": "And this is what student would gets aware all these visual representations and empirical relations of their performances VRIZE Project: PROJECT #1 Client : Shutterfly. Project Title : SPS Digital Marketplace(spoonflower). Duration : Sept-2022 to Mar-2023. Company : VRIZE Inc. Bangalore. Tools and technology used : Ruby on Rails, ReactJS.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "a0da031f-333f-446b-841b-1bf6a6dcdac5",
+    "chunk_index": 6,
+    "text": "Project Description: - Spoonflower project was implemented using Ruby on Rails and ReactJS, the project description includes the following components:  Architecture and Technology Stack: The project uses Ruby on Rails as the backend framework to handle server-side logic and database management, while ReactJS used to create the frontend user interface.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "ba600766-8af4-4b41-a153-5fb98d0a86d9",
+    "chunk_index": 7,
+    "text": "User Authentication and Authorization: The project includes user authentication and authorization features to ensure that only authorized users can access certain parts of the application. Design Tools and Interface: ReactJS used to create an intuitive and user-friendly interface for the design tools. The interface is designed to be responsive and interactive, allowing users to easily upload and manipulate their designs.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "f204eadc-a5ac-49ce-a8ba-d0f0a4f8279b",
+    "chunk_index": 8,
+    "text": "Integration with Third-party APIs: The project integrated with third-party APIs, such as payment gateways and shipping providers, to handle payment processing and order fulfillment. Testing and Quality Assurance: The project includes comprehensive testing and quality assurance measures to ensure that the application is free from bugs and errors.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "d45c2cc9-1983-4f86-b441-bf339452f16b",
+    "chunk_index": 9,
+    "text": "Deployment and Scaling: The project is designed to be easily deployable to a production environment, and scalable to handle increasing levels of traffic and usage. Continuous Integration and Delivery: The project includes continuous integration and delivery processes to ensure that changes to the application are tested and deployed to the production environment.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "0b84d262-5998-44c0-bacc-5e691d77e510",
+    "chunk_index": 10,
+    "text": "Roles & Responsibilities: -   Understanding Requirements: Understood the project requirements and work closely with the project team to identify the needs and expectations of the application. This includes understanding the business requirements, user needs, and technical requirements. Designing and Developing Features: Responsible for designing and developing features of the application using Ruby on Rails and ReactJS.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "4e0261a2-9ee3-4096-8d5a-fa0591f75359",
+    "chunk_index": 11,
+    "text": "This includes developing both the backend and frontend components of the application and integrating them together to create a seamless user experience. Code Quality and Testing: Responsible for maintaining high code quality and writing automated tests to ensure the application is robust and scalable. Collaboration and Communication: Worked closely with other members of the project team, including designers, product owners, and other developers.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "f29dbb5b-cbdc-48dc-ae4d-d113b8c3eb96",
+    "chunk_index": 12,
+    "text": "Deployment and Maintenance: Responsible for deploying the application to production and ensuring it is running smoothly. Continual Learning and Improvement: Continually learning and improving skills in Ruby on Rails and ReactJS. PROJECT #2 Client : Henry Schein (HSI). Project Title : HSI-GEP. Duration : Apr-2023 to till now. Company : VRIZE Inc. Bangalore.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "bc4c603c-0667-4374-a478-2b713864ce07",
+    "chunk_index": 13,
+    "text": "Tools and technology used :Core Java, Selenium Project Description: - An Order Management System is an E-commerce application that tracks sales, orders, inventory, and fulfillment as well as enables the people, processes, and partnerships necessary for products to find their way to the customers who bought them. Roles and Responsibilities  Collected the client Requirements and implemented the code according to requirements. Written model and persistence classes.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "0da30804-173f-48e6-802f-f3ac5560ee16",
+    "chunk_index": 14,
+    "text": "Scripting the UI Test Cases as per the User Story requirement. Creating Page objecting model for particular cases. Scripting the API Test Cases as per the User Story Requirement.",
+    "source_file": "CV_-_Ayush_Singhania_1-1.pdf_wLec0"
+  },
+  {
+    "id": "c086748c-bd6c-4cc6-9f7b-5e2ec0138f94",
+    "chunk_index": 0,
+    "text": "Krishan Bisht krishanbisht23@gmail.com 9916455696 Professional Summary Enthusiastic and responsible Quality Assurance Specialist with 7 years of expertise in Software Testing and IoT- connected devices and other domains. Highly skilled in testing and raising quality standards. Looking to work in a creative and competitive ambiance to boost innovation. Able to function well independently or as part of a team.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "d65738e4-e03c-42d3-aa98-ae4ea7bb780d",
+    "chunk_index": 1,
+    "text": "Skills   In Functional Testing, Automation Testing with Java   Appium, Regression, Sanity, GUI, IntegrationTesting, Firmware, and IoT Product Testing   Mobile, Web & Mobile Application Testing with Flutter applications. API Testing using Postman   Automation Testing using Test Project or Katalon tool and Selenium in Eclipse. Exposure on Cypress, POM, CI/CD and Rest Assured. Experience in understanding Customer Requirements and deriving Test Scenarios.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "e2d16f73-1795-48a7-b69b-eb8b7881bbde",
+    "chunk_index": 2,
+    "text": "Experience in GUI Testing, Functional Testing, Regression Testing, Sanity Testing, and   Playwright, Integration Testing. Good Understanding of the Defect Life Cycle   Good knowledge of Agile Methodology (Scrum, and Sprint)   Intermediate experience in SQL DB and AWS.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "c2c16f3d-a9b5-4b17-b704-ff049ff556cb",
+    "chunk_index": 3,
+    "text": "Work Experience Celebal Technologies Consultant PET March 2025   April 2025 Source fuse Technologies Senior QA Engineer Aug 2022   June 2024 Fiserv QA Professional Sep2021   Aug 2022 TSYS SDET May 2020   Sep 2021 Infogain Software Engineer Jun 2017 - May 2020 Senior QA Engineer Aug 2022   June 2024   Tested the Web applications on different browsers with Selenium using Java. Tested the Mobile application on both Android and IOS devices using Appium.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "e2ab6838-56a2-464c-a640-09f27d14878b",
+    "chunk_index": 4,
+    "text": "Using Cypress Performed testing and executed test cases accordingly. Logging defects using the bug management tool JIRA   Worked closely with the Developers and Project Managers to get updates and resolve defects. Testedthe Application in different stages from QA, Staging and Production. Involved extensively in doing System Testing and Regression Testing. Involved in daily scrum meetings and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "5c6efebe-59e6-407a-b460-e383fd51ae43",
+    "chunk_index": 5,
+    "text": "Involved in creating Release notes at the end of the sprint QA Professional Sep 2021  Aug 2022   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers. Verify the PIs and execute test cases using Java Selenium. Log defects in Jira with appropriate priority & severity and link them with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "ca397664-b2be-423e-b25f-7216d48a1381",
+    "chunk_index": 6,
+    "text": "Expertise in developing and implementing test frameworks, inluding BBD framwork like cucumber   Test the Application in different stages: QA, UAT, and Production. Involvedin SanityTesting, Regression Testing,and UAT Testing with Selenium using C#. Performed Performance testing and API Testing of various APIs. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "52017ad0-9e7e-4639-9191-a42ea9eaa7ce",
+    "chunk_index": 7,
+    "text": "Automation Testing | Functional Testing | API Testing | Database Testing | Manual Testing SDET May 2020   Sep 2021   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link it with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "b45f703a-fde4-4ae3-a78a-7bc7728a5f6b",
+    "chunk_index": 8,
+    "text": "PI Closure activity - if all the S1 and S2 bugs are closed and Test cases are executed   Tested the Application in different stages: QA, UAT, and Production. Involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "2fdc5c6f-e00d-4b99-9c2e-fe1792d0412f",
+    "chunk_index": 9,
+    "text": "Software Engineer Jun 2017 - May 2020   Played a key role in the E-commerce website i.e., HP   Worked on an Eclipse tool IDE with Selenium   Involved in requirements for Framework activities. Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link them with the test case.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "3a6c6098-4ee3-4083-8acd-b39a19009b3b",
+    "chunk_index": 10,
+    "text": "Tested the Application in different stages: QA and UAT. They were involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. Worked on Samsung Chat Bot Application Projects 1. Pentair - Commercial and Residential Water Solutions Duration: Aug 22 - Present Technologies Used : TestProject Tool, Katalon, Rest Assured.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "33f6413f-baf7-4583-81ef-d58e55bd301a",
+    "chunk_index": 11,
+    "text": "Role: Senior Engineer -QA Description: Pentair is a product -based company that offers innovative, environmentally friendly solutions that enable its clients to make the most of life's basic resources. They provide smart, IoT -based products for commercial and residential use that can be remotely controlled and monitored by electronic devices using cutting - edge technology.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "55bdf8ad-3387-4bc9-972e-59493873a970",
+    "chunk_index": 12,
+    "text": "Responsibilities :   Played a key role in new product development, creating innovative solutions for the IoT Product industry   the mobile and Web apps. Involved in requirement discussions and PI grooming sessions   Created test cases in Zephyr as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers. Verify the PIs and execute test cases.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "3b480174-2562-4191-aa18-d9fc7e54ed7c",
+    "chunk_index": 13,
+    "text": "Log defects in Jira with appropriate priority & severity and link them with the test case. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. 2.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "0bc64456-2001-4327-8717-013c0361aa26",
+    "chunk_index": 14,
+    "text": "Westpac (Australian Banking App) Duration: Sep 2021 - Aug 2022 Tech Stack: Jira tool, Simulator Role: QA Professional Description: Played a key role in banking domain product development, creating innovative solutions for the banking domain industry Responsibilities :   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Android, iOS, and various cross -browsers.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "dd21a3e3-2845-4961-bfe0-678158381913",
+    "chunk_index": 15,
+    "text": "Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link it with the test case. 3.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "802f8a18-c22e-470f-90b4-9c94718e1d9e",
+    "chunk_index": 16,
+    "text": "Global Payments Duration: May 2020 - Sep 2021 Tech Stack: Jira tool, Mobile simulator Role: SDET Description: Played a key role in Global payments product development, creating innovative solutions for the banking domain industry Responsibilities :   Involved in requirement discussions and PI grooming sessions   Created test cases in Jira as per the requirements and updated them whenever required. Mobile and Web testing on various Simulators. Verify the PIs and execute test cases.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "2e6bd3fd-dfe0-481d-b4bc-96e7de95a6d1",
+    "chunk_index": 17,
+    "text": "Log defects in Jira with appropriate priority & severity and link them with the test case. PI Closureactivity - ifall the S1 and S2 bugs are closed andTest casesare executed   Test the Application in different stages: QA, UAT, and Production. Involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. 4.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "7e1a0231-e994-42e9-896a-a291f40e0fd9",
+    "chunk_index": 18,
+    "text": "HP, Samsung Duration: Jun 2017 - May 2020 Tech Stack: Eclipse tool, Test Management Role: Software Engineer Description: It is an E-Commerce project in which we have created the test cases in the Eclipse IDE Responsibilities :   Played a key role in the E-commerce website i.e., HP   Worked on an Eclipse tool IDE with Selenium   Involved in requirements for Framework activities. Created test cases in Jira as per the requirements and updated them whenever required.",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "14764bfa-cb02-4d53-90a9-05fac355ddef",
+    "chunk_index": 19,
+    "text": "Mobile and Web testing on various Simulators. Verify the PIs and execute test cases. Log defects in Jira with appropriate priority & severity and link them with the test case. Tested the Application in different stages: QA and UAT. They were involved in Sanity Testing, Regression Testing, and UAT Testing. Involved in daily scrum meetings, collaboration, and retrospectives at the end of the sprint. Worked on Samsung Chat Bot Application Education MCA (Information Technology) - 2016",
+    "source_file": "Krishan_Updated_Resume.pdf_dBYCZ"
+  },
+  {
+    "id": "79cf9979-c394-4bca-9e34-6f966cc55908",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3.pdf_jaRkE"
+  },
+  {
+    "id": "809f5340-5e0a-41cb-8ec5-f45a0c66ed0a",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3.pdf_jaRkE"
+  },
+  {
+    "id": "19e6c28f-b672-458f-9310-abb04fe1e571",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3.pdf_jaRkE"
+  },
+  {
+    "id": "c7e83427-8949-4315-a147-20d7c4d06c8b",
+    "chunk_index": 0,
+    "text": "Shubham Nandgude Software Test Engineer Email: shubhamnandgude@gmail.com Anchanto Services Pvt. Ltd Contact : +91 8390104695 CAREER OBJECTIVE: To get an opportunity where I can make the best of my potential and contribute to the organizations growth where I can use my knowledge of software testing, technical skills like Manual Testing Using Functional, Non -Functional, Sanity, Smoke, Retesting, Regression, API Testing, Database Testing, OOPS Concept, Automati on Testing using Selenium and Java.",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "8117b165-5606-4408-820c-5da3c8ad5d47",
+    "chunk_index": 1,
+    "text": "PROFESSIONAL SYNOPSIS:   Software Test Engineer with 3+ Years of experience in Software Testing, proficient in testing on Web Applications using Java with Selenium WebDriver . Strong in SDLC, STLC, Proficiency in Agile Sprint . Hands on Experience of different types of testing like Sanity , GUI, Functional Testing , Re-Testing, Regression Testing, Globalization Testing and Database Testing , Browser Compatibility Testing .",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "96455e7a-2652-470d-aad6-ef0a37ca2c7b",
+    "chunk_index": 2,
+    "text": "Hands on experience of handling I frames , Mouse hover actions , Popups and List Box using Action Class    Experience in Build Management Tool which is Maven for the Data Driven Framework . Automated all Functional and Regression scenarios using Selenium WebDriver. Knowledge of CURD & API Testing using POSTMAN tool. Experience in Creating Mock Test data for System Testing, UAT, and regression testing . Hands on with Automation framework design and implementation according to project structure.",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "069b2037-12a6-4fca-b419-3356b7bb1d81",
+    "chunk_index": 3,
+    "text": "Involvement in Test Execution , Result Analyzing and defect reporting. Performed Tester activities for Manual as well as Automation testing execute, maintain & enhance the existing new Automation test suite. Strong understanding of Java & OOPS concepts , Arrays , Collection . Create and maintain libraries and object repositories for the Automation Framework . Exposure to terms like Method Overloading and Method Overriding , Inheritance , Abstraction,   Encapsulation and Polymorphism .",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "fe3f8f56-be93-43ed-a4a7-b5dd415858d7",
+    "chunk_index": 4,
+    "text": "Knowledge of Data driven Testing , multiple browser testing and Parallel Test execution using Selenium WebDriver and TestNG .",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "329eaf0c-cd58-4d04-8d6a-32618745bf3c",
+    "chunk_index": 5,
+    "text": "Monitored the Entire Life Cycle of Defects , from identification to resolution and closure, and collaborated with Developers to ensure timely fixes and verify the Resolution of Defects     Hands on experience in end to end functional & regression testing of applications, including Requirements Understanding , test case and Scenario Development , test execution, Results Analysis and Sign Off .",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "68dcd19e-d71d-49af-957c-3566b50b6677",
+    "chunk_index": 6,
+    "text": "TECHNICAL SKILLS   Operating Systems : Windows 7,8,10,11     Programming / Web Technologies : Core Java    Databases : MYSQL    API Testing : Postman     Project Management Tool : JIRA , MS-Excel    Automation Testing Tool : Selenium     Automation Framework : TestNG, BDD, Cucumber, POM    Manual & Automation Testing  WORK EXPERIENCE Working as Software Test Engineer with Anchanto Services Pvt.Ltd Nov 2021 to Present PROJECTS Project:1 OMS Domain: E-Com Project:2 WMS (Warehouse Management System) Domain: E-Com Testing Approach: Manual & Automation Testing Roles and Responsibilities   Involved in designing Test Scenarios and Test Cases.",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "50a9fc17-7766-4225-af6e-1f8a81b68fb3",
+    "chunk_index": 7,
+    "text": "Hands on experience on Data Base Testing using MYSQL. Responsible for developing Automation scripts for existing and new test cases. Actively participated in Peer Reviews of Test scenarios and Test scripts   Performing Functional Testing, Regression Testing and Re-Testing . Develop scripts to verify the overall product functionalities. Test and debug various modules of the product. Documenting Test Cases and Collecting Test Data for Functional Testing.",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "814f33f1-3ce2-4983-a815-bd555ad1d0ce",
+    "chunk_index": 8,
+    "text": "Automated all Functional and Regression scenarios using Selenium WebDriver . Identify and report defects within the systems and applications under test. Hands on experience on Comparing UI and API response . Participate in all sprint activities including, daily stand ups, grooming session, planning, requirements gathering, story writing, and solution design sessions. Creating reusable components.",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "964f4d81-e3aa-4471-a185-7540856442a5",
+    "chunk_index": 9,
+    "text": "Creating and enhancing Test Cases (Test Scripts) using Element locators, WebDriver methods , Java programming concepts, and TestNG Annotations . Creating Test Batches, Executing Test Cases and Reporting Defects. Conducted comprehensive reviews of test scripts developed by team members to ensure alignment with project requirements and comprehensive coverage. Tracking Defects , Selecting Test Cases for Regression Testing . Organizing, monitoring defect management process using JIRA .",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "0849ced2-ccc3-466d-b0d7-11a8f9da24bb",
+    "chunk_index": 10,
+    "text": "Performed Tester activities for Manual as Well as Automation testing execute, maintain & enhance the existing new Automation Test Suite. Knowledge in end to end functional and regression testing of applications, including Requirements Understanding , test case and Scenario Development , test execution, results analysis and Sign Off.",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "88037198-90db-4b6f-bd00-65fd3f1f5f7a",
+    "chunk_index": 11,
+    "text": "EDUCATIONAL DETAILS: Bachelors of Mechanical Engineering from Savitribai Phule Pune University, CGPA - 9.1 / 10 DECLARATION: I hereby declare that the above information furnished is true to the best of my knowledge and belief. Shubham Nandgude",
+    "source_file": "Shubham_Nandgude_1.pdf_BoUj6"
+  },
+  {
+    "id": "d4c6fa1c-a269-4300-b0bb-62633f2db080",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3-1.pdf_IaTr1"
+  },
+  {
+    "id": "83391a54-1d86-4629-85f6-de5cf54a3763",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3-1.pdf_IaTr1"
+  },
+  {
+    "id": "2b478c12-a373-4a34-86e4-437f79e27477",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3-1.pdf_IaTr1"
+  },
+  {
+    "id": "575b269c-1f2e-4f02-a86a-f62165768916",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3-2.pdf_J0SnS"
+  },
+  {
+    "id": "e0a3be73-ca83-4005-bd77-8b0fdca48f86",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3-2.pdf_J0SnS"
+  },
+  {
+    "id": "fab4eb26-b140-4bc6-9d59-020f6b4a6ea0",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3-2.pdf_J0SnS"
+  },
+  {
+    "id": "995b12fe-4237-44d7-9b27-080c546aa4f1",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3-3.pdf_KKtrw"
+  },
+  {
+    "id": "c753c5a0-1cef-4b09-bdfc-d893650d5a5b",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3-3.pdf_KKtrw"
+  },
+  {
+    "id": "f71f3570-7c0b-49ea-984a-7739ad34a831",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3-3.pdf_KKtrw"
+  },
+  {
+    "id": "ab316286-696d-4f00-a732-7c36f0580d07",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3.pdf_JVLwK"
+  },
+  {
+    "id": "53d9553f-6fab-41bb-83cc-0e0ff1847041",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3.pdf_JVLwK"
+  },
+  {
+    "id": "d0d40f09-4eff-493c-a819-6c5f9a288c76",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3.pdf_JVLwK"
+  },
+  {
+    "id": "364feb17-9b89-41f5-a313-f6a7878727ac",
+    "chunk_index": 0,
+    "text": "RAHUL KESHRI FULL STACK ENGINEER | MERN | AWS | DOCKER | K8s Full Stack Software Engineer with 2 years of experience building scalable web apps using the MERN stack, Docker, and AWS. Passionate about crafting clean UI and robust backend APIs, experienced with cloud deployments, CI/CD, and working in agile DevOps environments. Hands-on with AI-integrated developer tools like Cursor and Windsurf.",
+    "source_file": "RAHUL_KESHRI_SDE.pdf_xXSvi"
+  },
+  {
+    "id": "98007752-48d4-460d-a205-593b192b2f73",
+    "chunk_index": 1,
+    "text": "rkeshri2021@gmail.com +91 934033427 Raipur, India linkedin.com/in/softrahul github.com/soft-rahul leetcode.com/u/soft_rahul/ WORK EXPERIENCE SDE I Magure Inc Pvt Ltd 11/2024 - Present , Spearheaded the entire frontend development of an in- house AI-powered video analytics product used for real- time surveillance and safety. Integrated multiple AI models (face detection,  re detection, fall detection, people count, crowd estimation) to visualize live inferences.",
+    "source_file": "RAHUL_KESHRI_SDE.pdf_xXSvi"
+  },
+  {
+    "id": "30527bd1-cfdc-4548-be3e-f7deed77fb6c",
+    "chunk_index": 2,
+    "text": "Implemented WebSocket-based streaming to display real- time video feeds with dynamic stats and alerts . Built a video masking feature for zone marking, passing metadata to backend for intelligent analysis. Containerized frontend with Docker , and deployed using AWS EC2 , S3 , and CloudFront for scalability. Collaborated cross-functionally with backend and DevOps to ensure secure, high-performance deployment.",
+    "source_file": "RAHUL_KESHRI_SDE.pdf_xXSvi"
+  },
+  {
+    "id": "1135b5ff-81db-47fb-8946-0cf6bc5e4900",
+    "chunk_index": 3,
+    "text": "Associate Software Engineer VRIZE 08/2023 - 11/2024 , Developed RESTful APIs using Node.js and NestJS , enhancing backend performance and scalability Implemented  le upload functionality using AWS S3 for secure cloud storage Built authentication and authorization systems to improve application security Set up CI/CD pipelines and wrote Docker con gurations for automated deployments and DB migrations Created reusable backend components , improving code e ciency and maintainability Collaborated with DevOps teams to automate deployments and ensure smooth product releases EDUCATION Bachelor of Computer Application Ambikapur 07/2019 - 07/2022 , Completed a comprehensive course of study in computer science, programming, and software development.",
+    "source_file": "RAHUL_KESHRI_SDE.pdf_xXSvi"
+  },
+  {
+    "id": "116fff6c-9350-4a5e-8b84-8d6e052f51ff",
+    "chunk_index": 4,
+    "text": "Developed strong programming skills in languages such as Java, C, and C++, among others. SKILLS LLM Powered Code Editors - Cursor , Windsurf AI Tools - Claude Node.js PostgresDB MongoDB AWS Docker Git Postman React Typescript RESTApis GraphQL Javascript Redux HTML CSS Java Spring DSA CSS Problem Solving Communication PERSONAL PROJECTS V-Enjoy: Net ix Clone Full-Stack Web App: Features comprehensive CRUD operations and multipage Single Page Application (SPA) for dynamic content management.",
+    "source_file": "RAHUL_KESHRI_SDE.pdf_xXSvi"
+  },
+  {
+    "id": "7b20e76c-c69a-40dd-82c6-c6050e3909ec",
+    "chunk_index": 5,
+    "text": "Type Safety: Utilizes TypeScript to ensure reliable and error-free code. Frontend: Built with React and Apollo for a responsive and interactive user interface. Backend: Uses Hasura (BaaS) with GraphQL for e cient data handling and real-time queries. Tech Stack: React, Apollo, Hasura, GraphQL, TypeScript. Link: V-Enjoy Express Guestbook Guestbook Application: Allows users to leave and view comments, providing a basic interactive feature set.",
+    "source_file": "RAHUL_KESHRI_SDE.pdf_xXSvi"
+  },
+  {
+    "id": "f14c3009-b174-4f5b-b536-0006085dfdde",
+    "chunk_index": 6,
+    "text": "Templating Engine: Utilizes EJS for dynamic HTML rendering and templating. Backend: Built with Node.js and Express for handling server-side logic and routing. Scalable Foundation: Serves as a starting point for developing more complex web applications with Node.js and Express. Tech Stack: Node.js, Express, EJS.",
+    "source_file": "RAHUL_KESHRI_SDE.pdf_xXSvi"
+  },
+  {
+    "id": "45878f82-cb37-4ba1-a210-69619b41edc5",
+    "chunk_index": 7,
+    "text": "Link: Express Guestbook CERTIFICATES Full Stack Development using React Certi cate LANGUAGES Hindi Full Professional Pro ciency English Full Professional Pro ciency Achievements Achievements Courses",
+    "source_file": "RAHUL_KESHRI_SDE.pdf_xXSvi"
+  },
+  {
+    "id": "949f174e-d312-4d61-8294-e702692d5823",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3-2.pdf_gmO1h"
+  },
+  {
+    "id": "7345a41a-e002-45d0-88ae-7ef45c2fb0ec",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3-2.pdf_gmO1h"
+  },
+  {
+    "id": "cd732f32-5fd9-4278-bb00-08010fc59245",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3-2.pdf_gmO1h"
+  },
+  {
+    "id": "277eed57-8b0f-48ee-a332-e381fb8d4cf4",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3-3.pdf_27Nvv"
+  },
+  {
+    "id": "bfca2edf-d227-47d4-a3cf-a67c797043b7",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3-3.pdf_27Nvv"
+  },
+  {
+    "id": "7834e044-58e2-4751-abc5-7a3b3abedeb1",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3-3.pdf_27Nvv"
+  },
+  {
+    "id": "049b15a3-029f-4c2f-9e97-123d517f9463",
+    "chunk_index": 0,
+    "text": "Revanth Mohan UI\\UX Designer Bangalore (+91) 7019919878 revanthr30@gmail.com UI/UX Portfolio Link PROFILE Passionate and detail-oriented UI/UX Designer with over 5 years of experience crafting engaging, user-friendly digital experiences.",
+    "source_file": "Revanth_Resume-3.pdf_twOLP"
+  },
+  {
+    "id": "16f055a2-3dfe-45eb-b885-97d8d9070038",
+    "chunk_index": 1,
+    "text": "Skilled in user research, wireframing, prototyping, and designing intuitive interfaces EXPERIENCE IIFA MULTIMEDIA, Bengaluru   UI/UX DESIGNER July 2024 - PRESENT Adbuffs, Rem ote   Sr Graphic Designer July 2023 - June 2024 INFOSYS BPM LIMITED, Bengaluru   TALENT ACQUISITION December 2022 - July 2023 IBM, Bengaluru   TALENT ACQUISITION SUPPORT SPECIALIST January 2022 - September 2022 Sound ID, Bengaluru   Jr Graphic Designer January 2020 - December 2021 EDUCATION Kalinga University, Raipur   Bachelor of anim ation and VFX 2017 - 2020 Arena Animation Jayanagar, Bengaluru   Diplom a 2014 - 2017 Tamil Nadu Board of secondary education, Tam il Nadu   PUC 2012 - 2014 PROJECTS daily.dev   Dashbord SKILLS Figma Adobe XD HTML & CSS Adobe Photoshop CERTIFICATION UI/UX Design Professional Certi cate Provider: RSD Institute of Technology (Bangalor e)   Duration: 6 months   Why it's great: Covers design thinking, wireframing, prototyping (Figma/Adobe XD), and user resear ch with a beginner-friendly appr oach.",
+    "source_file": "Revanth_Resume-3.pdf_twOLP"
+  },
+  {
+    "id": "39b35cee-496a-42c1-ac8a-f98d33755b12",
+    "chunk_index": 2,
+    "text": "LANGUAGES English, Hindi, Kannada",
+    "source_file": "Revanth_Resume-3.pdf_twOLP"
+  }
+]

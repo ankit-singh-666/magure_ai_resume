@@ -1,22 +1,27 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, jsonify
-from dotenv import load_dotenv
 import os
 from werkzeug.utils import secure_filename
 import uuid
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
 from utils.cv_processing import process_and_store_embeddings, delete_cv_data
 from utils.retriever import retrieve_similar_chunks
 from utils.llm import build_prompt, query_with_together_sdk
 import random
 import string
+from flask_cors import CORS
+
 
 
 TOGETHER_API_KEY = "a22438751c3e28169bf6e875f7556b0e0f5c78c061d0789c80061dba6700b32b"
 
 # ───── Flask Setup ─────
 app = Flask(__name__)
+
+CORS(app)
+#Uncomment line below to use specific origin
+#CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
+
 app.secret_key = 'axxiom'
 
 # ───── Upload Folder ─────
