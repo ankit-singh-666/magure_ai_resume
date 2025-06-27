@@ -108,7 +108,7 @@ def upload_cv():
             if file and allowed_file(file.filename):
                 random_suffix = generate_unique_id()
                 original_filename = secure_filename(file.filename)
-                unique_filename = f"{original_filename}_{random_suffix}"  # Optional: add timestamp or UUID
+                unique_filename = f"{random_suffix}_{original_filename}"  # Optional: add timestamp or UUID
                 # Optional: add timestamp or UUID
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
 
