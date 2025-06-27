@@ -1,0 +1,4 @@
+*.db
+venv/
+vector_store/
+uploaded_cvs/
