@@ -1,35 +1,706 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{% block title %}Flask App{% endblock %}</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{{ url_for('index') }}">TalentMaster AI</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('index') }}">Search CVs</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('upload_cv') }}">Upload CVs</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('cvs') }}">View CVs</a>
-            </li>
-        </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Magure.AI Resume{% endblock %}</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='images/mag_ai_small_logo.png') }}"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        --secondary-gradient: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+        --accent-gradient: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+        --light-bg: #f8fafc;
+        --surface-bg: #ffffff;
+        --card-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+        --hover-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --text-muted: #94a3b8;
+        --border-color: #e2e8f0;
+        --border-light: #f1f5f9;
+        --primary-color: #0d9488;
+        --primary-hover: #0f766e;
+        --success-color: #059669;
+        --warning-color: #d97706;
+        --danger-color: #dc2626;
+      }
+
+      * {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      body {
+        background: var(--light-bg);
+        color: var(--text-primary);
+        line-height: 1.6;
+      }
+
+      .navbar {
+        background: var(--primary-gradient) !important;
+        box-shadow: var(--card-shadow);
+        padding: 1rem 0;
+        border: none;
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: white !important;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+        padding: 0.25rem 0;
+      }
+
+      .navbar-brand:hover {
+        color: #f1f5f9 !important;
+        transform: translateY(-1px);
+      }
+
+      .navbar-logo {
+        height: 45px;
+        width: auto;
+        max-width: 200px;
+        transition: all 0.3s ease;
+        filter: brightness(1.1) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        object-fit: contain;
+      }
+
+      .navbar-brand:hover .navbar-logo {
+        filter: brightness(1.2) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+        transform: scale(1.03);
+      }
+
+      .secondary-logo {
+        height: 24px;
+        width: auto;
+        margin-right: 8px;
+        transition: all 0.3s ease;
+        opacity: 0.9;
+      }
+
+      .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 0.75rem 1.25rem !important;
+        margin: 0 0.25rem;
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navbar-nav .nav-link:hover {
+        color: white !important;
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-1px);
+      }
+
+      .navbar-nav .nav-link.active {
+        background: rgba(13, 148, 136, 0.2);
+        color: white !important;
+      }
+
+      .navbar-toggler {
+        border: none;
+        padding: 0.25rem 0.5rem;
+      }
+
+      .navbar-toggler:focus {
+        box-shadow: none;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      .container {
+        max-width: 1200px;
+      }
+
+      .main-container {
+        background: var(--surface-bg);
+        border-radius: 24px;
+        box-shadow: var(--card-shadow);
+        padding: 2.5rem;
+        margin-top: 2rem;
+        border: 1px solid var(--border-light);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .main-container::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--secondary-gradient);
+        border-radius: 24px 24px 0 0;
+      }
+
+      .main-container:hover {
+        box-shadow: var(--hover-shadow);
+        transform: translateY(-2px);
+      }
+
+      .btn-primary {
+        background: var(--secondary-gradient);
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(13, 148, 136, 0.25);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(13, 148, 136, 0.35);
+        background: linear-gradient(135deg, #0f766e 0%, #134e4a 100%);
+      }
+
+      .btn-outline-primary {
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+        border-radius: 12px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-primary:hover {
+        background: var(--secondary-gradient);
+        border-color: transparent;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(13, 148, 136, 0.35);
+      }
+
+      .alert {
+        border: none;
+        border-radius: 16px;
+        padding: 1rem 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .alert-success {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        color: var(--success-color);
+        border-left: 4px solid var(--success-color);
+      }
+
+      .alert-danger {
+        background: linear-gradient(135deg, #fef2f2 0%, #fecaca 100%);
+        color: var(--danger-color);
+        border-left: 4px solid var(--danger-color);
+      }
+
+      @media (max-width: 768px) {
+        .navbar-brand {
+          font-size: 1.25rem;
+        }
+
+        .main-container {
+          margin: 1rem;
+          padding: 1.5rem;
+        }
+      }
+
+      /* Loading animation */
+      .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Premium card styling for content blocks */
+      .premium-card {
+        background: var(--surface-bg);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: var(--card-shadow);
+        border: 1px solid var(--border-light);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .premium-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--accent-gradient);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .premium-card:hover {
+        box-shadow: var(--hover-shadow);
+        transform: translateY(-3px);
+      }
+
+      .premium-card:hover::before {
+        opacity: 1;
+      }
+
+      /* Brand accent elements */
+      .brand-accent {
+        background: var(--secondary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 600;
+      }
+
+      .brand-divider {
+        height: 2px;
+        background: var(--secondary-gradient);
+        border: none;
+        border-radius: 2px;
+        margin: 1.5rem 0;
+        opacity: 0.8;
+      }
+
+      /* Modal Styles */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(30, 41, 59, 0.4);
+        backdrop-filter: blur(8px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .modal-container {
+        background: var(--surface-bg);
+        border-radius: 24px;
+        box-shadow: 0 25px 50px rgba(30, 41, 59, 0.15);
+        max-width: 500px;
+        width: 90%;
+        max-height: 80vh;
+        overflow-y: auto;
+        transform: scale(0.7) translateY(50px);
+        transition: all 0.3s ease;
+        position: relative;
+        border: 1px solid var(--border-light);
+      }
+
+      .modal-overlay.active .modal-container {
+        transform: scale(1) translateY(0);
+      }
+
+      .modal-header {
+        padding: 2rem 2rem 1rem;
+        border-bottom: 1px solid var(--border-color);
+        text-align: center;
+        position: relative;
+      }
+
+      .modal-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .modal-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0;
+        color: var(--text-primary);
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-muted);
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-close:hover {
+        background: var(--light-bg);
+        color: var(--text-primary);
+      }
+
+      .modal-body {
+        padding: 1rem 2rem 2rem;
+        text-align: center;
+      }
+
+      .modal-message {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .modal-btn {
+        border: none;
+        border-radius: 12px;
+        padding: 0.75rem 1.5rem;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-width: 100px;
+      }
+
+      .modal-btn-primary {
+        background: var(--secondary-gradient);
+        color: white;
+        box-shadow: 0 4px 15px rgba(13, 148, 136, 0.25);
+      }
+
+      .modal-btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(13, 148, 136, 0.35);
+      }
+
+      .modal-btn-secondary {
+        background: var(--light-bg);
+        color: var(--text-secondary);
+        border: 1px solid var(--border-color);
+      }
+
+      .modal-btn-secondary:hover {
+        background: var(--border-light);
+        transform: translateY(-1px);
+      }
+
+      .modal-btn-danger {
+        background: linear-gradient(45deg, #dc2626, #b91c1c);
+        color: white;
+        box-shadow: 0 4px 15px rgba(220, 38, 38, 0.25);
+      }
+
+      .modal-btn-danger:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(220, 38, 38, 0.35);
+      }
+
+      .modal-btn-success {
+        background: linear-gradient(45deg, #059669, #047857);
+        color: white;
+        box-shadow: 0 4px 15px rgba(5, 150, 105, 0.25);
+      }
+
+      .modal-btn-success:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(5, 150, 105, 0.35);
+      }
+
+      /* Modal Type Specific Styles */
+      .modal-error .modal-header {
+        background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        color: var(--danger-color);
+        border-radius: 24px 24px 0 0;
+        border-bottom: 1px solid #fecaca;
+      }
+
+      .modal-success .modal-header {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        color: var(--success-color);
+        border-radius: 24px 24px 0 0;
+        border-bottom: 1px solid #86efac;
+      }
+
+      .modal-warning .modal-header {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        color: var(--warning-color);
+        border-radius: 24px 24px 0 0;
+        border-bottom: 1px solid #fcd34d;
+      }
+
+      .modal-info .modal-header {
+        background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+        color: #2563eb;
+        border-radius: 24px 24px 0 0;
+        border-bottom: 1px solid #93c5fd;
+      }
+
+      .modal-confirm .modal-header {
+        background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+        color: #0891b2;
+        border-radius: 24px 24px 0 0;
+        border-bottom: 1px solid #67e8f9;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 576px) {
+        .modal-container {
+          width: 95%;
+          margin: 1rem;
+        }
+
+        .modal-header {
+          padding: 1.5rem 1.5rem 1rem;
+        }
+
+        .modal-body {
+          padding: 1rem 1.5rem 1.5rem;
+        }
+
+        .modal-actions {
+          flex-direction: column;
+        }
+
+        .modal-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Global Modal -->
+    <div id="globalModal" class="modal-overlay">
+      <div class="modal-container">
+        <div class="modal-header">
+          <button class="modal-close" onclick="closeGlobalModal()">
+            &times;
+          </button>
+          <span class="modal-icon" id="globalModalIcon">🔔</span>
+          <h3 class="modal-title" id="globalModalTitle">Alert</h3>
+        </div>
+        <div class="modal-body">
+          <p class="modal-message" id="globalModalMessage">
+            This is a modal message.
+          </p>
+          <div class="modal-actions" id="globalModalActions">
+            <button
+              class="modal-btn modal-btn-primary"
+              onclick="closeGlobalModal()"
+            >
+              OK
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+          <img
+            src="{{ url_for('static', filename='images/mag_ai_small_logo.png') }}"
+            alt="Magure.AI"
+            class="navbar-logo"
+          />
+          <span class="brand-name">Magure.AI</span>
+          
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('index') }}">
+                <i class="fas fa-search me-2"></i>Search Resumes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('upload_cv') }}">
+                <i class="fas fa-cloud-upload-alt me-2"></i>Upload Resumes
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('cvs') }}">
+                <i class="fas fa-file-alt me-2"></i>View Resumes
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-  <div class="container mt-4">
-    {% block content %}{% endblock %}
-  </div>
-</body>
+    <div class="container">
+      <div class="main-container">{% block content %}{% endblock %}</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // Global Modal System
+      class GlobalModalManager {
+        constructor() {
+          this.modal = document.getElementById("globalModal");
+          this.modalIcon = document.getElementById("globalModalIcon");
+          this.modalTitle = document.getElementById("globalModalTitle");
+          this.modalMessage = document.getElementById("globalModalMessage");
+          this.modalActions = document.getElementById("globalModalActions");
+          this.setupEventListeners();
+        }
+
+        setupEventListeners() {
+          // Close modal when clicking outside
+          this.modal.addEventListener("click", (e) => {
+            if (e.target === this.modal) {
+              this.close();
+            }
+          });
+
+          // Close modal on escape key
+          document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && this.modal.classList.contains("active")) {
+              this.close();
+            }
+          });
+        }
+
+        show(type, title, message, actions = null) {
+          // Reset modal classes
+          this.modal.className = "modal-overlay";
+
+          // Add type-specific class
+          this.modal.classList.add(`modal-${type}`);
+
+          // Set icon based on type
+          const icons = {
+            error: "❌",
+            success: "✅",
+            warning: "⚠️",
+            info: "ℹ️",
+            confirm: "❓",
+          };
+
+          this.modalIcon.textContent = icons[type] || "🔔";
+          this.modalTitle.textContent = title;
+          this.modalMessage.innerHTML = message;
+
+          // Set up actions
+          if (actions && Array.isArray(actions)) {
+            this.modalActions.innerHTML = actions
+              .map(
+                (action) =>
+                  `<button class="modal-btn ${
+                    action.class || "modal-btn-primary"
+                  }" 
+                       onclick="${action.onClick || "closeGlobalModal()"}">${
+                    action.text
+                  }</button>`
+              )
+              .join("");
+          } else {
+            this.modalActions.innerHTML =
+              '<button class="modal-btn modal-btn-primary" onclick="closeGlobalModal()">OK</button>';
+          }
+
+          // Show modal
+          this.modal.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        close() {
+          this.modal.classList.remove("active");
+          document.body.style.overflow = "";
+        }
+
+        // Convenience methods for different alert types
+        error(title, message, actions = null) {
+          this.show("error", title, message, actions);
+        }
+
+        success(title, message, actions = null) {
+          this.show("success", title, message, actions);
+        }
+
+        warning(title, message, actions = null) {
+          this.show("warning", title, message, actions);
+        }
+
+        info(title, message, actions = null) {
+          this.show("info", title, message, actions);
+        }
+
+        confirm(title, message, actions = null) {
+          this.show("confirm", title, message, actions);
+        }
+      }
+
+      // Initialize global modal manager
+      const globalModal = new GlobalModalManager();
+
+      // Global function to close modal (for onclick handlers)
+      function closeGlobalModal() {
+        globalModal.close();
+      }
+    </script>
+  </body>
 </html>
