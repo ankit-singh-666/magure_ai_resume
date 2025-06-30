@@ -1,4 +1,4 @@
-from flask import Flask, request, send_from_directory, jsonify
+from flask import Flask, request, send_from_directory, jsonify, Blueprint
 import os
 from werkzeug.utils import secure_filename
 import uuid
@@ -52,13 +52,14 @@ def allowed_file(filename):
 def generate_unique_id(length=5):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
-# ───── Routes ─────
+# ───── API Blueprint ─────
+api = Blueprint('api', __name__)
 
-@app.route("/", methods=["GET"])
+@api.route("/", methods=["GET"])
 def index():
     return jsonify({"message": "Welcome to the Resume Analyzer API"}), 200
 
-@app.route("/search_api", methods=["POST"])
+@api.route("/search_api", methods=["POST"])
 def search_api():
     data = request.get_json()
     query = data.get("query")
@@ -74,7 +75,7 @@ def search_api():
         "answer": answer
     }), 200
 
-@app.route('/upload_cv', methods=['POST'])
+@api.route('/upload_cv', methods=['POST'])
 def upload_cv():
     files = request.files.getlist('cv')
     if not files or files == [None]:
@@ -111,16 +112,16 @@ def upload_cv():
         "errors": errors
     }), 200
 
-@app.route('/uploads/<filename>', methods=['GET'])
+@api.route('/uploads/<filename>', methods=['GET'])
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
-@app.route('/cvs', methods=['GET'])
+@api.route('/cvs', methods=['GET'])
 def get_cvs():
     uploads = UploadedCV.query.order_by(UploadedCV.upload_time.desc()).all()
     return jsonify([upload.as_dict() for upload in uploads]), 200
 
-@app.route('/download/<int:cv_id>', methods=['GET'])
+@api.route('/download/<int:cv_id>', methods=['GET'])
 def download(cv_id):
     cv = UploadedCV.query.get_or_404(cv_id)
     return send_from_directory(
@@ -130,7 +131,7 @@ def download(cv_id):
         download_name=cv.original_filename
     )
 
-@app.route('/delete/<int:cv_id>', methods=['DELETE'])
+@api.route('/delete/<int:cv_id>', methods=['DELETE'])
 def delete(cv_id):
     cv = UploadedCV.query.get_or_404(cv_id)
     try:
@@ -144,6 +145,8 @@ def delete(cv_id):
 
     return jsonify({"message": f"Deleted '{cv.original_filename}'."}), 200
 
+# ───── Register Blueprint & Run ─────
+app.register_blueprint(api, url_prefix='/api')
 
 if __name__ == '__main__':
     with app.app_context():
