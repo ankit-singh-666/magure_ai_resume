@@ -16,7 +16,7 @@ app = Flask(__name__)
 CORS(app)
 app.secret_key = 'axxiom'
 
-UPLOAD_FOLDER = 'uploaded_cvs'
+UPLOAD_FOLDER = os.path.join(basedir, 'uploaded_cvs')
 ALLOWED_EXTENSIONS = {'pdf'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 if not os.path.exists(UPLOAD_FOLDER):
