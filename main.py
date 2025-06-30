@@ -10,10 +10,18 @@ from utils.llm import build_prompt, query_with_together_sdk
 import random
 import string
 from flask_cors import CORS
+import logging
+import traceback
+
 
 # ───── Flask Setup ─────
 app = Flask(__name__)
 CORS(app)
+
+#--logs---
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
 app.secret_key = 'axxiom'
 basedir = os.path.abspath(os.path.dirname(__file__))
 UPLOAD_FOLDER = os.path.join(basedir, 'uploaded_cvs')
@@ -77,40 +85,48 @@ def search_api():
 
 @api.route('/upload_cv', methods=['POST'])
 def upload_cv():
-    files = request.files.getlist('cv')
-    if not files or files == [None]:
-        return jsonify({"error": "No files selected."}), 400
+    try:
+        files = request.files.getlist('cv')
+        if not files or files == [None]:
+            return jsonify({"error": "No files selected."}), 400
 
-    uploaded_files = []
-    errors = []
+        uploaded_files = []
+        errors = []
 
-    for file in files:
-        if file and allowed_file(file.filename):
-            random_suffix = generate_unique_id()
-            original_filename = secure_filename(file.filename)
-            unique_filename = f"{random_suffix}_{original_filename}"
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+        for file in files:
+            if file and allowed_file(file.filename):
+                random_suffix = generate_unique_id()
+                original_filename = secure_filename(file.filename)
+                unique_filename = f"{random_suffix}_{original_filename}"
+                filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
 
-            file.save(filepath)
+                file.save(filepath)
 
-            uploaded = UploadedCV(
-                original_filename=original_filename,
-                stored_filename=unique_filename,
-                filepath=filepath
-            )
-            db.session.add(uploaded)
-            db.session.commit()
+                uploaded = UploadedCV(
+                    original_filename=original_filename,
+                    stored_filename=unique_filename,
+                    filepath=filepath
+                )
+                db.session.add(uploaded)
+                db.session.commit()
 
-            process_and_store_embeddings(filepath, original_filename, unique_filename)
+                process_and_store_embeddings(filepath, original_filename, unique_filename)
 
-            uploaded_files.append(uploaded.as_dict())
-        else:
-            errors.append({"filename": file.filename, "error": "Invalid file type"})
+                uploaded_files.append(uploaded.as_dict())
+            else:
+                errors.append({"filename": file.filename, "error": "Invalid file type"})
 
-    return jsonify({
-        "uploaded": uploaded_files,
-        "errors": errors
-    }), 200
+        return jsonify({
+            "uploaded": uploaded_files,
+            "errors": errors
+        }), 200
+
+    except Exception as e:
+        logger.error("Error in /upload_cv: %s", traceback.format_exc())
+        return jsonify({
+            "error": str(e),
+            "trace": traceback.format_exc()
+        }), 500
 
 @api.route('/uploads/<filename>', methods=['GET'])
 def uploaded_file(filename):
