@@ -10,10 +10,10 @@ from utils.llm import build_prompt, query_with_together_sdk
 import random
 import string
 from flask_cors import CORS
+from dotenv import load_dotenv  # ← ADD THIS
 
-
-
-TOGETHER_API_KEY = "a22438751c3e28169bf6e875f7556b0e0f5c78c061d0789c80061dba6700b32b"
+# ───── Load .env ─────
+load_dotenv()  # ← ADD THIS
 
 # ───── Flask Setup ─────
 app = Flask(__name__)
@@ -22,12 +22,13 @@ CORS(app)
 #Uncomment line below to use specific origin
 #CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-app.secret_key = 'axxiom'
-
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'fallback-insecure-key')
+TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 # ───── Upload Folder ─────
 UPLOAD_FOLDER = 'uploaded_cvs'
 ALLOWED_EXTENSIONS = {'pdf'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 60 * 1024 * 1024  # 100MB
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
