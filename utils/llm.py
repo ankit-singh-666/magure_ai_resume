@@ -40,19 +40,14 @@ Context:
 
 Instructions:
 - Use only the provided context to answer the question.
-- If the question is unrelated to candidate skills, experience, education, or resumes in general, respond with:
-  "I'm sorry, I can only answer questions related to candidate resumes and qualifications."
-- If no relevant candidates are found, respond with:
-  "No suitable candidates found."
-
 
 Edge Cases:
 -Suppose a candidate is from testing background and has written "reactivity" word in their resume , now that should 
 not be confused with react js or react developers
 -Don't count internship or freelance experience. 
 
-If the question is relevant:
-1. Return your answer in valid JSON format with three main keys:
+
+1. Return your answer in ***valid JSON format*** with three main keys:
    - "summary": a string that begins with "Based on the provided context, ..." if and only if there is atleast 1 suitable 
    candidate matching description and then briefly summarizes the findings. 
    If no suitable candidate found, then this will have "1" as value, if the query is irrelevant and not related to 
@@ -64,12 +59,13 @@ If the question is relevant:
      - "details": a bullet-point list (as a string) of relevant skills, experience, and resume highlights.
    - "score_card":This should be null if summary is either "1" or "2", otherwise, 
      scoring of resume on different parameters 
-        -"experience_score": scoring based on total no. of experience. 1-2 years 
+        -"experience_score": scoring based on total no. of experience.  
         -"loyality_score": longevity in a company, how long they have serverd. 2 to 3 years is good but more than that is great
         -"reputation_score":worked with reputed companies like FAANG or MNCs 
         -"clarity_score": score based on clarity in resumes , they should not use obscure words 
 
-2. The format must be clean JSON — no extra commentary or explanation outside the JSON object.
+2. The format must be **clean JSON** — no extra commentary or explanation outside the JSON object and it should not 
+contain new line ascii or backtics or unnecessary slash answer should be valid josn.
 
 
 Question:

@@ -115,10 +115,13 @@ def delete_group(group_id):
 def upload_cv():
     try:
         files = request.files.getlist('cv')
-        group_name = request.form.get("group", "general").strip()
+        group_name = request.form.get("group")
 
         if not files or files == [None]:
             return jsonify({"error": "No files selected."}), 400
+
+        if not group_name:
+             return jsonify({"error": "No group selected."}), 400
 
         group_obj = Group.query.filter_by(name=group_name).first()
         if not group_obj:
@@ -156,6 +159,7 @@ def upload_cv():
         return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
 
 # ───── Search API ─────
+'''
 @api.route("/search_api", methods=["POST"])
 def search_api():
     data = request.get_json()
@@ -174,6 +178,50 @@ def search_api():
     answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
 
     return jsonify({"results": results, "answer": answer}), 200
+'''
+
+
+@api.route("/search_api", methods=["POST"])
+def search_api():
+    data = request.get_json()
+    query = data.get("query")
+    group_name = data.get("group")  # Can be None or missing
+
+    if not query:
+        return jsonify({"error": "No query provided"}), 400
+
+    if not group_name or str(group_name).lower() in ["null", "undefined", ""]:
+        # Search across all groups
+        # Get all group names from DB
+        groups = [g.name for g in Group.query.all()]
+        if not groups:
+            return jsonify({"error": "No groups found for search"}), 404
+
+        # Accumulate results from all groups
+        all_results = []
+        for grp in groups:
+            results = retrieve_similar_chunks(query, k=5, group=grp)
+            all_results.extend(results)
+
+        # Optionally, you can sort/filter combined results or limit them
+        # For example, keep top 10 by similarity score if your retrieve function returns scores
+        # Here assuming results are dicts and have a 'score' key (adjust as needed)
+        all_results = sorted(all_results, key=lambda x: x.get('score', 0), reverse=True)[:10]
+
+        prompt = build_prompt(query, all_results)
+    else:
+        # Search within the specified group only
+        group_obj = Group.query.filter_by(name=group_name).first()
+        if not group_obj:
+            return jsonify({"error": f"Group '{group_name}' not found"}), 404
+
+        results = retrieve_similar_chunks(query, k=5, group=group_obj.name)
+        prompt = build_prompt(query, results)
+
+    answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
+
+    return jsonify({"results": all_results if not group_name else results, "answer": answer}), 200
+
 
 # ───── CV Listing API ─────
 @api.route("/cvs", methods=["POST"])
@@ -241,5 +289,7 @@ app.register_blueprint(api, url_prefix='/api')
 
 if __name__ == '__main__':
     with app.app_context():
+        print("Creating db ");
         db.create_all()
+        print("Tables created")
     app.run(host='0.0.0.0', port=5001, debug=True)
