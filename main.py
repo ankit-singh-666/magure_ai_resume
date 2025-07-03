@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from utils.cv_processing import process_and_store_embeddings, delete_cv_data
-from utils.retriever import retrieve_similar_chunks
+from utils.retriever import retrieve_similar_chunks, expand_query_with_keywords
 from utils.llm import build_prompt, query_with_together_sdk, normalize_llm_response
 import random
 import string
@@ -186,6 +186,7 @@ def search_api():
     data = request.get_json()
     query = data.get("query")
     group_name = data.get("group")  # Can be None or missing
+    query = expand_query_with_keywords(query)
 
     if not query:
         return jsonify({"error": "No query provided"}), 400

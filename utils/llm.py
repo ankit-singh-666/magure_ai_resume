@@ -81,11 +81,11 @@ not be confused with react js or react developers
    candidate resume, skills or experience, this will have "2" as value
    - "candidate_details":This should be null if summary is either "1" or "2", otherwise,  a list of up to 3 candidate 
         objects. Each object should have:
-     - "candidate_name": "Candidate from file: [filename]" (or extract name from text if clearly available)
+     - "candidate_name": "Candidate from file: extract name from text if clearly available or N/A"
      - "file_name": the source file name
      - "details": a bullet-point list (as a string) of relevant skills, experience, and resume highlights.
-   - "score_card":This should be null if summary is either "1" or "2", otherwise, 
-     scoring of resume on different parameters 
+     - "score_card":This should be null if summary is either "1" or "2", otherwise, 
+     scoring of each resume on different parameters , and rate it out of 10, no / , no array, just a number between 1 and 10 inclusive
         -"experience_score": scoring based on total no. of experience.  
         -"loyality_score": longevity in a company, how long they have serverd. 2 to 3 years is good but more than that is great
         -"reputation_score":worked with reputed companies like FAANG or MNCs 

@@ -6,6 +6,7 @@ import numpy as np
 from PyPDF2 import PdfReader
 from sentence_transformers import SentenceTransformer
 import faiss
+from docx import Document
 
 VECTOR_STORE_DIR = "vector_store"
 os.makedirs(VECTOR_STORE_DIR, exist_ok=True)
@@ -19,6 +20,12 @@ def extract_text_from_pdf(path):
     for page in reader.pages:
         text += page.extract_text() + "\n"
     return text
+
+def extract_text_from_docx(path):
+    doc = Document(path)
+    return "\n".join([para.text for para in doc.paragraphs if para.text.strip()])
+
+
 
 
 def clean_text(text):
@@ -69,9 +76,19 @@ def get_paths_for_group(group):
 
 
 def process_and_store_embeddings(pdf_path, original_filename, new_file_name, group="general"):
+    ext = original_filename.rsplit(".", 1)[-1].lower()
     index_path, metadata_path = get_paths_for_group(group)
+    raw_text=""
+    print('type',ext)
 
-    raw_text = extract_text_from_pdf(pdf_path)
+    if ext == "pdf":
+        raw_text = extract_text_from_pdf(pdf_path)
+    elif ext == "docx":
+        raw_text = extract_text_from_docx(pdf_path)
+    else:
+        raise ValueError("Unsupported file type")
+
+
     clean = clean_text(raw_text)
     chunks = chunk_text(clean)
     chunk_metadata = create_chunks_with_metadata(chunks, new_file_name, group)
