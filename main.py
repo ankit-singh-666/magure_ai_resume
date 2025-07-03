@@ -99,6 +99,16 @@ def create_group():
     db.session.commit()
     return jsonify(new_group.as_dict()), 201
 
+
+@api.route("/groups/<int:group_id>", methods=["DELETE"])
+def delete_group(group_id):
+    group = Group.query.get_or_404(group_id)
+    if group.cvs:
+        return jsonify({"error": "Cannot delete group with CVs linked to it."}), 400
+    db.session.delete(group)
+    db.session.commit()
+    return jsonify({"message": f"Group '{group.name}' deleted."}), 200
+
 @api.route("/upload_cv", methods=["POST"])
 def upload_cv():
     try:
@@ -203,4 +213,4 @@ app.register_blueprint(api, url_prefix='/api')
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(host='0.0.0.0', port=5001, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True) 
