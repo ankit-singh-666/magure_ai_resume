@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from utils.cv_processing import process_and_store_embeddings, delete_cv_data
 from utils.retriever import retrieve_similar_chunks
-from utils.llm import build_prompt, query_with_together_sdk
+from utils.llm import build_prompt, query_with_together_sdk, normalize_llm_response
 import random
 import string
 from flask_cors import CORS
@@ -219,6 +219,19 @@ def search_api():
         prompt = build_prompt(query, results)
 
     answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
+    # Wrap into response structure to use normalize function
+    raw_response = {
+        "answer": answer,
+        "results": results
+    }
+
+    # Normalize the stringified JSON in "answer"
+    normalized_response = normalize_llm_response(raw_response)
+
+    # Optional: debug print
+    print("SUMMARY:", normalized_response["answer"]["summary"])
+
+    return jsonify(normalized_response), 200
 
     return jsonify({"results": all_results if not group_name else results, "answer": answer}), 200
 

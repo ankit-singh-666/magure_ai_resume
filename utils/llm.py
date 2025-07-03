@@ -2,6 +2,32 @@
 
 from together import Together
 from collections import defaultdict
+import json
+
+def normalize_llm_response(raw_response: dict) -> dict:
+    """
+    Normalize the 'answer' key from a stringified JSON to a proper dictionary.
+    """
+    try:
+        # Parse the 'answer' string into a dictionary
+        answer_str = raw_response.get("answer", "")
+        if isinstance(answer_str, str):
+            parsed_answer = json.loads(answer_str)
+        else:
+            parsed_answer = answer_str  # already a dict
+
+        return {
+            "answer": parsed_answer,
+            "results": raw_response.get("results", [])
+        }
+
+    except json.JSONDecodeError as e:
+        return {
+            "error": "Invalid JSON format in 'answer'",
+            "details": str(e),
+            "raw": raw_response
+        }
+
 
 def query_with_together_sdk(prompt: str, api_key: str) -> str:
     client = Together(api_key=api_key)
@@ -11,7 +37,8 @@ def query_with_together_sdk(prompt: str, api_key: str) -> str:
         messages=[
             {
                 "role": "system",
-                "content": "You are an HR assistant that answers questions about candidate resumes."
+                "content": "You are an HR assistant that answers questions about candidate resumes. You return in valid json Format"
+
             },
             {"role": "user", "content": prompt}
         ]
