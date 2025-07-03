@@ -6,7 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from utils.cv_processing import process_and_store_embeddings, delete_cv_data
 from utils.retriever import retrieve_similar_chunks
-from utils.llm import build_prompt, query_with_together_sdk
+from utils.llm import build_prompt, query_with_together_sdk, normalize_llm_response
 import random
 import string
 from flask_cors import CORS
@@ -72,7 +72,7 @@ def index():
 def search_api():
     data = request.get_json()
     query = data.get("query")
-    print(query)
+    #print(query)
 
     if not query:
         return jsonify({"error": "No query provided"}), 400
@@ -84,12 +84,19 @@ def search_api():
     prompt = build_prompt(query, results)
     answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
 
-    print(answer)
+    # Wrap into response structure to use normalize function
+    raw_response = {
+        "answer": answer,
+        "results": results
+    }
 
-    return jsonify({
-        "results": results,
-        "answer": answer
-    })
+    # Normalize the stringified JSON in "answer"
+    normalized_response = normalize_llm_response(raw_response)
+
+    # Optional: debug print
+    print("SUMMARY:", normalized_response["answer"]["summary"])
+
+    return jsonify(normalized_response), 200
 
 
 @app.route('/uploads/<filename>')
