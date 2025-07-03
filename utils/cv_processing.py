@@ -62,14 +62,15 @@ def chunk_text(text, chunk_size=500):
         chunks.append(current_chunk.strip())
     return chunks
 
-def create_chunks_with_metadata(chunks, unique_file_id, group):
+def create_chunks_with_metadata(chunks, unique_file_id, group,url):
     """Creates a list of dictionaries, each representing a chunk with metadata."""
     return [{
         "id": str(uuid.uuid4()),
         "chunk_index": i,
         "text": chunk,
         "source_file": unique_file_id,
-        "group": group
+        "group": group,
+        "url": url    
     } for i, chunk in enumerate(chunks)]
 
 
@@ -109,7 +110,7 @@ def process_and_store_embeddings(file_url, original_filename, public_id, group_n
 
         clean = clean_text(raw_text)
         chunks = chunk_text(clean)
-        chunk_metadata = create_chunks_with_metadata(chunks, public_id, group_name)
+        chunk_metadata = create_chunks_with_metadata(chunks, public_id, group_name,url=file_url)
 
         if not chunk_metadata:
             logger.warning(f"No processable chunks found in {original_filename}.")
@@ -184,11 +185,11 @@ def delete_cv_data(public_id, group="general"):
     faiss.write_index(new_index, index_path)
     logger.info("✅ Deleted metadata and successfully rebuilt FAISS index.")
 
+# In cv_processing.py
 
 def retrieve_similar_chunks(query, k, group):
     """
-    Searches the FAISS index for the most similar chunks to a query.
-    This function is required by the search_api endpoint.
+    Searches the FAISS index and returns results in the format expected by the LLM prompt builder.
     """
     index_path, metadata_path = get_paths_for_group(group)
     if not os.path.exists(index_path) or not os.path.exists(metadata_path):
@@ -205,14 +206,15 @@ def retrieve_similar_chunks(query, k, group):
     for i in range(len(indices[0])):
         idx = indices[0][i]
         if 0 <= idx < len(metadata):
-   
+            # --- THIS IS THE CORRECTED PART ---
+            # Create a dictionary with the keys that build_prompt_with_router expects.
+            retrieved_chunk = metadata[idx]
             results.append({
-                "page_content": metadata[idx].get("text"),
-                "metadata": {
-                    "source": metadata[idx].get("source_file"),
-                    "group": metadata[idx].get("group"),
-                    "chunk_index": metadata[idx].get("chunk_index"),
-                },
-                "distance": float(distances[0][i])
+                "text": retrieved_chunk.get("text"), # Rename 'text' key (already correct)
+                "source_file": retrieved_chunk.get("source_file"), # Rename 'source_file' key (already correct)
+                # Keep original metadata for potential future use or logging
+                "original_metadata": retrieved_chunk ,
+                "url": retrieved_chunk.get("url")
             })
+            
     return results

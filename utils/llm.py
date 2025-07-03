@@ -50,15 +50,24 @@ Edge Cases & Rules:
 - Do not count internship or freelance experience when evaluating scores.
 
 If the question is relevant and suitable candidates are found:
-1.  Your entire response MUST be a single, valid JSON object. Do not add any text or comments outside of the JSON structure.
-2.  The JSON object must have three main keys: "summary", "candidate_details", and "score_card".
+Your entire response MUST be a single, valid JSON object. Do not add any text or comments outside of the JSON structure.
 
-JSON Schema Definition:
-{{
-  "summary": "A string that MUST begin with 'Based on the provided context, ...'. If no suitable candidate is found, this value must be the string '1'. If the query is irrelevant, it must be the string '2'.",
-  "candidate_details": "This must be null if summary is '1' or '2'. Otherwise, it is a list of up to 3 candidate objects. Each object must have: 'candidate_name' (string), 'file_name' (string, the source file name from the context), and 'details' (string, a bullet-point list of relevant skills and experience).",
-  "score_card": "This must be null if summary is '1' or '2'. Otherwise, it is a list of scoring objects, one for each candidate in 'candidate_details'. Each object must have: 'candidate_name' (string), 'experience_score' (integer, 1-10), 'loyalty_score' (integer, 1-10), 'reputation_score' (integer, 1-10), and 'clarity_score' (integer, 1-10)."
-}}
+1. Return your answer in ***valid JSON format*** with three main keys:
+   - "summary": a string that begins with "Based on the provided context, ..." if and only if there is atleast 1 suitable 
+   candidate matching description and then briefly summarizes the findings. 
+   If no suitable candidate found, then this will have "1" as value, if the query is irrelevant and not related to 
+   candidate resume, skills or experience, this will have "2" as value
+   - "candidate_details":This should be null if summary is either "1" or "2", otherwise,  a list of up to 3 candidate 
+        objects. Each object should have:
+     - "candidate_name": "Candidate from file: [filename]" (or extract name from text if clearly available)
+     - "file_name": the source file name
+     - "details": a bullet-point list (as a string) of relevant skills, experience, and resume highlights.
+   - "score_card":This should be null if summary is either "1" or "2", otherwise, 
+     scoring of resume on different parameters 
+        -"experience_score": scoring based on total no. of experience.  
+        -"loyality_score": longevity in a company, how long they have serverd. 2 to 3 years is good but more than that is great
+        -"reputation_score":worked with reputed companies like FAANG or MNCs 
+        -"clarity_score": score based on clarity in resumes , they should not use obscure words 
 
 Original Question:
 {question}

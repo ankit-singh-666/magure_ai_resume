@@ -4,13 +4,14 @@ import string
 import traceback
 import logging
 import shutil
-from utils.llm import query_with_together_sdk, build_prompt_with_router
+from utils.llm import query_with_together_sdk, build_prompt_with_router,AGENT_SYSTEM_PROMPTS
 from flask import Flask, request, jsonify, Blueprint, redirect
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 from datetime import datetime
 from flask_cors import CORS
 from dotenv import load_dotenv
+import json
 
 # --- Cloudinary ---
 import cloudinary
@@ -149,23 +150,56 @@ def upload_cv():
 def search_api():
     try:
         data = request.get_json()
-        query, group_name = data.get("query"), data.get("group", "general").strip()
-        if not query: return jsonify({"error": "No query provided"}), 400
+        if not data:
+            return jsonify({"error": "Missing JSON body in request"}), 400
+
+        query = data.get("query")
+        group_name = (data.get("group") or "general").strip()
         
-        # Call the imported retrieval function
-        results = retrieve_similar_chunks(query, k=5, group=group_name)
+        if not query: 
+            return jsonify({"error": "No query provided"}), 400
         
-        prompt = build_prompt_with_router(query, results)
-        answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
-        return jsonify({"results": results, "answer": answer}), 200
+        results = retrieve_similar_chunks(query, k=10, group=group_name)
+        
+        # We are selecting the agent and system message here...
+        selected_agent_role = "general_analyzer"
+        system_message = AGENT_SYSTEM_PROMPTS[selected_agent_role]
+
+        # --- THIS IS THE FIX ---
+        # The function call now includes the required 'agent_role' argument.
+        prompt = build_prompt_with_router(
+            question=query, 
+            retrieved_chunks=results, 
+            agent_role=selected_agent_role
+        )
+
+        llm_response_string = query_with_together_sdk(
+            prompt=prompt, 
+            api_key=TOGETHER_API_KEY, 
+            system_message=system_message
+        )
+
+        try:
+            answer_data = json.loads(llm_response_string)
+        except json.JSONDecodeError:
+            logger.error(f"LLM returned invalid JSON: {llm_response_string}")
+            return jsonify({"error": "Failed to parse LLM response.", "raw_response": llm_response_string}), 500
+
+        return jsonify({"results": results, "answer": answer_data}), 200
+
     except FileNotFoundError as e:
         logger.warning(f"Search failed: {e}")
-        return jsonify({"error": str(e), "results": [], "answer": "Could not perform search. No resumes have been processed for this group yet."}), 404
+        error_response = {
+            "summary": "1",
+            "message": "Could not perform search. No resumes have been processed for this group yet."
+        }
+        return jsonify({"error": str(e), "results": [], "answer": error_response}), 404
+        
     except Exception as e:
         logger.error("Error in /search_api: %s", traceback.format_exc())
-        return jsonify({"error": "An unexpected server error occurred."}), 500
+        return jsonify({"error": "An unexpected server error occurred.", "trace": str(e)}), 500
 
-@api.route("/cvs", methods=["GET"])
+@api.route("/cvs", methods=["POST"])
 def get_cvs():
     group_name = request.args.get("group", default=None, type=str)
     if not group_name:
