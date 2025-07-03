@@ -26,6 +26,49 @@ def load_index_and_metadata(group):
 
     return index, metadata
 
+
+
+
+
+def expand_query_with_keywords(query):
+    keyword_map = {
+        "frontend": [
+            "react", "angular", "vue", "html", "css", "tailwind", "javascript", "typescript"
+        ],
+        "backend": [
+            "java", ".net", "python", "node.js", "spring", "django", "express", "api", "server"
+        ],
+        "qa": [
+            "automation", "testing", "quality assurance", "selenium", "postman", "jmeter",
+            "cypress", "manual testing", "test cases"
+        ],
+        "fullstack": [
+            "react", "node.js", "express", "mongodb", "sql", "python", "html", "css"
+        ],
+        "data": [
+            "python", "pandas", "numpy", "sql", "etl", "data analysis", "data engineering",
+            "data science", "machine learning", "statistics"
+        ],
+        "devops": [
+            "docker", "kubernetes", "ci/cd", "aws", "azure", "jenkins", "terraform", "linux", "monitoring"
+        ]
+    }
+
+    query_lower = query.lower()
+    matched_keywords = []
+
+    for key, terms in keyword_map.items():
+        if key in query_lower:
+            matched_keywords.extend(terms)
+
+    # Remove duplicates and avoid adding terms already in query
+    unique_terms = [term for term in set(matched_keywords) if term not in query_lower]
+
+    # Combine into a single expanded query string
+    expanded_query = query.strip() + " " + " ".join(unique_terms) if unique_terms else query.strip()
+    return expanded_query
+
+
 def retrieve_similar_chunks(query: str, k: int = 5, group: str = "general"):
     index, metadata_list = load_index_and_metadata(group)
 
