@@ -4,7 +4,7 @@ import string
 import traceback
 import logging
 import shutil
-from utils.cv_processing import build_prompt, query_with_together_sdk
+from utils.llm import query_with_together_sdk, build_prompt_with_router
 from flask import Flask, request, jsonify, Blueprint, redirect
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
@@ -18,9 +18,8 @@ import cloudinary.uploader
 import cloudinary.api
 import cloudinary.utils
 
-# --- Import your custom CV processing logic ---
-# This assumes 'cv_processing.py' is in the same directory as 'main.py'
-from cv_processing import (
+
+from utils.cv_processing import (
     process_and_store_embeddings,
     delete_cv_data,
     retrieve_similar_chunks
@@ -156,7 +155,7 @@ def search_api():
         # Call the imported retrieval function
         results = retrieve_similar_chunks(query, k=5, group=group_name)
         
-        prompt = build_prompt(query, results)
+        prompt = build_prompt_with_router(query, results)
         answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
         return jsonify({"results": results, "answer": answer}), 200
     except FileNotFoundError as e:
