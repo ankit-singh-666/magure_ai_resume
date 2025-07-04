@@ -3,7 +3,7 @@ import os
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from utils.cv_processing import process_and_store_embeddings, delete_cv_data
+from utils.cv_processing import process_and_store_embeddings, delete_cv_data, extract_text_from_pdf, extract_text_from_docx
 from utils.retriever import retrieve_similar_chunks, expand_query_with_keywords
 from utils.llm import build_prompt, query_with_together_sdk, normalize_llm_response
 import random
@@ -181,6 +181,8 @@ def search_api():
 '''
 
 
+
+
 @api.route("/search_api", methods=["POST"])
 def search_api():
     data = request.get_json()
@@ -237,6 +239,70 @@ def search_api():
     return jsonify({"results": all_results if not group_name else results, "answer": answer}), 200
 
 
+@api.route("/upload_jd", methods=["POST"])
+def upload_jd():
+    file = request.files.get("file")
+    group_name = request.form.get("group")
+
+    if not file:
+        return jsonify({"error": "No file provided"}), 400
+
+    filename = secure_filename(file.filename)
+    file_ext = os.path.splitext(filename)[1].lower()
+
+    file_bytes = file
+    if file_ext == ".pdf":
+        raw_text = extract_text_from_pdf(file_bytes)
+    elif file_ext == ".docx":
+        raw_text = extract_text_from_docx(file_bytes)
+    else:
+        return jsonify({"error": "Only PDF and DOCX files are supported"}), 400
+
+    if not raw_text.strip():
+        return jsonify({"error": "Could not extract any text from file"}), 400
+
+    query = expand_query_with_keywords(raw_text.strip())
+
+    # No query after expansion? Exit early.
+    if not query:
+        return jsonify({"error": "Could not derive search query from file"}), 400
+
+    if not group_name or group_name.lower() in ["null", "undefined", ""]:
+        # Search across all groups
+        groups = [g.name for g in Group.query.all()]
+        if not groups:
+            return jsonify({"error": "No groups found"}), 404
+
+        all_results = []
+        for grp in groups:
+            results = retrieve_similar_chunks(query, k=5, group=grp)
+            all_results.extend(results)
+
+        all_results = sorted(all_results, key=lambda x: x.get("score", 0), reverse=True)[:10]
+        prompt = build_prompt(query, all_results)
+        results = all_results
+    else:
+        group_obj = Group.query.filter_by(name=group_name).first()
+        if not group_obj:
+            return jsonify({"error": f"Group '{group_name}' not found"}), 404
+
+        results = retrieve_similar_chunks(query, k=5, group=group_obj.name)
+        prompt = build_prompt(query, results)
+
+    # Query LLM
+    try:
+        answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
+    except Exception as e:
+        logging.error(f"LLM error: {e}")
+        return jsonify({"error": "LLM failed"}), 500
+
+    raw_response = {
+        "answer": answer,
+        "results": results
+    }
+    normalized_response = normalize_llm_response(raw_response)
+
+    return jsonify(normalized_response), 200
 # ───── CV Listing API ─────
 @api.route("/cvs", methods=["POST"])
 def get_cvs():
