@@ -100,7 +100,7 @@ not be confused with React.js or React developers.
    (not related to candidate resume, skills or experience), this will have value "2".
    - "candidate_details": This should be null if summary is either "1" or "2", otherwise a list of the following 
      objects. Each object should have:
-     - "candidate_name": "Candidate from file: extract name from text if clearly available or N/A"
+     - "candidate_name": "extract name from text if available or Name not found"
      - "file_name": the source file name
      - "details": a bullet-point list (as a string) of relevant skills, experience, and resume highlights.
      - "score_card": null if summary is "1" or "2", otherwise:
