@@ -293,7 +293,7 @@ def upload_jd():
 
     # Query LLM
     try:
-        answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
+        answer = query_with_openai_sdk(prompt)
     except Exception as e:
         logging.error(f"LLM error: {e}")
         return jsonify({"error": "LLM failed"}), 500
