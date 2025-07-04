@@ -5,7 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from utils.cv_processing import process_and_store_embeddings, delete_cv_data, extract_text_from_pdf, extract_text_from_docx
 from utils.retriever import retrieve_similar_chunks, expand_query_with_keywords
-from utils.llm import build_prompt, query_with_together_sdk, normalize_llm_response
+from utils.llm import build_prompt, query_with_openai_sdk, normalize_llm_response
 import random
 import string
 from flask_cors import CORS
@@ -35,6 +35,7 @@ db = SQLAlchemy(app)
 
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'fallback-insecure-key')
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # ───── Models ─────
 class Group(db.Model):
@@ -221,18 +222,19 @@ def search_api():
         results = retrieve_similar_chunks(query, k=5, group=group_obj.name)
         prompt = build_prompt(query, results)
 
-    answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
+    answer = query_with_openai_sdk(prompt)
     # Wrap into response structure to use normalize function
     raw_response = {
         "answer": answer,
         "results": results
     }
+    print(answer)
 
     # Normalize the stringified JSON in "answer"
     normalized_response = normalize_llm_response(raw_response)
 
     # Optional: debug print
-    print("SUMMARY:", normalized_response["answer"]["summary"])
+   # print("SUMMARY:", normalized_response["answer"]["summary"])
 
     return jsonify(normalized_response), 200
 
@@ -300,9 +302,9 @@ def upload_jd():
         "answer": answer,
         "results": results
     }
-    normalized_response = normalize_llm_response(raw_response)
+    #normalized_response = normalize_llm_response(raw_response)
 
-    return jsonify(normalized_response), 200
+    return jsonify(raw_response), 200
 # ───── CV Listing API ─────
 @api.route("/cvs", methods=["POST"])
 def get_cvs():
