@@ -188,57 +188,41 @@ def search_api():
 def search_api():
     data = request.get_json()
     query = data.get("query")
-    group_name = data.get("group")  # Can be None or missing
+    group_name = data.get("group")  # Optional
+
     query = expand_query_with_keywords(query)
 
     if not query:
         return jsonify({"error": "No query provided"}), 400
 
-    if not group_name or str(group_name).lower() in ["null", "undefined", ""]:
-        # Search across all groups
-        # Get all group names from DB
-        groups = [g.name for g in Group.query.all()]
-        if not groups:
-            return jsonify({"error": "No groups found for search"}), 404
+    try:
+        if not group_name or str(group_name).lower() in ["null", "undefined", ""]:
+            results = retrieve_similar_chunks(query, k=5, group=None)
+            if not results:
+                return jsonify({"error": "No indexes or metadata found for any group."}), 404
+        else:
+            group_obj = Group.query.filter_by(name=group_name).first()
+            if not group_obj:
+                return jsonify({"error": f"Group '{group_name}' not found"}), 404
 
-        # Accumulate results from all groups
-        all_results = []
-        for grp in groups:
-            results = retrieve_similar_chunks(query, k=5, group=grp)
-            all_results.extend(results)
+            results = retrieve_similar_chunks(query, k=5, group=group_obj.name)
 
-        # Optionally, you can sort/filter combined results or limit them
-        # For example, keep top 10 by similarity score if your retrieve function returns scores
-        # Here assuming results are dicts and have a 'score' key (adjust as needed)
-        all_results = sorted(all_results, key=lambda x: x.get('score', 0), reverse=True)[:10]
-
-        prompt = build_prompt(query, all_results)
-    else:
-        # Search within the specified group only
-        group_obj = Group.query.filter_by(name=group_name).first()
-        if not group_obj:
-            return jsonify({"error": f"Group '{group_name}' not found"}), 404
-
-        results = retrieve_similar_chunks(query, k=5, group=group_obj.name)
         prompt = build_prompt(query, results)
+        answer = query_with_openai_sdk(prompt)
 
-    answer = query_with_openai_sdk(prompt)
-    # Wrap into response structure to use normalize function
-    raw_response = {
-        "answer": answer,
-        "results": results
-    }
-    print(answer)
+        raw_response = {
+            "answer": answer,
+            "results": results
+        }
 
-    # Normalize the stringified JSON in "answer"
-    normalized_response = normalize_llm_response(raw_response)
+        normalized_response = normalize_llm_response(raw_response)
+        return jsonify(normalized_response), 200
 
-    # Optional: debug print
-   # print("SUMMARY:", normalized_response["answer"]["summary"])
-
-    return jsonify(normalized_response), 200
-
-    return jsonify({"results": all_results if not group_name else results, "answer": answer}), 200
+    except FileNotFoundError as e:
+        return jsonify({"error": str(e)}), 404
+    except Exception as e:
+        logging.error("Unexpected error during search", exc_info=True)
+        return jsonify({"error": "Internal server error", "details": str(e)}), 500
 
 
 @api.route("/upload_jd", methods=["POST"])

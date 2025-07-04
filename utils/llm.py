@@ -58,6 +58,7 @@ def query_with_openai_sdk(prompt: str) -> dict:
                         "content": prompt
                     }
                 ],
+                temperature= 0,
                 response_format={"type": "json_object"}
             )
             return json.loads(response.choices[0].message.content.strip())
