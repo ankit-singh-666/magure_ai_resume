@@ -13,6 +13,9 @@ import logging
 import traceback
 from dotenv import load_dotenv
 import shutil
+from datetime import datetime
+from zoneinfo import ZoneInfo  # native in Python 3.9+
+
 
 # Flask setup
 app = Flask(__name__)
@@ -345,7 +348,7 @@ def add_or_update_comment(cv_id):
 
         cv = UploadedCV.query.get_or_404(cv_id)
         cv.comment = comment
-        cv.commented_at = datetime.utcnow()
+        cv.commented_at = datetime.now(ZoneInfo("Asia/Kolkata"))  # IST
         db.session.commit()
 
         logger.info(f"Comment added/updated for CV ID {cv_id}")
@@ -356,21 +359,6 @@ def add_or_update_comment(cv_id):
         return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
 
 
-
-@api.route("/cv/<int:cv_id>/comment", methods=["DELETE"])
-def delete_comment(cv_id):
-    try:
-        cv = UploadedCV.query.get_or_404(cv_id)
-        cv.comment = None
-        cv.commented_at = None
-        db.session.commit()
-
-        logger.info(f"Comment deleted for CV ID {cv_id}")
-        return jsonify({"message": "Comment deleted", "cv": cv.as_dict()}), 200
-
-    except Exception as e:
-        logger.error("Error in DELETE /cv/%s/comment: %s", cv_id, traceback.format_exc())
-        return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
 
 
 # ───── App Runner ─────
