@@ -1,185 +1,275 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, jsonify
 import os
-from werkzeug.utils import secure_filename
-import uuid
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
-from utils.cv_processing import process_and_store_embeddings, delete_cv_data
-from utils.retriever import retrieve_similar_chunks
-from utils.llm import build_prompt, query_with_together_sdk, normalize_llm_response
 import random
 import string
+import shutil
+import traceback
+import logging
+from datetime import datetime
+from flask import Flask, request, send_from_directory, jsonify, Blueprint
+from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from dotenv import load_dotenv  # ← ADD THIS
+from werkzeug.utils import secure_filename
+from dotenv import load_dotenv
 
-# ───── Load .env ─────
-load_dotenv()  # ← ADD THIS
+from utils.cv_processing import process_and_store_embeddings, delete_cv_data
+from utils.retriever import retrieve_similar_chunks, expand_query_with_keywords
+from utils.llm import build_prompt, query_with_openai_sdk, normalize_llm_response
+
+# ───── Load environment variables ─────
+load_dotenv()
+
+# ───── Setup logging ─────
+logging.basicConfig(
+    filename="/var/log/myapp.log",
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 
 # ───── Flask Setup ─────
 app = Flask(__name__)
-
 CORS(app)
-#Uncomment line below to use specific origin
-#CORS(app, resources={r"/*": {"origins": "http://localhost:3000"}})
 
-app.secret_key = os.getenv('FLASK_SECRET_KEY', 'fallback-insecure-key')
-TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
-# ───── Upload Folder ─────
-UPLOAD_FOLDER = 'uploaded_cvs'
-ALLOWED_EXTENSIONS = {'pdf'}
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 60 * 1024 * 1024  # 100MB
+@app.before_request
+def log_request():
+    logging.info(f"{request.method} {request.path} from {request.remote_addr}")
+
+# ───── Config ─────
+basedir = os.path.abspath(os.path.dirname(__file__))
+UPLOAD_FOLDER = os.path.join(basedir, 'uploaded_cvs')
+ALLOWED_EXTENSIONS = {'pdf', 'docx'}
+
+app.config.update({
+    'UPLOAD_FOLDER': UPLOAD_FOLDER,
+    'MAX_CONTENT_LENGTH': 70 * 1024 * 1024,
+    'SQLALCHEMY_DATABASE_URI': 'sqlite:///' + os.path.join(basedir, 'cv_uploads.db'),
+    'SECRET_KEY': os.getenv('FLASK_SECRET_KEY', 'fallback-insecure-key'),
+})
+
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
-# ───── Database Setup ─────
-basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'cv_uploads.db')
+# ───── Database ─────
 db = SQLAlchemy(app)
 
+# ───── Models ─────
+class Group(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), unique=True, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    cvs = db.relationship("UploadedCV", backref="group_rel", lazy=True)
 
-# ───── DB Model ─────
+    def as_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "created_at": self.created_at.isoformat()
+        }
+
 class UploadedCV(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     original_filename = db.Column(db.String(255))
     stored_filename = db.Column(db.String(255), unique=True)
     filepath = db.Column(db.String(255))
     upload_time = db.Column(db.DateTime, default=datetime.utcnow)
+    group_id = db.Column(db.Integer, db.ForeignKey('group.id'), nullable=False)
+    comment = db.Column(db.Text, nullable=True)
+    commented_at = db.Column(db.DateTime, nullable=True)
 
-    def __repr__(self):
-        return f"<UploadedCV {self.original_filename}>"
-
+    def as_dict(self):
+        return {
+            "id": self.id,
+            "original_filename": self.original_filename,
+            "stored_filename": self.stored_filename,
+            "filepath": self.filepath,
+            "upload_time": self.upload_time.isoformat(),
+            "group": self.group_rel.name if self.group_rel else None,
+            "comment": self.comment,
+            "commented_at": self.commented_at.isoformat() if self.commented_at else None
+        }
 
 # ───── Utils ─────
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-
-def generate_unique_filename(filename):
-    ext = filename.rsplit('.', 1)[-1]
-    return f"{uuid.uuid4().hex}.{ext}"
-
 def generate_unique_id(length=5):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
-# ───── Routes ─────
-@app.route("/", methods=["GET"])
+# ───── Blueprint ─────
+api = Blueprint('api', __name__)
+
+@api.route("/", methods=["GET"])
 def index():
-    return render_template("index.html")
+    return jsonify({"message": "Welcome to the Resume Analyzer API"}), 200
 
+@api.route("/groups", methods=["GET"])
+def list_groups():
+    try:
+        groups = Group.query.all()
+        return jsonify([g.as_dict() for g in groups]), 200
+    except Exception as e:
+        logger.error("Error in /groups GET: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
 
-@app.route("/search_api", methods=["POST"])
-def search_api():
-    data = request.get_json()
-    query = data.get("query")
-    #print(query)
+@api.route("/groups", methods=["POST"])
+def create_group():
+    try:
+        data = request.get_json()
+        name = data.get("name")
+        if not name:
+            return jsonify({"error": "Group name required"}), 400
+        if Group.query.filter_by(name=name).first():
+            return jsonify({"error": "Group already exists"}), 400
 
-    if not query:
-        return jsonify({"error": "No query provided"}), 400
+        new_group = Group(name=name)
+        db.session.add(new_group)
+        db.session.commit()
+        return jsonify(new_group.as_dict()), 201
+    except Exception as e:
+        logger.error("Error in /groups POST: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
 
-    # Retrieve chunks
-    results = retrieve_similar_chunks(query, k=5)
+@api.route("/groups/<int:group_id>", methods=["DELETE"])
+def delete_group(group_id):
+    try:
+        group = Group.query.get_or_404(group_id)
+        if group.cvs:
+            return jsonify({"error": "Cannot delete group with CVs linked to it."}), 400
+        db.session.delete(group)
+        db.session.commit()
+        return jsonify({"message": f"Group '{group.name}' deleted."}), 200
+    except Exception as e:
+        logger.error("Error in /groups/<id> DELETE: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
 
-    # Generate answer from Together AI
-    prompt = build_prompt(query, results)
-    answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
-
-    # Wrap into response structure to use normalize function
-    raw_response = {
-        "answer": answer,
-        "results": results
-    }
-
-    # Normalize the stringified JSON in "answer"
-    normalized_response = normalize_llm_response(raw_response)
-
-    # Optional: debug print
-    print("SUMMARY:", normalized_response["answer"]["summary"])
-
-    return jsonify(normalized_response), 200
-
-
-@app.route('/uploads/<filename>')
-def uploaded_file(filename):
-    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
-
-
-@app.route('/upload_cv', methods=['GET', 'POST'])
+@api.route("/upload_cv", methods=["POST"])
 def upload_cv():
-    if request.method == 'POST':
-        files = request.files.getlist('cv')  # <-- Get list of uploaded files
+    try:
+        files = request.files.getlist('cv')
+        group_name = request.form.get("group")
+
         if not files or files == [None]:
-            flash("No files selected.", "danger")
-            return redirect(request.url)
+            return jsonify({"error": "No files selected."}), 400
+
+        if not group_name:
+            return jsonify({"error": "No group selected."}), 400
+
+        group_obj = Group.query.filter_by(name=group_name).first()
+        if not group_obj:
+            group_obj = Group(name=group_name)
+            db.session.add(group_obj)
+            db.session.commit()
+
+        uploaded_files, errors = [], []
 
         for file in files:
-            if file and allowed_file(file.filename):
-                random_suffix = generate_unique_id()
-                original_filename = secure_filename(file.filename)
-                unique_filename = f"{random_suffix}_{original_filename}"  # Optional: add timestamp or UUID
-                # Optional: add timestamp or UUID
-                filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+            try:
+                if file and allowed_file(file.filename):
+                    unique_filename = f"{generate_unique_id()}_{secure_filename(file.filename)}"
+                    filepath = os.path.join(app.config['UPLOAD_FOLDER'], unique_filename)
+                    file.save(filepath)
 
-                # Save file
-                file.save(filepath)
+                    uploaded = UploadedCV(
+                        original_filename=file.filename,
+                        stored_filename=unique_filename,
+                        filepath=filepath,
+                        group_id=group_obj.id
+                    )
+                    db.session.add(uploaded)
+                    db.session.commit()
 
-                # Save to DB
-                uploaded = UploadedCV(
-                    original_filename=original_filename,
-                    stored_filename=unique_filename,
-                    filepath=filepath
-                )
-                db.session.add(uploaded)
-                db.session.commit()
+                    process_and_store_embeddings(filepath, file.filename, unique_filename, group_obj.name)
+                    uploaded_files.append(uploaded.as_dict())
+                else:
+                    errors.append({"filename": file.filename, "error": "Invalid file type"})
+            except Exception as inner_e:
+                logger.error("Error processing file %s: %s", file.filename, traceback.format_exc())
+                errors.append({"filename": file.filename, "error": str(inner_e)})
 
-                # Process embeddings
-                process_and_store_embeddings(filepath, original_filename, unique_filename)
-
-                flash(f"'{original_filename}' uploaded successfully.", "success")
-            else:
-                flash(f"Invalid file: {file.filename}", "danger")
-
-        return redirect(url_for('upload_cv'))
-
-    return render_template('upload_cv.html')
-
-
-@app.route('/cvs')
-def cvs():
-    uploads = UploadedCV.query.order_by(UploadedCV.upload_time.desc()).all()
-    return render_template('cvs.html', uploads=uploads)
-
-
-@app.route('/download/<int:cv_id>')
-def download(cv_id):
-    cv = UploadedCV.query.get_or_404(cv_id)
-    directory = os.path.abspath(app.config['UPLOAD_FOLDER'])
-    return send_from_directory(directory, cv.stored_filename, as_attachment=True, download_name=cv.original_filename)
-
-
-@app.route('/delete/<int:cv_id>', methods=['POST'])
-def delete(cv_id):
-    cv = UploadedCV.query.get_or_404(cv_id)
-    try:
-        # Delete file from filesystem
-        os.remove(cv.filepath)
+        return jsonify({"uploaded": uploaded_files, "errors": errors}), 200
     except Exception as e:
-        flash(f"Error deleting file: {e}", "danger")
-        return redirect(url_for('cvs'))
+        logger.error("Error in /upload_cv: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
 
-    # Delete metadata and FAISS data
-    delete_cv_data(cv.stored_filename)
+@api.route("/cv/<int:cv_id>/comment", methods=["POST"])
+def add_or_update_comment(cv_id):
+    try:
+        data = request.get_json()
+        comment = data.get("comment")
+        if not comment:
+            return jsonify({"error": "Comment is required"}), 400
 
-    # Delete from database
-    db.session.delete(cv)
-    db.session.commit()
-    flash(f"Deleted '{cv.stored_filename}'.", "success")
-    return redirect(url_for('cvs'))
+        cv = UploadedCV.query.get_or_404(cv_id)
+        cv.comment = comment
+        cv.commented_at = datetime.utcnow()
+        db.session.commit()
 
+        return jsonify({"message": "Comment added/updated", "cv": cv.as_dict()}), 200
+    except Exception as e:
+        logger.error("Error in /cv/<id>/comment POST: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
+
+@api.route("/cv/<int:cv_id>/comment", methods=["DELETE"])
+def delete_comment(cv_id):
+    try:
+        cv = UploadedCV.query.get_or_404(cv_id)
+        cv.comment = None
+        cv.commented_at = None
+        db.session.commit()
+        return jsonify({"message": "Comment deleted", "cv": cv.as_dict()}), 200
+    except Exception as e:
+        logger.error("Error in /cv/<id>/comment DELETE: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
+
+@api.route("/cvs", methods=["POST"])
+def get_cvs():
+    try:
+        data = request.get_json() or {}
+        group_name = data.get("group")
+
+        if not group_name or str(group_name).lower() in ["null", "undefined", ""]:
+            uploads = UploadedCV.query.order_by(UploadedCV.upload_time.desc()).all()
+        else:
+            group_obj = Group.query.filter_by(name=group_name).first()
+            if not group_obj:
+                return jsonify([]), 200
+            uploads = UploadedCV.query.filter_by(group_id=group_obj.id).order_by(UploadedCV.upload_time.desc()).all()
+
+        return jsonify([upload.as_dict() for upload in uploads]), 200
+    except Exception as e:
+        logger.error("Error in /cvs POST: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
+
+@api.route("/delete/<int:cv_id>", methods=["DELETE"])
+def delete(cv_id):
+    try:
+        cv = UploadedCV.query.get_or_404(cv_id)
+        try:
+            os.remove(cv.filepath)
+        except Exception as e:
+            logger.warning("File deletion failed: %s", e)
+
+        delete_cv_data(cv.stored_filename, group=cv.group_rel.name)
+        db.session.delete(cv)
+        db.session.commit()
+
+        return jsonify({"message": f"Deleted '{cv.original_filename}'"}), 200
+    except Exception as e:
+        logger.error("Error in /delete/<id> DELETE: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 500
+
+@api.route("/uploads/<filename>", methods=["GET"])
+def uploaded_file(filename):
+    try:
+        return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+    except Exception as e:
+        logger.error("Error in /uploads/<filename>: %s", traceback.format_exc())
+        return jsonify({"error": str(e)}), 404
+
+# ───── App Runner ─────
+app.register_blueprint(api, url_prefix='/api')
 
 if __name__ == '__main__':
     with app.app_context():
-        print("Creating db ");
         db.create_all()
-        print("📦 Tables ensured.")
     app.run(host='0.0.0.0', port=5001, debug=True)

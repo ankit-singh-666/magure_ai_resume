@@ -58,6 +58,8 @@ class UploadedCV(db.Model):
     filepath = db.Column(db.String(255))
     upload_time = db.Column(db.DateTime, default=datetime.utcnow)
     group_id = db.Column(db.Integer, db.ForeignKey('group.id'), nullable=False)
+    comment = db.Column(db.Text, nullable=True)
+    commented_at = db.Column(db.DateTime, nullable=True)
 
     def as_dict(self):
         return {
@@ -66,8 +68,11 @@ class UploadedCV(db.Model):
             "stored_filename": self.stored_filename,
             "filepath": self.filepath,
             "upload_time": self.upload_time.isoformat(),
-            "group": self.group_rel.name if self.group_rel else None
+            "group": self.group_rel.name if self.group_rel else None,
+            "comment": self.comment,
+            "commented_at": self.commented_at.isoformat() if self.commented_at else None
         }
+
 
 # ───── Utils ─────
 def allowed_file(filename):
@@ -143,7 +148,9 @@ def upload_cv():
                     original_filename=file.filename,
                     stored_filename=unique_filename,
                     filepath=filepath,
-                    group_id=group_obj.id
+                    group_id=group_obj.id,
+                    comment= None,
+                    commented_at = None
                 )
                 db.session.add(uploaded)
                 db.session.commit()
@@ -158,29 +165,6 @@ def upload_cv():
     except Exception as e:
         logger.error("Error in /upload_cv: %s", traceback.format_exc())
         return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
-
-# ───── Search API ─────
-'''
-@api.route("/search_api", methods=["POST"])
-def search_api():
-    data = request.get_json()
-    query = data.get("query")
-    group_name = data.get("group", "general").strip()
-
-    if not query:
-        return jsonify({"error": "No query provided"}), 400
-
-    group_obj = Group.query.filter_by(name=group_name).first()
-    if not group_obj:
-        return jsonify({"error": f"Group '{group_name}' not found"}), 404
-
-    results = retrieve_similar_chunks(query, k=5, group=group_obj.name)
-    prompt = build_prompt(query, results)
-    answer = query_with_together_sdk(prompt, TOGETHER_API_KEY)
-
-    return jsonify({"results": results, "answer": answer}), 200
-'''
-
 
 
 
@@ -349,6 +333,45 @@ def delete(cv_id):
     db.session.commit()
 
     return jsonify({"message": f"Deleted '{cv.original_filename}'"}), 200
+
+@api.route("/cv/<int:cv_id>/comment", methods=["POST"])
+def add_or_update_comment(cv_id):
+    try:
+        data = request.get_json()
+        comment = data.get("comment")
+
+        if not comment:
+            return jsonify({"error": "Comment is required"}), 400
+
+        cv = UploadedCV.query.get_or_404(cv_id)
+        cv.comment = comment
+        cv.commented_at = datetime.utcnow()
+        db.session.commit()
+
+        logger.info(f"Comment added/updated for CV ID {cv_id}")
+        return jsonify({"message": "Comment added/updated", "cv": cv.as_dict()}), 200
+
+    except Exception as e:
+        logger.error("Error in POST /cv/%s/comment: %s", cv_id, traceback.format_exc())
+        return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
+
+
+
+@api.route("/cv/<int:cv_id>/comment", methods=["DELETE"])
+def delete_comment(cv_id):
+    try:
+        cv = UploadedCV.query.get_or_404(cv_id)
+        cv.comment = None
+        cv.commented_at = None
+        db.session.commit()
+
+        logger.info(f"Comment deleted for CV ID {cv_id}")
+        return jsonify({"message": "Comment deleted", "cv": cv.as_dict()}), 200
+
+    except Exception as e:
+        logger.error("Error in DELETE /cv/%s/comment: %s", cv_id, traceback.format_exc())
+        return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
+
 
 # ───── App Runner ─────
 app.register_blueprint(api, url_prefix='/api')
