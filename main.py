@@ -405,6 +405,25 @@ def add_or_update_comment(cv_id):
         return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
 
 
+@api.route("/cv/<int:cv_id>/comment", methods=["DELETE"])
+def delete_comment(cv_id):
+    try:
+        cv = UploadedCV.query.get_or_404(cv_id)
+
+        if not cv.comment:
+            return jsonify({"message": "No comment to delete"}), 200
+
+        cv.comment = None
+        cv.commented_at = None
+        db.session.commit()
+
+        logger.info(f"Comment deleted for CV ID {cv_id}")
+        return jsonify({"message": "Comment deleted", "cv": cv.as_dict()}), 200
+
+    except Exception as e:
+        logger.error("Error in DELETE /cv/%s/comment: %s", cv_id, traceback.format_exc())
+        return jsonify({"error": str(e), "trace": traceback.format_exc()}), 500
+
 
 
 # ───── App Runner ─────
