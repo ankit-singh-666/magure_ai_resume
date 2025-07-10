@@ -69,6 +69,37 @@ def query_with_openai_sdk(prompt: str) -> dict:
 
     return asyncio.run(_call())
 
+
+
+
+def json_parsing_with_openai(prompt: str) -> dict:
+    async def _call():
+        try:
+
+            response = await openai_client.chat.completions.create(
+                model="gpt-4o",
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are an expert parser that extracts different information from candidate resumes."
+                    },
+                    {
+                        "role": "user",
+                        "content": prompt
+                    }
+                ],
+                temperature=0,
+                response_format={"type": "json_object"} #✅ FIXED
+            )
+            return json.loads(response.choices[0].message.content.strip())
+
+        except Exception as e:
+            logging.error("Error calling OpenAI LLM", exc_info=True)
+            return {"error": str(e)}
+
+    return asyncio.run(_call())
+
+
 # --- Build context-rich prompt ---
 def build_prompt(question: str, retrieved_chunks: list[dict]) -> str:
     grouped = defaultdict(list)
@@ -89,11 +120,6 @@ Context:
 
 Instructions:
 - Use only the provided context to answer the question.
-
-Edge Cases:
-- Suppose a candidate is from testing background and has written "reactivity" word in their resume, now that should 
-not be confused with React.js or React developers.
-- Don't count internship or freelance experience.
 
 1. Return your answer in ***valid JSON format*** with two main keys:
    - "summary": a string that begins with "Based on the provided context, ..." if and only if there is at least 1 suitable 
