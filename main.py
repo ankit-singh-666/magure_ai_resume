@@ -199,11 +199,31 @@ def search_api():
 
         raw_response = {
             "answer": answer,
-            "results": results
+            "results": results  # optional for UI/debugging
         }
 
-        normalized_response = normalize_llm_response(raw_response)
-        return jsonify(normalized_response), 200
+        # ✅ If answer has candidate_details and a valid summary
+        summary = answer.get("summary")
+        candidate_details = answer.get("candidate_details")
+
+        if summary and summary not in ["1", "2"] and candidate_details:
+            file_names = [c["file_name"] for c in candidate_details]
+
+            cvs = UploadedCV.query.filter(UploadedCV.stored_filename.in_(file_names)).all()
+            cv_map = {
+                cv.stored_filename: {
+                    "comment": cv.comment,
+                    "commented_at": cv.commented_at.isoformat() if cv.commented_at else None
+                } for cv in cvs
+            }
+
+            for candidate in candidate_details:
+                file_name = candidate["file_name"]
+                comment_data = cv_map.get(file_name, {})
+                candidate["comment"] = comment_data.get("comment")
+                candidate["commented_at"] = comment_data.get("commented_at")
+
+        return jsonify(raw_response), 200
 
     except FileNotFoundError as e:
         return jsonify({"error": str(e)}), 404
@@ -236,12 +256,10 @@ def upload_jd():
 
     query = expand_query_with_keywords(raw_text.strip())
 
-    # No query after expansion? Exit early.
     if not query:
         return jsonify({"error": "Could not derive search query from file"}), 400
 
     if not group_name or group_name.lower() in ["null", "undefined", ""]:
-        # Search across all groups
         groups = [g.name for g in Group.query.all()]
         if not groups:
             return jsonify({"error": "No groups found"}), 404
@@ -262,7 +280,6 @@ def upload_jd():
         results = retrieve_similar_chunks(query, k=5, group=group_obj.name)
         prompt = build_prompt(query, results)
 
-    # Query LLM
     try:
         answer = query_with_openai_sdk(prompt)
     except Exception as e:
@@ -273,9 +290,38 @@ def upload_jd():
         "answer": answer,
         "results": results
     }
-    #normalized_response = normalize_llm_response(raw_response)
 
-    return jsonify(raw_response), 200
+    # ✅ Try to inject comment/commented_at
+    try:
+        normalized_response = normalize_llm_response(raw_response)
+
+        summary = normalized_response.get("summary")
+        candidate_details = normalized_response.get("candidate_details")
+
+        if summary not in ["1", "2"] and candidate_details:
+            file_names = [c["file_name"] for c in candidate_details]
+
+            cvs = UploadedCV.query.filter(UploadedCV.stored_filename.in_(file_names)).all()
+            cv_map = {
+                cv.stored_filename: {
+                    "comment": cv.comment,
+                    "commented_at": cv.commented_at.isoformat() if cv.commented_at else None
+                } for cv in cvs
+            }
+
+            for candidate in candidate_details:
+                file_name = candidate["file_name"]
+                comment_data = cv_map.get(file_name, {})
+                candidate["comment"] = comment_data.get("comment")
+                candidate["commented_at"] = comment_data.get("commented_at")
+
+        return jsonify(normalized_response), 200
+
+    except Exception as inject_error:
+        logging.error(f"Post-processing error: {inject_error}", exc_info=True)
+        # Fallback to raw if LLM JSON structure was unexpected
+        return jsonify(raw_response), 200
+
 # ───── CV Listing API ─────
 @api.route("/cvs", methods=["POST"])
 def get_cvs():
