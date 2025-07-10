@@ -14,18 +14,64 @@ from utils.llm import json_parsing_with_openai
 from utils.cv_processing import extract_text_from_pdf, extract_text_from_docx, get_paths_for_group
 from cloudinary.exceptions import Error as CloudinaryError
 import cloudinary.uploader
-from sentence_transformers import SentenceTransformer
-import  math
+import math
 
-# Initialize logger and model
+# ✅ Limit threads for OpenMP, MKL, OpenBLAS
+os.environ["OMP_NUM_THREADS"] = "1"
+os.environ["OPENBLAS_NUM_THREADS"] = "1"
+os.environ["MKL_NUM_THREADS"] = "1"
+
+# ✅ Logger setup
 logger = logging.getLogger(__name__)
-model = SentenceTransformer("all-MiniLM-L6-v2")
 
 VECTOR_STORE_DIR = "vector_store"
 os.makedirs(VECTOR_STORE_DIR, exist_ok=True)
 
 
+import torch
+import platform
 
+def get_device():
+    system = platform.system().lower()
+
+    if system == "darwin":  # macOS
+        if torch.backends.mps.is_available() and torch.backends.mps.is_built():
+            print("✅ Using MPS (Apple Metal Performance Shaders)")
+            return torch.device("mps")
+        else:
+            print("⚠️ MPS not available, falling back to CPU")
+            return torch.device("cpu")
+
+    elif system == "linux" or system == "windows":
+        if torch.cuda.is_available():
+            print("✅ Using CUDA (NVIDIA GPU)")
+            return torch.device("cuda")
+        else:
+            print("⚠️ CUDA not available, using CPU")
+            return torch.device("cpu")
+
+    else:
+        print(f"⚠️ Unknown OS: {system}. Defaulting to CPU.")
+        return torch.device("cpu")
+
+# Usage
+device = get_device()
+print(f"Using device: {device}")
+
+
+
+def get_model():
+    if not hasattr(get_model, "_model"):
+        from sentence_transformers import SentenceTransformer
+        get_model._model = SentenceTransformer("all-MiniLM-L6-v2", device=str(device))
+    return get_model._model
+
+
+# ✅ Lazy FAISS index loader
+def get_or_create_index(index_path, dim):
+    if os.path.exists(index_path):
+        return faiss.read_index(index_path)
+    return faiss.IndexFlatL2(dim)
 
 def create_chunks_with_metadata(chunks, filename, group):
     chunk_data = []
@@ -40,9 +86,6 @@ def create_chunks_with_metadata(chunks, filename, group):
         chunk_data.append(metadata)
     return chunk_data
 
-
-
-
 def split_text_into_chunks(text, max_words=200):
     words = text.strip().split()
     num_chunks = math.ceil(len(words) / max_words)
@@ -51,25 +94,23 @@ def split_text_into_chunks(text, max_words=200):
         for i in range(num_chunks)
     ]
 
+def store_structured_chunk(cv_id, name, relevant_skills, skills, college, total_exp, filename, group):
+    model = get_model()  # ✅ Safe model initialization
 
-def store_structured_chunk(cv_id, name,relevant_skills, skills, college, total_exp, filename, group):
-    # Construct the summary-style structured text
-    text = f"Skills: {', '.join(skills)}. " \
-            f"Relevant Skills: {', '.join(relevant_skills)}. " \
-           f"College: {', '.join(college)}. " \
-           f"Total Experience: {total_exp}" \
-            f"Name : {name}"
+    text = (
+        f"Skills: {', '.join(skills)}. "
+        f"Relevant Skills: {', '.join(relevant_skills)}. "
+        f"College: {', '.join(college)}. "
+        f"Total Experience: {total_exp}. "
+        f"Name: {name}"
+    )
 
     chunks = split_text_into_chunks(text, max_words=200)
     index_path, metadata_path = get_paths_for_group(group)
 
-    # Load or initialize FAISS index
-    if os.path.exists(index_path):
-        index = faiss.read_index(index_path)
-    else:
-        index = faiss.IndexFlatL2(model.get_sentence_embedding_dimension())
+    index = get_or_create_index(index_path, model.get_sentence_embedding_dimension())
 
-    # Load or initialize metadata
+    # Load existing metadata
     if os.path.exists(metadata_path):
         with open(metadata_path, "r", encoding="utf-8") as f:
             existing_metadata = json.load(f)
@@ -86,20 +127,18 @@ def store_structured_chunk(cv_id, name,relevant_skills, skills, college, total_e
             "cv_id": cv_id
         }
 
-        # Generate embedding
         embedding = model.encode([chunk["text"]])[0]
         embedding = np.array([embedding]).astype("float32")
         index.add(embedding)
-
-        # Append to metadata
         existing_metadata.append(chunk)
 
-    # Save updated FAISS index and metadata
+    # Save
     faiss.write_index(index, index_path)
     with open(metadata_path, "w", encoding="utf-8") as f:
         json.dump(existing_metadata, f, indent=2)
 
     logger.info(f"✅ Stored {len(chunks)} structured chunk(s) for CV {cv_id} in group '{group}'")
+
 @celery.task(bind=True, max_retries=3, name="tasks.upload_to_cloudinary_task")
 def upload_to_cloudinary_task(self, cv_id):
     try:
@@ -126,7 +165,6 @@ def upload_to_cloudinary_task(self, cv_id):
         logger.error(f"❌ Cloudinary upload failed for CV ID {cv_id}: {str(e)}")
         raise self.retry(exc=e, countdown=10)
 
-
 @celery.task(bind=True, max_retries=3, name="tasks.parse_resume_task")
 def parse_resume_task(self, cv_id, group_name):
     try:
@@ -134,7 +172,7 @@ def parse_resume_task(self, cv_id, group_name):
         if not cv:
             raise Exception("CV not found")
 
-        # Extract raw text
+        # Extract text
         if cv.filepath.endswith(".pdf"):
             raw_text = extract_text_from_pdf(cv.filepath)
         elif cv.filepath.endswith(".docx"):
@@ -142,10 +180,9 @@ def parse_resume_task(self, cv_id, group_name):
         else:
             raise Exception("Unsupported file type")
 
-        # Prompt for structured parsing
         prompt = (
             "Extract the following fields in valid JSON format from the resume text below:\n"
-            "- name: name of the candidate \n"
+            "- name: name of the candidate\n"
             "- email: list of emails\n"
             "- phone: list of phone numbers\n"
             "- college: list of college/university names\n"
@@ -153,14 +190,12 @@ def parse_resume_task(self, cv_id, group_name):
             "- total_experience: string (e.g., '3 years 2 months')\n"
             "- current_company: list of current companies\n"
             "- past_company: list of past companies\n"
-            "- relevant_skills: list of skills based on the candidate's area of expertise. "
-            "For example, if the resume mentions 'frontend', include skills like React, Angular, HTML, CSS, etc.\n\n"
+            "- relevant_skills: list of skills based on the candidate's area of expertise\n\n"
             "Resume:\n\n" + raw_text
         )
 
         result = json_parsing_with_openai(prompt)
 
-        # Upsert JsonData
         existing = JsonData.query.filter_by(cv_id=cv.id).first()
         if not existing:
             existing = JsonData(cv_id=cv.id)
@@ -184,12 +219,12 @@ def parse_resume_task(self, cv_id, group_name):
         try:
             store_structured_chunk(
                 cv_id=cv.id,
-                name = result.get("name"),
+                name=result.get("name"),
                 skills=existing.skills or [],
                 college=existing.college or [],
                 total_exp=existing.total_experience or "",
                 filename=cv.stored_filename,
-                relevant_skills = existing.relevant_skills,
+                relevant_skills=existing.relevant_skills or [],
                 group=group_name
             )
         except Exception as embed_error:
