@@ -121,21 +121,60 @@ def search_resume_matches(query, group_name):
     return results
 
 
+def enrich_candidate_details(candidate_details):
+    if not candidate_details:
+        return
+
+    file_names = [c.get("file_name") for c in candidate_details if "file_name" in c]
+
+    # Fetch CVs
+    cvs = UploadedCV.query.filter(UploadedCV.stored_filename.in_(file_names)).all()
+    cv_map = {cv.stored_filename: cv for cv in cvs}
+
+    # Fetch corresponding JsonData
+    cv_ids = [cv.id for cv in cvs]
+    json_data_list = JsonData.query.filter(JsonData.cv_id.in_(cv_ids)).all()
+    jd_map = {jd.cv_id: jd for jd in json_data_list}
+
+    # Enrich each candidate
+    for candidate in candidate_details:
+        file_name = candidate.get("file_name")
+        cv = cv_map.get(file_name)
+        if not cv:
+            continue
+        jd = jd_map.get(cv.id)
+
+        candidate["cv_id"] = cv.id
+        candidate["comment"] = cv.comment
+        candidate["commented_at"] = cv.commented_at.isoformat() if cv.commented_at else None
+        candidate["email"] = jd.email if jd else []
+        candidate["phone"] = jd.phone if jd else []
+        candidate["college"] = jd.college if jd else []
+        candidate["total_experience"] = jd.total_experience if jd else None
+
+
 @api.route("/search_api", methods=["POST"])
 def search_api():
     data = request.get_json()
     try:
-        query =data.get("query")
+        query = data.get("query")
         group_name = data.get("group")
-        results = search_resume_matches(query, group_name)
 
+        results = search_resume_matches(query, group_name)
         prompt = build_prompt(query, results)
         answer = query_with_openai_sdk(prompt)
 
-        return jsonify(normalize_llm_response({
+        # Enrich candidate details if needed
+        candidate_details = answer.get("candidate_details")
+        summary = answer.get("summary")
+
+        if summary not in ["1", "2"] and candidate_details:
+            enrich_candidate_details(candidate_details)
+
+        return jsonify({
             "answer": answer,
             "results": results
-        })), 200
+        }), 200
 
     except (ValueError, LookupError) as e:
         return jsonify({"error": str(e)}), 400
@@ -156,22 +195,27 @@ def upload_jd():
         filename = secure_filename(file.filename)
         ext = os.path.splitext(filename)[1].lower()
 
-        raw_text = None
         if ext == '.pdf':
             raw_text = extract_text_from_pdf(file)
         elif ext == '.docx':
             raw_text = extract_text_from_docx(file)
+        else:
+            return jsonify({"error": "Unsupported file type"}), 400
 
-        if not raw_text:
-            return jsonify({"error": "Unsupported file or failed extraction"}), 400
-
-        query =raw_text.strip()
+        query = raw_text.strip()
         if not query:
             return jsonify({"error": "Could not derive search query from file"}), 400
 
         results = search_resume_matches(query, group_name)
         prompt = build_prompt(query, results)
         answer = query_with_openai_sdk(prompt)
+
+        # Enrich candidate details if needed
+        candidate_details = answer.get("candidate_details")
+        summary = answer.get("summary")
+
+        if summary not in ["1", "2"] and candidate_details:
+            enrich_candidate_details(candidate_details)
 
         return jsonify({
             "answer": answer,

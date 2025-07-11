@@ -30,7 +30,7 @@ os.makedirs(VECTOR_STORE_DIR, exist_ok=True)
 
 import torch
 import platform
-
+#add porjects in llm json parse, also while making chunks use new generated filename instrad of og
 def get_device():
     system = platform.system().lower()
 
@@ -211,7 +211,7 @@ def parse_resume_task(self, cv_id, group_name):
         existing.current_company = result.get("current_company")
         existing.past_company = result.get("past_company")
         existing.parsed = True
-        existing.attempts += 1
+        existing.attempts += (existing.attempts or 0) + 1
         existing.last_error = None
         db.session.commit()
 
@@ -239,7 +239,7 @@ def parse_resume_task(self, cv_id, group_name):
 
         existing.parsed = False
         existing.last_error = str(e)
-        existing.attempts += 1
+        existing.attempts += (existing.attempts or 0) + 1
         db.session.commit()
 
         raise self.retry(exc=e, countdown=10)
