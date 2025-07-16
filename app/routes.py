@@ -438,3 +438,42 @@ def get_json_data(cv_id):
         "data": json_record.data if json_record.parsed else None,
         "error": json_record.last_error
     }), 200
+
+
+@api.route("/filters/meta", methods=["GET"])
+def get_filter_metadata():
+    try:
+        all_json = JsonData.query.all()
+
+        skill_set = set()
+        location_set = set()
+        education_set = set()
+        college_set = set()
+
+        for jd in all_json:
+            # Skills
+            if jd.skills:
+                skill_set.update([s.strip().lower() for s in jd.skills if isinstance(s, str)])
+
+            # Location
+            if jd.location and isinstance(jd.location, str):
+                location_set.add(jd.location.strip().lower())
+
+            # Education
+            if jd.education:
+                education_set.update([e.strip().lower() for e in jd.education if isinstance(e, str)])
+
+            # Colleges
+            if jd.college:
+                college_set.update([c.strip().lower() for c in jd.college if isinstance(c, str)])
+
+        return jsonify({
+            "skills": sorted(skill_set),
+            "locations": sorted(location_set),
+            "educations": sorted(education_set),
+            "colleges": sorted(college_set),
+        }), 200
+
+    except Exception as e:
+        logger.error(f"Error in /filters/meta: {e}", exc_info=True)
+        return jsonify({"error": str(e)}), 500
