@@ -4,7 +4,7 @@ from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from utils.cv_processing import process_and_store_embeddings, delete_cv_data, extract_text_from_pdf, extract_text_from_docx
-from utils.retriever import retrieve_similar_chunks, expand_query_with_keywords
+from utils.retriever import retrieve_similar_chunks
 from utils.llm import build_prompt, query_with_openai_sdk, normalize_llm_response
 import random
 import string
@@ -15,6 +15,7 @@ from dotenv import load_dotenv
 import shutil
 from datetime import datetime
 from zoneinfo import ZoneInfo  # native in Python 3.9+
+from flask_migrate import Migrate
 
 
 # Flask setup
@@ -35,6 +36,7 @@ if not os.path.exists(UPLOAD_FOLDER):
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'cv_uploads.db')
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 app.secret_key = os.getenv('FLASK_SECRET_KEY', 'fallback-insecure-key')
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")

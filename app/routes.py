@@ -14,6 +14,7 @@ import string
 import traceback
 import shutil
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 api = Blueprint('api', __name__)
@@ -25,9 +26,27 @@ def generate_unique_id(length=5):
     return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
 
 
+
+def parse_experience_to_years(exp_str: str) -> float:
+    if not exp_str or not isinstance(exp_str, str):
+        return 0.0
+
+    # Regex to find years and months
+    year_match = re.search(r"(\d+)\s*year", exp_str)
+    month_match = re.search(r"(\d+)\s*month", exp_str)
+
+    years = int(year_match.group(1)) if year_match else 0
+    months = int(month_match.group(1)) if month_match else 0
+
+    return round(years + (months / 12), 2)
+
+
+
 @api.route("/", methods=["GET"])
 def index():
     return jsonify({"message": "Welcome to the Resume Analyzer API"}), 200
+
+
 
 # Group routes
 @api.route("/groups", methods=["GET"])
@@ -228,16 +247,136 @@ def upload_jd():
         logger.error(traceback.format_exc())
         return jsonify({"error": "Internal error", "details": str(e)}), 500
 
+
 @api.route("/cvs", methods=["POST"])
 def get_cvs():
     data = request.get_json() or {}
     group_name = data.get("group")
-    if not group_name or group_name.lower() in ["null", "undefined", ""]:
-        uploads = UploadedCV.query.order_by(UploadedCV.upload_time.desc()).all()
-    else:
+    results = []
+
+    # ─── 1. Group Filtering ───
+    if group_name and group_name.lower() not in ["null", "undefined", ""]:
         group = Group.query.filter_by(name=group_name).first()
-        uploads = UploadedCV.query.filter_by(group_id=group.id).order_by(UploadedCV.upload_time.desc()).all() if group else []
-    return jsonify([u.as_dict() for u in uploads]), 200
+        if not group:
+            return jsonify([]), 200
+        cvs = UploadedCV.query.filter_by(group_id=group.id).order_by(UploadedCV.upload_time.desc()).all()
+    else:
+        cvs = UploadedCV.query.order_by(UploadedCV.upload_time.desc()).all()
+
+    # ─── 2. Get JsonData for all CVs ───
+    json_map = {
+        jd.cv_id: jd
+        for jd in JsonData.query.filter(JsonData.cv_id.in_([cv.id for cv in cvs])).all()
+    }
+
+    for cv in cvs:
+        jd = json_map.get(cv.id)
+        if not jd:
+            continue
+
+        # Base CV data
+        cv_dict = cv.as_dict()
+        cv_dict.update({
+            "college": jd.college,
+            "skills": jd.skills,
+            "total_experience": jd.total_experience,
+            "current_company": jd.current_company,
+            "past_company": jd.past_company,
+            "location": jd.location,
+            "education": jd.education,
+        })
+
+        # ─── Filter: by cv_id ───
+        if "cv_id" in data:
+            if int(data["cv_id"]) != cv.id:
+                continue
+
+        # ─── Filter: by experience ───
+        if "experience" in data:
+            try:
+                exp_str = jd.total_experience or ""
+                exp = parse_experience_to_years(exp_str)
+                min_exp, max_exp = float(data["experience"][0]), float(data["experience"][1])
+                if not (min_exp <= exp <= max_exp):
+                    continue
+            except Exception as e:
+                logger.warning(f"Experience parsing failed for CV {cv.id}: {e}")
+                continue
+
+        # ─── Filter: by skills ───
+        if "skills" in data:
+            required_skills = set([s.strip().lower() for s in data["skills"]])
+            candidate_skills = set([s.strip().lower() for s in jd.skills or []])
+            matched_skills = required_skills & candidate_skills
+
+            cv_dict["total_skills_candidate"] = len(candidate_skills)
+            cv_dict["matched_skills_count"] = len(matched_skills)
+
+            if not matched_skills:
+                continue
+
+        # ─── Filter: by location ───
+        if "location" in data:
+            candidate_location = (jd.location or "").strip().lower()
+            if candidate_location != data["location"].strip().lower():
+                continue
+
+        # ─── Filter: by education ───
+        if "education" in data:
+            edu_required = data["education"].strip().lower()
+            edu_list = [e.strip().lower() for e in jd.education or []]
+            if edu_required not in edu_list:
+                continue
+
+        # ─── Filter: by availability ───
+        if "availability" in data:
+            if not jd.last_working_date:
+                continue  # Currently working → exclude from availability filter
+
+            try:
+                lwd = jd.last_working_date
+                if isinstance(lwd, str):
+                    lwd = datetime.fromisoformat(lwd)
+
+                today = datetime.utcnow()
+                delta_days = (today - lwd).days
+                avail_req = data["availability"].strip().lower()
+
+                if avail_req == "immediately":
+                    if lwd > today:
+                        continue
+                elif avail_req == "15 days":
+                    if delta_days < -15:
+                        continue
+                elif avail_req == "30 days":
+                    if delta_days < -30:
+                        continue
+                elif avail_req == "45 days":
+                    if delta_days < -45:
+                        continue
+                else:
+                    continue  # unknown filter → skip
+
+            except Exception as e:
+                logger.warning(f"Availability filter failed for CV {cv.id}: {e}")
+                continue
+
+        # ─── Days available logic ───
+        if jd.last_working_date:
+            try:
+                lwd = jd.last_working_date
+                if isinstance(lwd, str):
+                    lwd = datetime.fromisoformat(lwd)
+                days_available = (datetime.utcnow() - lwd).days
+                cv_dict["days_available"] = days_available
+            except Exception:
+                cv_dict["days_available"] = "Invalid date format"
+        else:
+            cv_dict["days_available"] = "Currently Working"
+
+        results.append(cv_dict)
+
+    return jsonify(results), 200
 
 @api.route("/uploads/<filename>", methods=["GET"])
 def uploaded_file(filename):

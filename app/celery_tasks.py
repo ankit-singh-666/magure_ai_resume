@@ -191,6 +191,9 @@ def parse_resume_task(self, cv_id, group_name):
             "- current_company: list of current companies\n"
             "- past_company: list of past companies\n"
             "- relevant_skills: list of skills based on the candidate's area of expertise\n\n"
+            "- location: location of candidate, pick out state only not country \n"
+            " -education: list of degrees, diploma or others \n"
+            "- last_working_date: last working date, if a candidate is still working then null, if not then pick last working date or month \n"
             "Resume:\n\n" + raw_text
         )
 
@@ -210,6 +213,9 @@ def parse_resume_task(self, cv_id, group_name):
         existing.total_experience = result.get("total_experience")
         existing.current_company = result.get("current_company")
         existing.past_company = result.get("past_company")
+        existing.location = result.get("location")
+        existing.last_working_date  = result.get("last_working_date")
+        existing.education = result.get("education")
         existing.parsed = True
         existing.attempts += (existing.attempts or 0) + 1
         existing.last_error = None
