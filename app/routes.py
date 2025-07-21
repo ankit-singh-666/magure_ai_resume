@@ -183,6 +183,7 @@ def search_api():
         prompt = build_prompt(query, results)
         answer = query_with_openai_sdk(prompt)
 
+
         # Enrich candidate details if needed
         candidate_details = answer.get("candidate_details")
         summary = answer.get("summary")
@@ -476,4 +477,53 @@ def get_filter_metadata():
 
     except Exception as e:
         logger.error(f"Error in /filters/meta: {e}", exc_info=True)
+        return jsonify({"error": str(e)}), 500
+
+
+
+
+
+
+@api.route("/cv_json_union/all", methods=["GET"])
+def get_all_cv_json_union():
+    try:
+        uploaded_cvs = UploadedCV.query.options(db.joinedload(UploadedCV.json_data_rel)).all()
+
+        results = []
+        for cv in uploaded_cvs:
+            cv_dict = cv.as_dict()
+
+            # Get related JsonData (assuming one-to-one or one-to-many first element)
+            json_data = cv.json_data_rel[0] if cv.json_data_rel else None
+
+            if json_data:
+                json_dict = json_data.data or {}
+
+                json_meta = {
+                    "parsed": json_data.parsed,
+                    "attempts": json_data.attempts,
+                    "last_error": json_data.last_error,
+                    "total_experience": json_data.total_experience,
+                    "skills": json_data.skills,
+                    "relevant_skills": json_data.relevant_skills,
+                    "email": json_data.email,
+                    "phone": json_data.phone,
+                    "college": json_data.college,
+                    "current_company": json_data.current_company,
+                    "past_company": json_data.past_company,
+                    "location": json_data.location,
+                    "last_working_date": json_data.last_working_date,
+                    "education": json_data.education,
+                }
+            else:
+                json_dict = {}
+                json_meta = {}
+
+            merged = {**cv_dict, **json_dict, **json_meta}
+            results.append(merged)
+
+        return jsonify(results), 200
+
+    except Exception as e:
+        logger.error(f"Error in /cv_json_union/all: {e}", exc_info=True)
         return jsonify({"error": str(e)}), 500
