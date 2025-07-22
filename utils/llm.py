@@ -14,6 +14,7 @@ load_dotenv()
 openai_key = os.getenv("OPENAI_API_KEY")
 openai_client = openai.AsyncOpenAI(api_key=openai_key) # This is used for openai.ChatCompletion.* calls
 
+
 # --- Normalize response from OpenAI ---
 def normalize_llm_response(raw_response: dict) -> dict:
     """
