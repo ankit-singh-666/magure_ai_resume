@@ -16,7 +16,7 @@ ALLOWED_EXTENSIONS = {'pdf', 'docx'}
 
 app.config.update(
     UPLOAD_FOLDER=UPLOAD_FOLDER,
-    MAX_CONTENT_LENGTH=70 * 1024 * 1024,
+    MAX_CONTENT_LENGTH=200 * 1024 * 1024,
     SQLALCHEMY_DATABASE_URI='sqlite:///' + os.path.join(basedir, 'cv_uploads.db'),
     SECRET_KEY=os.getenv('FLASK_SECRET_KEY', 'fallback-insecure-key')
 )
